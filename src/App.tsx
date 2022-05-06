@@ -1,14 +1,12 @@
 import React from 'react'
 import ThemeContextProvider from './providers/ThemeContextProvider'
-import Content from './shared/components/Content'
+import TopBar from './shared/components/TopBar'
 
 function App() {
   return (
     <ThemeContextProvider theme={'light'}>
       <main>
-        <Content>
-          <p>Christian Soler</p>
-        </Content>
+        <TopBar headerTitle='Christian Soler'/>
       </main>
     </ThemeContextProvider>
   )

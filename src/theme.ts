@@ -11,7 +11,7 @@ export const GlobalStyles = createGlobalStyle`
 
   body {
     background-color: ${(props) => props.theme.colors.background};
-    color: ${(props) => props.theme.colors.grey[600]};
+    color: ${(props) => props.theme.colors.grey[500]};
     font-family: 'Montserrat', 'Open Sans', sans-serif;
     font-size: ${(props) => props.theme.typography.fontSizes.base};
     font-weight: ${(props) => props.theme.typography.fontWeigths.regular};
@@ -23,15 +23,15 @@ const lightTheme: DefaultTheme['colors'] = {
   primary: '',
   secondary: '',
   accent: '',
-  background: '#FFFFFF',
+  background: '#ffffff',
   grey: {
-    0: '#FFFFFF',
-    50: '#FAFAFA',
-    100: '#F5F5F5',
-    200: '#EEEEEE',
-    300: '#E0E0E0',
-    400: '#BDBDBD',
-    500: '#9E9E9E',
+    0: '#ffffff',
+    50: '#fafafa',
+    100: '#f5f5f5',
+    200: '#eeeeee',
+    300: '#e0e0e0',
+    400: '#bdbdbd',
+    500: '#9e9e9e',
     600: '#757575',
     700: '#616161',
     800: '#424242',
@@ -43,15 +43,15 @@ const darkTheme: DefaultTheme['colors'] = {
   primary: '',
   secondary: '',
   accent: '',
-  background: '#333333',
+  background: '#212121',
   grey: {
-    0: '#FFFFFF',
-    50: '#FAFAFA',
-    100: '#F5F5F5',
-    200: '#EEEEEE',
-    300: '#E0E0E0',
-    400: '#BDBDBD',
-    500: '#9E9E9E',
+    0: '#ffffff',
+    50: '#fafafa',
+    100: '#f5f5f5',
+    200: '#eeeeee',
+    300: '#e0e0e0',
+    400: '#bdbdbd',
+    500: '#9e9e9e',
     600: '#757575',
     700: '#616161',
     800: '#424242',
@@ -95,6 +95,14 @@ export function getTheme(theme: Theme): DefaultTheme {
       base: '1rem',
       sm: '0.5rem',
       xs: '0.25rem',
+    },
+    deviceSizes: {
+      xs: `(max-width: 0)`,
+      sm: `(max-width: 576px)`,
+      md: `(max-width: 768px)`,
+      lg: `(max-width:  992px)`,
+      xl: `(max-width: 1200px)`,
+      xxl: `(max-width: 1400px)`,
     },
   }
 }

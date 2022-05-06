@@ -40,7 +40,17 @@ interface FontLineHeights extends Sizes {}
 interface FontSizes extends Sizes {}
 interface SpacingLevels extends Sizes {}
 
+interface DeviceSizes {
+  xs: string
+  sm: string
+  md: string
+  lg: string
+  xl: string
+  xxl: string
+}
+
 type AvailableSizes = 'xxl' | 'xl' | 'lg' | 'base' | 'sm' | 'xs'
+export type AvailableDeviceSizes = 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'xxl'
 export type AvailableColors =
   | 'primary'
   | 'secondary'
@@ -73,5 +83,6 @@ declare module 'styled-components' {
       lineHeights: FontLineHeights
     }
     spacing: SpacingLevels
+    deviceSizes: DeviceSizes
   }
 }
