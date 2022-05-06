@@ -1,5 +1,5 @@
 import React, { ReactNode } from 'react'
-import { ThemeProvider } from 'styled-components'
+import { ThemeProvider } from 'styled-components/macro'
 import { getTheme, GlobalStyles, Theme } from '../theme'
 
 interface Props {
