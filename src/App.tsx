@@ -6,7 +6,7 @@ function App() {
   return (
     <ThemeContextProvider theme={'light'}>
       <main>
-        <TopBar headerTitle='Christian Soler'/>
+        <TopBar headerTitle={['chr', 'solr', '.io']} />
       </main>
     </ThemeContextProvider>
   )

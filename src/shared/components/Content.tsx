@@ -7,7 +7,6 @@ interface Props {
 
 const StyledContent = styled.div`
   padding: ${(props) => props.theme.spacing.lg};
-  min-height: 50vh;
   /* @media ${(props) => props.theme.deviceSizes.sm} {
     padding: ${(props) => props.theme.spacing.base};
   } */

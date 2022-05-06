@@ -20,9 +20,9 @@ export const GlobalStyles = createGlobalStyle`
 `
 
 const lightTheme: DefaultTheme['colors'] = {
-  primary: '',
-  secondary: '',
-  accent: '',
+  primary: '#1f7a7a',
+  secondary: '#cc3434',
+  accent: '#2aa32a',
   background: '#ffffff',
   grey: {
     0: '#ffffff',
@@ -40,9 +40,9 @@ const lightTheme: DefaultTheme['colors'] = {
 }
 
 const darkTheme: DefaultTheme['colors'] = {
-  primary: '',
-  secondary: '',
-  accent: '',
+  primary: '#1f7a7a',
+  secondary: '#cc3434',
+  accent: '#2aa32a',
   background: '#212121',
   grey: {
     0: '#ffffff',
