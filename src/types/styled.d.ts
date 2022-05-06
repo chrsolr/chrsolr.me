@@ -1,5 +1,5 @@
 import 'styled-components'
-import {} from 'styled-components/cssprop'
+import 'styled-components/cssprop'
 
 interface Colors {
   900: string
