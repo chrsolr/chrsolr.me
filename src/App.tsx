@@ -1,11 +1,11 @@
 import React from 'react'
-import {} from 'styled-components/macro';
+import {} from 'styled-components/macro'
 import ThemeContextProvider from './providers/ThemeContextProvider'
 
 function App() {
   return (
     <ThemeContextProvider theme={'light'}>
-      <main >
+      <main>
         <p>Christian Soler</p>
       </main>
     </ThemeContextProvider>
