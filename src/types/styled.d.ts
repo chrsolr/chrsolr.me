@@ -31,7 +31,7 @@ interface Sizes {
   xxl: string
   xl: string
   lg: string
-  base: string
+  md: string
   sm: string
   xs: string
 }
@@ -49,7 +49,7 @@ interface DeviceSizes {
   xxl: string
 }
 
-type AvailableSizes = 'xxl' | 'xl' | 'lg' | 'base' | 'sm' | 'xs'
+type AvailableSizes = 'xxl' | 'xl' | 'lg' | 'md' | 'sm' | 'xs'
 export type AvailableDeviceSizes = 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'xxl'
 export type AvailableColors =
   | 'primary'

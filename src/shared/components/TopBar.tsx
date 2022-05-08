@@ -17,8 +17,10 @@ const StyledTopBarContainer = styled.div`
   background-color: ${(props) => props.theme.colors.background};
   box-shadow: 0 0.25rem 0.625rem rgba(0, 0, 0, 0.1);
   border-radius: 0 0 1rem 1rem;
-  padding: ${(props) => props.theme.spacing.xxl};
+  height: 6.25rem;
   position: fixed;
+  left: 0;
+  right: 0;
   min-width: 100%;
   display: flex;
   flex-direction: row;
@@ -43,6 +45,30 @@ const StyledTopBarContainer = styled.div`
       }
     }
   }
+
+  @media ${(props) => props.theme.deviceSizes.xs} {
+    padding: 0 ${(props) => props.theme.spacing.xs};
+  }
+
+  @media ${(props) => props.theme.deviceSizes.sm} {
+    padding: 0 ${(props) => props.theme.spacing.sm};
+  }
+
+  @media ${(props) => props.theme.deviceSizes.md} {
+    padding: 0 ${(props) => props.theme.spacing.md};
+  }
+
+  @media ${(props) => props.theme.deviceSizes.lg} {
+    padding: 0 ${(props) => props.theme.spacing.lg};
+  }
+
+  @media ${(props) => props.theme.deviceSizes.xl} {
+    padding: 0 ${(props) => props.theme.spacing.xl};
+  }
+
+  @media ${(props) => props.theme.deviceSizes.xxl} {
+    padding: 0 ${(props) => props.theme.spacing.xxl};
+  }
 `
 
 const StyledBrandHeader = styled.span`
@@ -55,7 +81,7 @@ const StyledLinkWrapper = styled.div`
 `
 
 const StyledMenuLink = styled.div<{ isActive: boolean }>`
-  padding: 0 ${(props) => props.theme.spacing.base};
+  padding: 0 ${(props) => props.theme.spacing.xs};
 
   &:last-child {
     padding-right: 0;

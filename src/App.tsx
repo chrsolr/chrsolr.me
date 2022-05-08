@@ -9,7 +9,6 @@ import NoMatch from './pages/NoMatch'
 function App() {
   return (
     <ThemeContextProvider theme={'light'}>
-      {/* <TopBar headerTitle={['chr', 'solr', '.io']} /> */}
       <Routes>
         <Route
           path="/"

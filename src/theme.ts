@@ -13,9 +13,9 @@ export const GlobalStyles = createGlobalStyle`
     background-color: ${(props) => props.theme.colors.background};
     color: ${(props) => props.theme.colors.grey[500]};
     font-family: 'Titillium Web', sans-serif;
-    font-size: ${(props) => props.theme.typography.fontSizes.base};
+    font-size: ${(props) => props.theme.typography.fontSizes.md};
     font-weight: ${(props) => props.theme.typography.fontWeigths.regular};
-    line-height: ${(props) => props.theme.typography.lineHeights.base};
+    line-height: ${(props) => props.theme.typography.lineHeights.md};
     letter-spacing: 0.05rem;
   }
 `
@@ -68,7 +68,7 @@ export function getTheme(theme: Theme): DefaultTheme {
         xxl: '1.5rem',
         xl: '1.5rem',
         lg: '1.25rem',
-        base: '1rem',
+        md: '1rem',
         sm: '0.085rem',
         xs: '0.075rem',
       },
@@ -84,26 +84,26 @@ export function getTheme(theme: Theme): DefaultTheme {
         xxl: '2rem',
         xl: '1.75rem',
         lg: '1.5rem',
-        base: '1.5rem',
+        md: '1.5rem',
         sm: '1.25rem',
         xs: '1rem',
       },
     },
     spacing: {
-      xxl: '2rem',
-      xl: '1.75rem',
-      lg: '1.5rem',
-      base: '1rem',
-      sm: '0.5rem',
-      xs: '0.25rem',
+      xxl: '10rem',
+      xl: '4rem',
+      lg: '2.5rem',
+      md: '2rem',
+      sm: '1.25rem',
+      xs: '1rem',
     },
     deviceSizes: {
-      xs: `(max-width: 0)`,
-      sm: `(max-width: 576px)`,
-      md: `(max-width: 768px)`,
-      lg: `(max-width:  992px)`,
-      xl: `(max-width: 1200px)`,
-      xxl: `(max-width: 1400px)`,
+      xs: `(min-width: 0)`,
+      sm: `(min-width: 576px)`,
+      md: `(min-width: 768px)`,
+      lg: `(min-width:  992px)`,
+      xl: `(min-width: 1200px)`,
+      xxl: `(min-width: 1400px)`,
     },
   }
 }
