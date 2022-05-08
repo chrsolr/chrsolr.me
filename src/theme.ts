@@ -12,10 +12,11 @@ export const GlobalStyles = createGlobalStyle`
   body {
     background-color: ${(props) => props.theme.colors.background};
     color: ${(props) => props.theme.colors.grey[500]};
-    font-family: 'Montserrat', 'Open Sans', sans-serif;
+    font-family: 'Titillium Web', sans-serif;
     font-size: ${(props) => props.theme.typography.fontSizes.base};
     font-weight: ${(props) => props.theme.typography.fontWeigths.regular};
     line-height: ${(props) => props.theme.typography.lineHeights.base};
+    letter-spacing: 0.05rem;
   }
 `
 
