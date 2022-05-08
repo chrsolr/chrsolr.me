@@ -1,4 +1,5 @@
 import React from 'react'
+import { Outlet } from 'react-router-dom'
 import styled from 'styled-components'
 
 interface Props {
@@ -34,12 +35,15 @@ const StyledBrandHeader = styled.span`
 
 export default function TopBar({ headerTitle }: Props) {
   return (
-    <StyledTopBarContainer>
-      <StyledBrandHeader>
-        {headerTitle.map((v) => (
-          <span>{v}</span>
-        ))}
-      </StyledBrandHeader>
-    </StyledTopBarContainer>
+    <>
+      <StyledTopBarContainer>
+        <StyledBrandHeader>
+          {headerTitle.map((v) => (
+            <span>{v}</span>
+          ))}
+        </StyledBrandHeader>
+      </StyledTopBarContainer>
+      <Outlet />
+    </>
   )
 }
