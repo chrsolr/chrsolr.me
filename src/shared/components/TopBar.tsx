@@ -1,5 +1,11 @@
 import React from 'react'
-import { Link, Outlet } from 'react-router-dom'
+import {
+  Link,
+  LinkProps,
+  Outlet,
+  useMatch,
+  useResolvedPath,
+} from 'react-router-dom'
 import styled from 'styled-components'
 
 interface Props {
@@ -46,47 +52,63 @@ const StyledBrandHeader = styled.span`
 
 const StyledLinkWrapper = styled.div`
   display: flex;
+`
 
-  div {
-    padding: 0 ${(props) => props.theme.spacing.base};
+const StyledMenuLink = styled.div<{ isActive: boolean }>`
+  padding: 0 ${(props) => props.theme.spacing.base};
 
-    &:last-child {
-      padding-right: 0;
+  &:last-child {
+    padding-right: 0;
+  }
+
+  a {
+    color: ${(props) =>
+      props.isActive
+        ? props.theme.colors.secondary
+        : props.theme.colors.primary};
+    text-decoration: none;
+
+    &:before,
+    &:after {
+      color: ${(props) => props.theme.colors.primary};
+      position: relative;
+      opacity: ${(props) => (props.isActive ? 1 : 0)};
+      transition: all 0.3s ease;
     }
 
-    a {
-      color: ${(props) => props.theme.colors.primary};
-      text-decoration: none;
+    &:before {
+      content: '[ ';
+      transform: translate3d(-15px, 0, 0);
+    }
+
+    &:after {
+      content: ' ]';
+      transform: translateX(15px);
+    }
+
+    &:hover {
+      color: ${(props) => props.theme.colors.secondary};
 
       &:before,
       &:after {
-        color: ${(props) => props.theme.colors.primary};
-        position: relative;
-        opacity: 0;
-        transition: all 0.3s ease;
-      }
-
-      &:before {
-        content: '[ ';
-        transform: translate3d(-15px, 0, 0);
-      }
-
-      &:after {
-        content: ' ]';
-        transform: translateX(15px);
-      }
-
-      &:hover {
-        color: ${(props) => props.theme.colors.secondary};
-
-        &:before,
-        &:after {
-          opacity: 1;
-        }
+        opacity: 1;
       }
     }
   }
 `
+
+function TopBarMenuLink({ children, to, ...props }: LinkProps) {
+  const resolved = useResolvedPath(to)
+  const macthed = useMatch({ path: resolved.pathname, end: true })
+
+  return (
+    <StyledMenuLink isActive={!!macthed}>
+      <Link to={to} {...props}>
+        {children}
+      </Link>
+    </StyledMenuLink>
+  )
+}
 
 export default function TopBar({ headerTitle }: Props) {
   return (
@@ -100,15 +122,10 @@ export default function TopBar({ headerTitle }: Props) {
           </Link>
         </StyledBrandHeader>
         <StyledLinkWrapper>
-          <div>
-            <Link to="/">Home</Link>
-          </div>
-          <div>
-            <Link to="/blog">Blog</Link>
-          </div>
-          <div>
-            <Link to="/nn-match">No Match</Link>
-          </div>
+          <TopBarMenuLink to="/">Home</TopBarMenuLink>
+          <TopBarMenuLink to="/blog">Blog</TopBarMenuLink>
+          <TopBarMenuLink to="/no-match">No Match</TopBarMenuLink>
+          <TopBarMenuLink to="/error">Error</TopBarMenuLink>
         </StyledLinkWrapper>
       </StyledTopBarContainer>
       <Outlet />
