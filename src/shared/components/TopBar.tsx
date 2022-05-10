@@ -12,11 +12,14 @@ interface Props {
   headerTitle: string[]
 }
 
+type TopBarMenuLinkProps = LinkProps & { isActive?: boolean }
+
 const StyledTopBarContainer = styled.div`
+  font-weight: ${(props) => props.theme.typography.fontWeigths.regular};
+  font-size: ${(props) => props.theme.typography.fontSizes.lg};
   color: ${(props) => props.theme.colors.primary};
   background-color: ${(props) => props.theme.colors.background};
   box-shadow: 0 0.25rem 0.625rem rgba(0, 0, 0, 0.1);
-  border-radius: 0 0 1rem 1rem;
   height: 6.25rem;
   position: fixed;
   left: 0;
@@ -24,7 +27,7 @@ const StyledTopBarContainer = styled.div`
   min-width: 100%;
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
   align-content: center;
 
@@ -72,17 +75,13 @@ const StyledTopBarContainer = styled.div`
 `
 
 const StyledBrandHeader = styled.span`
-  font-weight: ${(props) => props.theme.typography.fontWeigths.semibold};
-  font-size: ${(props) => props.theme.typography.fontSizes.lg};
+  font-weight: ${(props) => props.theme.typography.fontWeigths.regular};
+  font-size: ${(props) => props.theme.typography.fontSizes.xl};
+  flex: 1;
+  text-align: center;
 `
-
-const StyledLinkWrapper = styled.div`
-  display: flex;
-`
-
+const StyledLinkWrapper = styled.div``
 const StyledMenuLink = styled.div<{ isActive: boolean }>`
-  padding: 0 ${(props) => props.theme.spacing.xs};
-
   &:last-child {
     padding-right: 0;
   }
@@ -123,12 +122,17 @@ const StyledMenuLink = styled.div<{ isActive: boolean }>`
   }
 `
 
-function TopBarMenuLink({ children, to, ...props }: LinkProps) {
+function TopBarMenuLink({
+  children,
+  to,
+  isActive,
+  ...props
+}: TopBarMenuLinkProps) {
   const resolved = useResolvedPath(to)
   const macthed = useMatch({ path: resolved.pathname, end: true })
 
   return (
-    <StyledMenuLink isActive={!!macthed}>
+    <StyledMenuLink isActive={isActive || !!macthed}>
       <Link to={to} {...props}>
         {children}
       </Link>
@@ -148,10 +152,13 @@ export default function TopBar({ headerTitle }: Props) {
           </Link>
         </StyledBrandHeader>
         <StyledLinkWrapper>
-          <TopBarMenuLink to="/">Home</TopBarMenuLink>
+          <TopBarMenuLink to="/" isActive>
+            {'>_x'}
+          </TopBarMenuLink>
+          {/* <TopBarMenuLink to="/">Home</TopBarMenuLink>
           <TopBarMenuLink to="/blog">Blog</TopBarMenuLink>
           <TopBarMenuLink to="/no-match">No Match</TopBarMenuLink>
-          <TopBarMenuLink to="/error">Error</TopBarMenuLink>
+          <TopBarMenuLink to="/error">Error</TopBarMenuLink> */}
         </StyledLinkWrapper>
       </StyledTopBarContainer>
       <Outlet />
