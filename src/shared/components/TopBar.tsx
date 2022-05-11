@@ -10,6 +10,7 @@ import styled from 'styled-components'
 
 interface Props {
   headerTitle: string[]
+  onMenuClick?: () => void
 }
 
 type TopBarMenuLinkProps = LinkProps & { isActive?: boolean }
@@ -78,7 +79,6 @@ const StyledBrandHeader = styled.span`
   font-weight: ${(props) => props.theme.typography.fontWeigths.regular};
   font-size: ${(props) => props.theme.typography.fontSizes.xl};
   flex: 1;
-  text-align: center;
 `
 const StyledLinkWrapper = styled.div``
 const StyledMenuLink = styled.div<{ isActive: boolean }>`
@@ -140,7 +140,7 @@ function TopBarMenuLink({
   )
 }
 
-export default function TopBar({ headerTitle }: Props) {
+export default function TopBar({ headerTitle, onMenuClick }: Props) {
   return (
     <>
       <StyledTopBarContainer>
@@ -155,10 +155,6 @@ export default function TopBar({ headerTitle }: Props) {
           <TopBarMenuLink to="/" isActive>
             {'>_x'}
           </TopBarMenuLink>
-          {/* <TopBarMenuLink to="/">Home</TopBarMenuLink>
-          <TopBarMenuLink to="/blog">Blog</TopBarMenuLink>
-          <TopBarMenuLink to="/no-match">No Match</TopBarMenuLink>
-          <TopBarMenuLink to="/error">Error</TopBarMenuLink> */}
         </StyledLinkWrapper>
       </StyledTopBarContainer>
       <Outlet />
