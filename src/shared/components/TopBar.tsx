@@ -25,6 +25,7 @@ const StyledTopBarContainer = styled.div`
   position: fixed;
   left: 0;
   right: 0;
+  z-index: 20;
   min-width: 100%;
   display: flex;
   flex-direction: row;
@@ -147,12 +148,12 @@ export default function TopBar({ headerTitle, onMenuClick }: Props) {
         <StyledBrandHeader>
           <Link to="/">
             {headerTitle.map((v) => (
-              <span>{v}</span>
+              <span key={v.toString()}>{v}</span>
             ))}
           </Link>
         </StyledBrandHeader>
         <StyledLinkWrapper>
-          <TopBarMenuLink to="/" isActive>
+          <TopBarMenuLink to="/" isActive onClick={onMenuClick}>
             {'>_x'}
           </TopBarMenuLink>
         </StyledLinkWrapper>
