@@ -1,6 +1,6 @@
 import React from 'react'
-import MainContentWrapper from '../shared/components/MainContentWrapper'
+import Container from '../shared/components/Container'
 
 export default function Blog() {
-  return <MainContentWrapper>Blog</MainContentWrapper>
+  return <Container>Blog</Container>
 }

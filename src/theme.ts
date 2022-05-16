@@ -12,7 +12,7 @@ export const GlobalStyles = createGlobalStyle`
   body {
     background-color: ${(props) => props.theme.colors.background};
     color: ${(props) => props.theme.colors.grey[500]};
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Raleway', sans-serif;
     font-size: ${(props) => props.theme.typography.fontSizes.md};
     font-weight: ${(props) => props.theme.typography.fontWeigths.light};
     line-height: ${(props) => props.theme.typography.lineHeights.md};

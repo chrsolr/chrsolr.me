@@ -1,9 +1,9 @@
 import React from 'react'
-import MainContentWrapper from '../shared/components/MainContentWrapper'
+import Container from '../shared/components/Container'
 
 function Home() {
   return (
-    <MainContentWrapper>
+    <Container>
       <p>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur
         ultrices, odio eget convallis imperdiet, est massa commodo mi, ut
@@ -269,7 +269,7 @@ function Home() {
         imperdiet dolor in, pulvinar lacus. Suspendisse et risus ut magna
         hendrerit ornare.
       </p>
-    </MainContentWrapper>
+    </Container>
   )
 }
 
