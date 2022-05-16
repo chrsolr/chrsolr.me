@@ -17,7 +17,7 @@ function NavigationLayout() {
   return (
     <>
       <TopBar headerTitle={['chr', 'solr', '.io']} onMenuClick={toggleMenu} />
-      <Sidebar isOpen={isOpen} />
+      <Sidebar isOpen={isOpen} onMenuClick={toggleMenu} />
     </>
   )
 }

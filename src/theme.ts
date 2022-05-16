@@ -12,9 +12,9 @@ export const GlobalStyles = createGlobalStyle`
   body {
     background-color: ${(props) => props.theme.colors.background};
     color: ${(props) => props.theme.colors.grey[500]};
-    font-family: 'Titillium Web', sans-serif;
+    font-family: 'Poppins', sans-serif;
     font-size: ${(props) => props.theme.typography.fontSizes.md};
-    font-weight: ${(props) => props.theme.typography.fontWeigths.regular};
+    font-weight: ${(props) => props.theme.typography.fontWeigths.light};
     line-height: ${(props) => props.theme.typography.lineHeights.md};
     letter-spacing: 0.05rem;
   }
@@ -65,7 +65,7 @@ export function getTheme(theme: Theme): DefaultTheme {
     colors: theme === 'light' ? lightTheme : darkTheme,
     typography: {
       fontSizes: {
-        xxl: '1.5rem',
+        xxl: '2.5rem',
         xl: '1.5rem',
         lg: '1.25rem',
         md: '1rem',

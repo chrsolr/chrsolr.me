@@ -1,11 +1,5 @@
 import React from 'react'
-import {
-  Link,
-  LinkProps,
-  Outlet,
-  useMatch,
-  useResolvedPath,
-} from 'react-router-dom'
+import { Link, Outlet } from 'react-router-dom'
 import styled from 'styled-components'
 
 interface Props {
@@ -13,10 +7,7 @@ interface Props {
   onMenuClick?: () => void
 }
 
-type TopBarMenuLinkProps = LinkProps & { isActive?: boolean }
-
 const StyledTopBarContainer = styled.div`
-  font-weight: ${(props) => props.theme.typography.fontWeigths.regular};
   font-size: ${(props) => props.theme.typography.fontSizes.lg};
   color: ${(props) => props.theme.colors.primary};
   background-color: ${(props) => props.theme.colors.background};
@@ -32,24 +23,6 @@ const StyledTopBarContainer = styled.div`
   justify-content: center;
   align-items: center;
   align-content: center;
-
-  a {
-    text-decoration: none;
-
-    span {
-      &:nth-child(1) {
-        color: ${(props) => props.theme.colors.primary};
-      }
-
-      &:nth-child(2) {
-        color: ${(props) => props.theme.colors.secondary};
-      }
-
-      &:nth-child(3) {
-        color: ${(props) => props.theme.colors.accent};
-      }
-    }
-  }
 
   @media ${(props) => props.theme.deviceSizes.xs} {
     padding: 0 ${(props) => props.theme.spacing.xs};
@@ -77,69 +50,44 @@ const StyledTopBarContainer = styled.div`
 `
 
 const StyledBrandHeader = styled.span`
-  font-weight: ${(props) => props.theme.typography.fontWeigths.regular};
-  font-size: ${(props) => props.theme.typography.fontSizes.xl};
+  font-weight: ${(props) => props.theme.typography.fontWeigths.light};
+  font-size: ${(props) => props.theme.typography.fontSizes.xxl};
   flex: 1;
-`
-const StyledLinkWrapper = styled.div``
-const StyledMenuLink = styled.div<{ isActive: boolean }>`
-  &:last-child {
-    padding-right: 0;
-  }
+  text-align: center;
 
   a {
-    color: ${(props) =>
-      props.isActive
-        ? props.theme.colors.secondary
-        : props.theme.colors.primary};
     text-decoration: none;
 
-    &:before,
-    &:after {
-      color: ${(props) => props.theme.colors.primary};
-      position: relative;
-      opacity: ${(props) => (props.isActive ? 1 : 0)};
-      transition: all 0.3s ease;
-    }
+    span {
+      &:nth-child(1) {
+        color: ${(props) => props.theme.colors.primary};
+      }
 
-    &:before {
-      content: '[ ';
-      transform: translate3d(-15px, 0, 0);
-    }
+      &:nth-child(2) {
+        color: ${(props) => props.theme.colors.secondary};
+      }
 
-    &:after {
-      content: ' ]';
-      transform: translateX(15px);
-    }
-
-    &:hover {
-      color: ${(props) => props.theme.colors.secondary};
-
-      &:before,
-      &:after {
-        opacity: 1;
+      &:nth-child(3) {
+        color: ${(props) => props.theme.colors.accent};
       }
     }
   }
 `
 
-function TopBarMenuLink({
-  children,
-  to,
-  isActive,
-  ...props
-}: TopBarMenuLinkProps) {
-  const resolved = useResolvedPath(to)
-  const macthed = useMatch({ path: resolved.pathname, end: true })
+const StyledMenuIcon = styled.div`
+  background-color: blue;
+  border: none;
 
-  return (
-    <StyledMenuLink isActive={isActive || !!macthed}>
-      <Link to={to} {...props}>
-        {children}
-      </Link>
-    </StyledMenuLink>
-  )
-}
+  &:hover {
+    cursor: pointer;
+  }
+
+  span {
+    background-color: red;
+    height: 1px;
+    width: 5px;
+  }
+`
 
 export default function TopBar({ headerTitle, onMenuClick }: Props) {
   return (
@@ -152,11 +100,12 @@ export default function TopBar({ headerTitle, onMenuClick }: Props) {
             ))}
           </Link>
         </StyledBrandHeader>
-        <StyledLinkWrapper>
-          <TopBarMenuLink to="/" isActive onClick={onMenuClick}>
-            {'>_x'}
-          </TopBarMenuLink>
-        </StyledLinkWrapper>
+        <StyledMenuIcon onClick={onMenuClick}>
+          X
+          <span />
+          <span />
+          <span />
+        </StyledMenuIcon>
       </StyledTopBarContainer>
       <Outlet />
     </>

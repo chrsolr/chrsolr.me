@@ -1,7 +1,6 @@
 import React from 'react'
+import MainContentWrapper from '../shared/components/MainContentWrapper'
 
 export default function NoMatch() {
-  return (
-    <div>NoMatch</div>
-  )
+  return <MainContentWrapper>NoMatch</MainContentWrapper>
 }
