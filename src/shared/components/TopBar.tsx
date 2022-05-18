@@ -55,7 +55,8 @@ const StyledContainer = styled(Container)`
   display: flex;
   flex: 1;
   align-items: center;
-  padding: 0;
+  padding-top: 0;
+  padding-bottom: 0;
 `
 
 function TopBar({ headerTitle, onMenuClick }: Props) {
