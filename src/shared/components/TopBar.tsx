@@ -2,7 +2,7 @@ import React from 'react'
 import { Link, Outlet } from 'react-router-dom'
 import styled from 'styled-components'
 import Container from './Container'
-import MaterialSymbolsRoundedIcon from './MaterialSymbolsRoundedIcon'
+import MaterialSymbolsIcon from './MaterialSymbolsIcon'
 
 interface Props {
   headerTitle: string[]
@@ -14,7 +14,7 @@ const StyledTopBarWrapper = styled.div`
   color: ${(props) => props.theme.colors.primary};
   background-color: ${(props) => props.theme.colors.background};
   box-shadow: 0 0.25rem 0.625rem rgba(0, 0, 0, 0.1);
-  height:  ${(props) => props.theme.dimensions.topbarHeight};
+  height: ${(props) => props.theme.dimensions.topbarHeight};
   position: fixed;
   left: 0;
   right: 0;
@@ -72,7 +72,11 @@ function TopBar({ headerTitle, onMenuClick }: Props) {
               ))}
             </Link>
           </StyledBrandHeader>
-          <MaterialSymbolsRoundedIcon iconName="menu" onClick={onMenuClick} />
+          <MaterialSymbolsIcon
+            iconName="menu"
+            type="rounded"
+            onClick={onMenuClick}
+          />
         </StyledContainer>
       </StyledTopBarWrapper>
       <Outlet />

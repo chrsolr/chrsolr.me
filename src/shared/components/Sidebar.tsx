@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import { Link, LinkProps, useMatch, useResolvedPath } from 'react-router-dom'
-import MaterialSymbolsRoundedIcon from './MaterialSymbolsRoundedIcon'
+import MaterialSymbolsIcon from './MaterialSymbolsIcon'
 
 interface Props {
   isOpen?: boolean
@@ -54,7 +54,7 @@ const SidebarHeader = styled.header`
   align-items: center;
 `
 
-const StyledMenuLink = styled.div<{ isActive: boolean }>`
+const MenuItemLinkWrapper = styled.div<{ isActive: boolean }>`
   &:last-child {
     padding-right: 0;
   }
@@ -105,11 +105,11 @@ function TopBarMenuLink({
   const macthed = useMatch({ path: resolved.pathname, end: true })
 
   return (
-    <StyledMenuLink isActive={isActive || !!macthed}>
+    <MenuItemLinkWrapper isActive={isActive || !!macthed}>
       <Link to={to} {...props}>
         {children}
       </Link>
-    </StyledMenuLink>
+    </MenuItemLinkWrapper>
   )
 }
 
@@ -117,15 +117,23 @@ function Sidebar({ isOpen, onMenuClick }: Props) {
   return (
     <SidebarWrapper isOpen={isOpen}>
       <SidebarHeader>
-        <MaterialSymbolsRoundedIcon iconName="close" onClick={onMenuClick} />
+        <MaterialSymbolsIcon
+          iconName="close"
+          type="rounded"
+          onClick={onMenuClick}
+        />
       </SidebarHeader>
       <h2 style={{ textAlign: 'center' }}>navigation</h2>
       <span>∴</span>
       <TopBarMenuLink to="/" onClick={onMenuClick}>
         Home
       </TopBarMenuLink>
-      <TopBarMenuLink to="/blog" onClick={onMenuClick}>Blog</TopBarMenuLink>
-      <TopBarMenuLink to="/nothing-here" onClick={onMenuClick}>No Match</TopBarMenuLink>
+      <TopBarMenuLink to="/blog" onClick={onMenuClick}>
+        Blog
+      </TopBarMenuLink>
+      <TopBarMenuLink to="/nothing-here" onClick={onMenuClick}>
+        No Match
+      </TopBarMenuLink>
     </SidebarWrapper>
   )
 }

@@ -3,6 +3,7 @@ import styled from 'styled-components'
 
 interface Props {
   iconName: string
+  type: 'rounded'
   onClick?: () => void
 }
 
@@ -18,7 +19,7 @@ const StyledMaterialSymbolsRoundedIcon = styled.i.attrs(() => ({
   }
 `
 
-function MaterialSymbolsRoundedIcon({ iconName, onClick }: Props) {
+function MaterialSymbolsIcon({ iconName, type, onClick }: Props) {
   return (
     <StyledMaterialSymbolsRoundedIcon onClick={onClick}>
       {iconName}
@@ -26,4 +27,4 @@ function MaterialSymbolsRoundedIcon({ iconName, onClick }: Props) {
   )
 }
 
-export default MaterialSymbolsRoundedIcon
+export default MaterialSymbolsIcon
