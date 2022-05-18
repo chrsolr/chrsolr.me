@@ -105,5 +105,8 @@ export function getTheme(theme: Theme): DefaultTheme {
       xl: `(min-width: 1200px)`,
       xxl: `(min-width: 1400px)`,
     },
+    dimensions: {
+      topbarHeight: '6.25rem'
+    }
   }
 }

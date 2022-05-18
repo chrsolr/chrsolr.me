@@ -14,7 +14,7 @@ const StyledTopBarWrapper = styled.div`
   color: ${(props) => props.theme.colors.primary};
   background-color: ${(props) => props.theme.colors.background};
   box-shadow: 0 0.25rem 0.625rem rgba(0, 0, 0, 0.1);
-  height: 6.25rem;
+  height:  ${(props) => props.theme.dimensions.topbarHeight};
   position: fixed;
   left: 0;
   right: 0;
@@ -24,6 +24,7 @@ const StyledTopBarWrapper = styled.div`
   flex-direction: row;
   justify-content: center;
   align-items: center;
+  overflow: hidden;
 `
 
 const StyledBrandHeader = styled.span`

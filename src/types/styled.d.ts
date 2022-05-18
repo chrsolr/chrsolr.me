@@ -84,5 +84,8 @@ declare module 'styled-components' {
     }
     spacing: SpacingLevels
     deviceSizes: DeviceSizes
+    dimensions: {
+      topbarHeight: string
+    }
   }
 }
