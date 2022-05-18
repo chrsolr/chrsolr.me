@@ -15,10 +15,10 @@ export const GlobalStyles = createGlobalStyle`
   
   body {
     background-color: ${(props) => props.theme.colors.background};
-    color: ${(props) => props.theme.colors.grey[500]};
+    color: ${(props) => props.theme.colors.fontColor.main};
     font-family: 'Raleway', sans-serif;
     font-size: ${(props) => props.theme.typography.fontSizes.md};
-    font-weight: ${(props) => props.theme.typography.fontWeigths.light};
+    font-weight: ${(props) => props.theme.typography.fontWeigths.regular};
     line-height: ${(props) => props.theme.typography.lineHeights.md};
     letter-spacing: 0.05rem;
   }
@@ -29,19 +29,23 @@ const lightTheme: DefaultTheme['colors'] = {
   secondary: '#cc3434',
   accent: '#2aa32a',
   background: '#ffffff',
-  grey: {
-    0: '#ffffff',
-    50: '#fafafa',
-    100: '#f5f5f5',
-    200: '#eeeeee',
-    300: '#e0e0e0',
-    400: '#bdbdbd',
-    500: '#9e9e9e',
-    600: '#757575',
-    700: '#616161',
-    800: '#424242',
-    900: '#212121',
+  fontColor: {
+    main: '#424242',
+    light: '#9e9e9e',
   },
+  // grey: {
+  //   0: '#212121',
+  //   50: '#424242',
+  //   100: '#616161',
+  //   200: '#757575',
+  //   300: '#9e9e9e',
+  //   400: '#bdbdbd',
+  //   500: '#e0e0e0',
+  //   600: '#eeeeee',
+  //   700: '#f5f5f5',
+  //   800: '#fafafa',
+  //   900: '#ffffff',
+  // },
 }
 
 const darkTheme: DefaultTheme['colors'] = {
@@ -49,19 +53,23 @@ const darkTheme: DefaultTheme['colors'] = {
   secondary: '#cc3434',
   accent: '#2aa32a',
   background: '#212121',
-  grey: {
-    0: '#ffffff',
-    50: '#fafafa',
-    100: '#f5f5f5',
-    200: '#eeeeee',
-    300: '#e0e0e0',
-    400: '#bdbdbd',
-    500: '#9e9e9e',
-    600: '#757575',
-    700: '#616161',
-    800: '#424242',
-    900: '#212121',
+  fontColor: {
+    main: '#fafafa',
+    light: '#e0e0e0',
   },
+  // grey: {
+  //   0: '#ffffff',
+  //   50: '#fafafa',
+  //   100: '#f5f5f5',
+  //   200: '#eeeeee',
+  //   300: '#e0e0e0',
+  //   400: '#bdbdbd',
+  //   500: '#9e9e9e',
+  //   600: '#757575',
+  //   700: '#616161',
+  //   800: '#424242',
+  //   900: '#212121',
+  // },
 }
 
 export function getTheme(theme: Theme): DefaultTheme {

@@ -1,23 +1,6 @@
 import 'styled-components'
 import 'styled-components/cssprop'
 
-interface Colors {
-  900: string
-  800: string
-  700: string
-  600: string
-  500: string
-  400: string
-  300: string
-  200: string
-  100: string
-  50: string
-}
-
-interface GreyColors extends Colors {
-  0: string
-}
-
 interface FontWeight {
   thin: number
   light: number
@@ -75,7 +58,10 @@ declare module 'styled-components' {
       secondary: string
       accent: string
       background: string
-      grey: GreyColors
+      fontColor: {
+        main: string
+        light: string
+      }
     }
     typography: {
       fontSizes: FontSizes

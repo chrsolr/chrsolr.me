@@ -6,6 +6,8 @@ import Home from './pages/Home'
 import Blog from './pages/Blog'
 import NoMatch from './pages/NoMatch'
 import Sidebar from './shared/components/Sidebar'
+import { useLocalStorage } from './hooks/useLocalStorage'
+import { Theme } from './theme'
 
 function NavigationLayout() {
   const [isOpen, setIsOpen] = useState<boolean>(false)
@@ -23,8 +25,9 @@ function NavigationLayout() {
 }
 
 function App() {
+  const [storedTheme] = useLocalStorage<Theme>('theme', 'light')
   return (
-    <ThemeContextProvider theme={'light'}>
+    <ThemeContextProvider theme={storedTheme}>
       <Routes>
         <Route path="/" element={<NavigationLayout />}>
           <Route index element={<Home />}></Route>

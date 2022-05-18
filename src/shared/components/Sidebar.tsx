@@ -2,6 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import { Link, LinkProps, useMatch, useResolvedPath } from 'react-router-dom'
 import MaterialSymbolsIcon from './MaterialSymbolsIcon'
+import { useLocalStorage } from './../../hooks/useLocalStorage'
 
 interface Props {
   isOpen?: boolean
@@ -14,8 +15,8 @@ type TopBarMenuLinkProps = LinkProps & {
 
 const SidebarWrapper = styled.aside<{ isOpen?: boolean }>`
   text-align: center;
-  padding: 1rem0;
-  background-color: ${(props) => props.theme.colors.grey[50]};
+  padding: 1rem;
+  background-color: ${(props) => props.theme.colors.background};
   box-shadow: ${(props) =>
     props.isOpen
       ? '0 0 0.625rem rgba(0, 0, 0, 0.3)'
@@ -28,8 +29,8 @@ const SidebarWrapper = styled.aside<{ isOpen?: boolean }>`
   bottom: 0;
   transition: ${(props) =>
     props.isOpen
-      ? 'right 300ms ease, box-shadow 300ms ease 300ms'
-      : 'right 300ms ease 300ms, box-shadow 300ms ease'};
+      ? 'right 250ms ease, box-shadow 250ms ease 250ms'
+      : 'right 250ms ease 250ms, box-shadow 250ms ease'};
 
   @media ${(props) => props.theme.deviceSizes.md} {
     width: 50%;
@@ -114,6 +115,7 @@ function TopBarMenuLink({
 }
 
 function Sidebar({ isOpen, onMenuClick }: Props) {
+  const [, setTheme] = useLocalStorage('theme', 'light')
   return (
     <SidebarWrapper isOpen={isOpen}>
       <SidebarHeader>
@@ -124,7 +126,13 @@ function Sidebar({ isOpen, onMenuClick }: Props) {
         />
       </SidebarHeader>
       <h2 style={{ textAlign: 'center' }}>navigation</h2>
-      <span>∴</span>
+      <span
+        onClick={() => {
+          setTheme((prev) => (prev === 'dark' ? 'light' : 'dark'))
+        }}
+      >
+        ∴
+      </span>
       <TopBarMenuLink to="/" onClick={onMenuClick}>
         Home
       </TopBarMenuLink>

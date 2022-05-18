@@ -11,7 +11,7 @@ interface Props {
 
 const StyledTopBarWrapper = styled.div`
   font-size: ${(props) => props.theme.typography.fontSizes.lg};
-  color: ${(props) => props.theme.colors.primary};
+  color: ${(props) => props.theme.colors.fontColor.main};
   background-color: ${(props) => props.theme.colors.background};
   box-shadow: 0 0.25rem 0.625rem rgba(0, 0, 0, 0.1);
   height: ${(props) => props.theme.dimensions.topbarHeight};
@@ -35,20 +35,7 @@ const StyledBrandHeader = styled.span`
 
   a {
     text-decoration: none;
-
-    span {
-      &:nth-child(1) {
-        color: ${(props) => props.theme.colors.primary};
-      }
-
-      &:nth-child(2) {
-        color: ${(props) => props.theme.colors.secondary};
-      }
-
-      &:nth-child(3) {
-        color: ${(props) => props.theme.colors.accent};
-      }
-    }
+    color: ${(props) => props.theme.colors.fontColor.main};
   }
 `
 
