@@ -1,6 +1,6 @@
 import React from 'react'
-import Container from '../shared/components/Container'
+import PageWrapper from '../shared/components/PageWrapper'
 
 export default function NoMatch() {
-  return <Container>NoMatch</Container>
+  return <PageWrapper>NoMatch</PageWrapper>
 }

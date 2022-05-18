@@ -1,9 +1,9 @@
 import React from 'react'
-import Container from '../shared/components/Container'
+import PageWrapper from '../shared/components/PageWrapper'
 
 function Home() {
   return (
-    <Container>
+    <PageWrapper>
       <p>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur
         ultrices, odio eget convallis imperdiet, est massa commodo mi, ut
@@ -269,7 +269,7 @@ function Home() {
         imperdiet dolor in, pulvinar lacus. Suspendisse et risus ut magna
         hendrerit ornare.
       </p>
-    </Container>
+    </PageWrapper>
   )
 }
 
