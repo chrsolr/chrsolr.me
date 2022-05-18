@@ -9,6 +9,10 @@ export const GlobalStyles = createGlobalStyle`
     padding: 0;
   }
 
+  html {
+    overflow-y: scroll;
+  }
+  
   body {
     background-color: ${(props) => props.theme.colors.background};
     color: ${(props) => props.theme.colors.grey[500]};
@@ -106,7 +110,7 @@ export function getTheme(theme: Theme): DefaultTheme {
       xxl: `(min-width: 1400px)`,
     },
     dimensions: {
-      topbarHeight: '6.25rem'
-    }
+      topbarHeight: '6.25rem',
+    },
   }
 }
