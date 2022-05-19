@@ -10,7 +10,7 @@ const StyledContainer = styled.div`
   max-width: 100%;
   margin-left: auto;
   margin-right: auto;
-  padding: 1rem;
+  padding: 1.5rem;
 
   @media ${(props) => props.theme.deviceSizes.sm} {
     max-width: 540px;

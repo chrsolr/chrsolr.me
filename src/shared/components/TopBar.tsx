@@ -11,7 +11,7 @@ interface Props {
 
 const StyledTopBarWrapper = styled.div`
   font-size: ${(props) => props.theme.typography.fontSizes.lg};
-  color: ${(props) => props.theme.colors.fontColor.main};
+  color: ${(props) => props.theme.colors.foreground};
   background-color: ${(props) => props.theme.colors.background};
   box-shadow: 0 0.25rem 0.625rem rgba(0, 0, 0, 0.1);
   height: ${(props) => props.theme.dimensions.topbarHeight};
@@ -28,14 +28,26 @@ const StyledTopBarWrapper = styled.div`
 `
 
 const StyledBrandHeader = styled.span`
-  font-weight: ${(props) => props.theme.typography.fontWeigths.light};
   font-size: ${(props) => props.theme.typography.fontSizes.xxl};
+  font-weight: ${(props) => props.theme.typography.fontWeigths.light};
   flex: 1;
-  /* text-align: center; */
 
   a {
     text-decoration: none;
-    color: ${(props) => props.theme.colors.fontColor.main};
+    color: ${(props) => props.theme.colors.accent};
+
+    span:nth-child(1) {
+      color: ${(props) => props.theme.colors.foreground};
+    }
+
+    span:nth-child(2) {
+      font-weight: ${(props) => props.theme.typography.fontWeigths.semibold};
+    }
+
+    span:nth-child(3) {
+      color: ${(props) => props.theme.colors.foreground};
+      font-weight: ${(props) => props.theme.typography.fontWeigths.thin};
+    }
   }
 `
 

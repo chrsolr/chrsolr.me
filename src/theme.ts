@@ -11,11 +11,12 @@ export const GlobalStyles = createGlobalStyle`
 
   html {
     overflow-y: scroll;
+    font-size: 16px;
   }
   
   body {
     background-color: ${(props) => props.theme.colors.background};
-    color: ${(props) => props.theme.colors.fontColor.main};
+    color: ${(props) => props.theme.colors.foreground};
     font-family: 'Raleway', sans-serif;
     font-size: ${(props) => props.theme.typography.fontSizes.md};
     font-weight: ${(props) => props.theme.typography.fontWeigths.regular};
@@ -25,51 +26,15 @@ export const GlobalStyles = createGlobalStyle`
 `
 
 const lightTheme: DefaultTheme['colors'] = {
-  primary: '#1f7a7a',
-  secondary: '#cc3434',
-  accent: '#2aa32a',
-  background: '#ffffff',
-  fontColor: {
-    main: '#424242',
-    light: '#9e9e9e',
-  },
-  // grey: {
-  //   0: '#212121',
-  //   50: '#424242',
-  //   100: '#616161',
-  //   200: '#757575',
-  //   300: '#9e9e9e',
-  //   400: '#bdbdbd',
-  //   500: '#e0e0e0',
-  //   600: '#eeeeee',
-  //   700: '#f5f5f5',
-  //   800: '#fafafa',
-  //   900: '#ffffff',
-  // },
+  foreground: '#181818',
+  background: '#fafafa',
+  accent: '#f96816',
 }
 
 const darkTheme: DefaultTheme['colors'] = {
-  primary: '#1f7a7a',
-  secondary: '#cc3434',
-  accent: '#2aa32a',
-  background: '#212121',
-  fontColor: {
-    main: '#fafafa',
-    light: '#e0e0e0',
-  },
-  // grey: {
-  //   0: '#ffffff',
-  //   50: '#fafafa',
-  //   100: '#f5f5f5',
-  //   200: '#eeeeee',
-  //   300: '#e0e0e0',
-  //   400: '#bdbdbd',
-  //   500: '#9e9e9e',
-  //   600: '#757575',
-  //   700: '#616161',
-  //   800: '#424242',
-  //   900: '#212121',
-  // },
+  foreground: '#fafafa',
+  background: '#181818',
+  accent: '#f96816',
 }
 
 export function getTheme(theme: Theme): DefaultTheme {
@@ -100,14 +65,6 @@ export function getTheme(theme: Theme): DefaultTheme {
         sm: '1.25rem',
         xs: '1rem',
       },
-    },
-    spacing: {
-      xxl: '10rem',
-      xl: '4rem',
-      lg: '2.5rem',
-      md: '2rem',
-      sm: '1.25rem',
-      xs: '1rem',
     },
     deviceSizes: {
       xs: `(min-width: 0)`,

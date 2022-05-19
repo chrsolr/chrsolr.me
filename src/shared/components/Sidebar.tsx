@@ -63,13 +63,13 @@ const MenuItemLinkWrapper = styled.div<{ isActive: boolean }>`
   a {
     color: ${(props) =>
       props.isActive
-        ? props.theme.colors.secondary
-        : props.theme.colors.primary};
+        ? props.theme.colors.accent
+        : props.theme.colors.foreground};
     text-decoration: none;
 
     &:before,
     &:after {
-      color: ${(props) => props.theme.colors.primary};
+      color: ${(props) => props.theme.colors.foreground};
       position: relative;
       opacity: ${(props) => (props.isActive ? 1 : 0)};
       transition: all 0.3s ease;
@@ -86,7 +86,7 @@ const MenuItemLinkWrapper = styled.div<{ isActive: boolean }>`
     }
 
     &:hover {
-      color: ${(props) => props.theme.colors.secondary};
+      color: ${(props) => props.theme.colors.accent};
 
       &:before,
       &:after {
