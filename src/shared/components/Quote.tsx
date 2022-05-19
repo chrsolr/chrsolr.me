@@ -1,6 +1,5 @@
 import React from 'react'
 import styled from 'styled-components'
-import { darken } from 'polished'
 import ProgressBar from './ProgressBar'
 
 export interface Props {
@@ -8,6 +7,7 @@ export interface Props {
   id: number
   quote: string
   permalink: string
+  onClick?: () => void
 }
 
 const StyledWrapper = styled.div`
@@ -55,6 +55,10 @@ const StyledAuthor = styled.p`
   font-size: 7rem;
   font-weight: ${(props) => props.theme.typography.fontWeigths.thin};
   text-align: center;
+
+  &:hover {
+    cursor: pointer;
+  }
 `
 
 const StyledQuote = styled.p`
@@ -62,6 +66,10 @@ const StyledQuote = styled.p`
   font-weight: ${(props) => props.theme.typography.fontWeigths.thin};
   text-align: center;
   margin-bottom: 1rem;
+
+  &:hover {
+    cursor: pointer;
+  }
 `
 
 const StyledPermalink = styled.a`
@@ -69,11 +77,11 @@ const StyledPermalink = styled.a`
   display: block;
 `
 
-function Quote({ author, id, quote, permalink }: Props) {
+function Quote({ author, id, quote, permalink, onClick }: Props) {
   return (
     <StyledWrapper>
-      <StyledAuthor>{author}</StyledAuthor>
-      <StyledQuote>{quote}</StyledQuote>
+      <StyledAuthor onClick={onClick}>{author}</StyledAuthor>
+      <StyledQuote onClick={onClick}>{quote}</StyledQuote>
       <ProgressBar progress={65} />
       <StyledPermalink href={permalink} target="_blank" rel="noreferrer">
         - source

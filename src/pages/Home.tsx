@@ -10,10 +10,11 @@ const Wrapper = styled(PageWrapper)`
   align-items: center;
   justify-content: center;
   height: 100%;
+  padding-top: 1rem;
 `
 
 function Home() {
-  const quote = useRandomQuote()
+  const { quote, getQuote } = useRandomQuote()
   return (
     <Wrapper>
       {quote && (
@@ -22,6 +23,7 @@ function Home() {
           author={quote.author}
           quote={quote.quote}
           permalink={quote.permalink}
+          onClick={getQuote}
         />
       )}
     </Wrapper>
