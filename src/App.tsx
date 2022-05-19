@@ -1,33 +1,28 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import { Routes, Route } from 'react-router-dom'
-import ThemeContextProvider from './providers/ThemeContextProvider'
+import ThemeContextProvider from './contexts/ThemeContextProvider'
 import TopBar from './shared/components/TopBar'
 import Home from './pages/Home'
 import Blog from './pages/Blog'
 import NoMatch from './pages/NoMatch'
 import Sidebar from './shared/components/Sidebar'
-import { useLocalStorage } from './hooks/useLocalStorage'
-import { Theme } from './theme'
+import { LayoutContext } from './contexts/LayoutContextProvider'
 
 function NavigationLayout() {
-  const [isOpen, setIsOpen] = useState<boolean>(false)
-
-  function toggleMenu() {
-    setIsOpen(!isOpen)
-  }
-
+  const { isMenuOpen, toggleMenu } = useContext(LayoutContext)
   return (
     <>
       <TopBar headerTitle={['chr', 'solr', '.io']} onMenuClick={toggleMenu} />
-      <Sidebar isOpen={isOpen} onMenuClick={toggleMenu} />
+      <Sidebar isOpen={isMenuOpen} onClose={toggleMenu} />
     </>
   )
 }
 
 function App() {
-  const [storedTheme] = useLocalStorage<Theme>('theme', 'light')
+  const { theme } = useContext(LayoutContext)
+
   return (
-    <ThemeContextProvider theme={storedTheme}>
+    <ThemeContextProvider theme={theme}>
       <Routes>
         <Route path="/" element={<NavigationLayout />}>
           <Route index element={<Home />}></Route>

@@ -4,13 +4,15 @@ import styled from 'styled-components'
 interface Props {
   iconName: string
   type: 'rounded'
+  fill?: boolean
   onClick?: () => void
 }
 
 const StyledMaterialSymbolsRoundedIcon = styled.i.attrs(() => ({
   className: 'material-symbols-rounded',
-}))<{}>`
-  font-variation-settings: 'FILL' 0, 'wght' 200, 'GRAD' 0, 'opsz' 48;
+}))<{ fill?: boolean }>`
+  font-variation-settings: 'FILL' ${(props) => (props.fill ? 1 : 0)}, 'wght' 200,
+    'GRAD' 0, 'opsz' 48;
   font-size: ${(props) => props.theme.typography.fontSizes.xxl};
   user-select: none;
 
@@ -19,9 +21,15 @@ const StyledMaterialSymbolsRoundedIcon = styled.i.attrs(() => ({
   }
 `
 
-function MaterialSymbolsIcon({ iconName, type, onClick }: Props) {
+function MaterialSymbolsIcon({
+  iconName,
+  type,
+  fill,
+  onClick,
+  ...props
+}: Props) {
   return (
-    <StyledMaterialSymbolsRoundedIcon onClick={onClick}>
+    <StyledMaterialSymbolsRoundedIcon fill={fill} onClick={onClick} {...props}>
       {iconName}
     </StyledMaterialSymbolsRoundedIcon>
   )

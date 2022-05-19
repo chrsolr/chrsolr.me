@@ -1,6 +1,7 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { Link, Outlet } from 'react-router-dom'
 import styled from 'styled-components'
+import { LayoutContext } from '../../contexts/LayoutContextProvider'
 import Container from './Container'
 import MaterialSymbolsIcon from './MaterialSymbolsIcon'
 
@@ -59,7 +60,12 @@ const StyledContainer = styled(Container)`
   padding-bottom: 0;
 `
 
+const StyledMenuIcon = styled(MaterialSymbolsIcon)`
+  margin-right: 0.5rem;
+`
+
 function TopBar({ headerTitle, onMenuClick }: Props) {
+  const { theme, setTheme } = useContext(LayoutContext)
   return (
     <>
       <StyledTopBarWrapper>
@@ -71,7 +77,14 @@ function TopBar({ headerTitle, onMenuClick }: Props) {
               ))}
             </Link>
           </StyledBrandHeader>
-          <MaterialSymbolsIcon
+          <StyledMenuIcon
+            iconName={theme === 'dark' ? 'brightness_high' : 'brightness_4'}
+            type="rounded"
+            onClick={() => {
+              setTheme((prev) => (prev === 'dark' ? 'light' : 'dark'))
+            }}
+          />
+          <StyledMenuIcon
             iconName="menu"
             type="rounded"
             onClick={onMenuClick}
