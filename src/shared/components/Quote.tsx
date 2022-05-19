@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import { darken } from 'polished'
+import ProgressBar from './ProgressBar'
 
 export interface Props {
   author: string
@@ -8,6 +9,47 @@ export interface Props {
   quote: string
   permalink: string
 }
+
+const StyledWrapper = styled.div`
+  @media ${(props) => props.theme.deviceSizes.xs} {
+    p:nth-child(1) {
+      font-size: 2rem;
+    }
+
+    p:nth-child(2) {
+      font-size: 1rem;
+    }
+  }
+  @media ${(props) => props.theme.deviceSizes.sm} {
+    p:nth-child(1) {
+      font-size: 3rem;
+    }
+
+    p:nth-child(2) {
+      font-size: 1.25rem;
+    }
+  }
+
+  @media ${(props) => props.theme.deviceSizes.md} {
+    p:nth-child(1) {
+      font-size: 5rem;
+    }
+
+    p:nth-child(2) {
+      font-size: 1.5rem;
+    }
+  }
+
+  @media ${(props) => props.theme.deviceSizes.xl} {
+    p:nth-child(1) {
+      font-size: 7rem;
+    }
+
+    p:nth-child(2) {
+      font-size: 2rem;
+    }
+  }
+`
 
 const StyledAuthor = styled.p`
   font-size: 7rem;
@@ -22,44 +64,21 @@ const StyledQuote = styled.p`
   margin-bottom: 1rem;
 `
 
-const StyledPeermalink = styled.a``
-
-const StyledProgressBar = styled.div<{ progress: number }>`
-  background-color: ${(props) => darken(0.2, props.theme.colors.accent)};
-  border-radius: 0.3125rem;
-  width: 100%;
-  height: 0.3rem;
-  margin-bottom: 1rem;
-  overflow: hidden;
-
-  div {
-    border-radius: 0.3125rem;
-    background-color: ${(props) => props.theme.colors.accent};
-    text-align: center;
-    height: inherit;
-    transition: 0.3s;
-    width: ${(props) => props.progress}%;
-  }
+const StyledPermalink = styled.a`
+  text-align: center;
+  display: block;
 `
-
-function ProgressBar({ progress }: { progress: number }) {
-  return (
-    <StyledProgressBar progress={progress}>
-      <div></div>
-    </StyledProgressBar>
-  )
-}
 
 function Quote({ author, id, quote, permalink }: Props) {
   return (
-    <>
+    <StyledWrapper>
       <StyledAuthor>{author}</StyledAuthor>
       <StyledQuote>{quote}</StyledQuote>
       <ProgressBar progress={65} />
-      <StyledPeermalink href={permalink} target="_blank" rel="noreferrer">
+      <StyledPermalink href={permalink} target="_blank" rel="noreferrer">
         - source
-      </StyledPeermalink>
-    </>
+      </StyledPermalink>
+    </StyledWrapper>
   )
 }
 
