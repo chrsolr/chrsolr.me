@@ -1,4 +1,4 @@
-import { createGlobalStyle, DefaultTheme } from 'styled-components'
+import { createGlobalStyle, css, DefaultTheme } from 'styled-components'
 
 export type Theme = 'light' | 'dark'
 
@@ -12,16 +12,25 @@ export const GlobalStyles = createGlobalStyle`
   html {
     overflow-y: scroll;
     font-size: 16px;
+    height: 100%;
   }
   
   body {
+    height: 100%;
     background-color: ${(props) => props.theme.colors.background};
     color: ${(props) => props.theme.colors.foreground};
     font-family: 'Raleway', sans-serif;
     font-size: ${(props) => props.theme.typography.fontSizes.md};
     font-weight: ${(props) => props.theme.typography.fontWeigths.regular};
-    line-height: ${(props) => props.theme.typography.lineHeights.md};
-    letter-spacing: 0.05rem;
+
+    #root {
+      height: 100%;
+    }
+
+    a {
+      text-decoration: none;
+      color: ${(props) => props.theme.colors.accent};
+    }
   }
 `
 

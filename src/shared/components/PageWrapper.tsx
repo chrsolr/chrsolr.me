@@ -10,8 +10,8 @@ const Wrapper = styled(Container)`
   padding-top: calc(${(props) => props.theme.dimensions.topbarHeight} + 1rem);
 `
 
-function PageWrapper({ children }: Props) {
-  return <Wrapper>{children}</Wrapper>
+function PageWrapper({ children, ...props }: Props) {
+  return <Wrapper {...props}>{children}</Wrapper>
 }
 
 export default PageWrapper
