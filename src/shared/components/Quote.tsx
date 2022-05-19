@@ -11,6 +11,7 @@ export interface Props {
 }
 
 const StyledWrapper = styled.div`
+  user-select: none;
   @media ${(props) => props.theme.deviceSizes.xs} {
     p:nth-child(1) {
       font-size: 2rem;
