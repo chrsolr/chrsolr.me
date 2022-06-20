@@ -40,7 +40,7 @@ declare module 'styled-components' {
     }
     typography: {
       fontSizes: FontSizes
-      fontWeigths: FontWeight
+      fontWeights: FontWeight
       lineHeights: FontLineHeights
     }
     deviceSizes: DeviceSizes

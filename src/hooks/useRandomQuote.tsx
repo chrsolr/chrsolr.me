@@ -6,7 +6,7 @@ interface HookProps {
   getQuote: () => void
 }
 
-function useRandomQuote(): HookProps {
+export default function useRandomQuote(): HookProps {
   const URL = 'http://quotes.stormconsultancy.co.uk/random.json'
   const [quote, setQuote] = useState<QuoteProps>()
 
@@ -28,5 +28,3 @@ function useRandomQuote(): HookProps {
 
   return { quote, getQuote }
 }
-
-export default useRandomQuote

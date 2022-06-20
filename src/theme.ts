@@ -1,4 +1,4 @@
-import { createGlobalStyle, css, DefaultTheme } from 'styled-components'
+import { createGlobalStyle, DefaultTheme } from 'styled-components'
 
 export type Theme = 'light' | 'dark'
 
@@ -14,14 +14,14 @@ export const GlobalStyles = createGlobalStyle`
     font-size: 16px;
     height: 100%;
   }
-  
+
   body {
     height: 100%;
     background-color: ${(props) => props.theme.colors.background};
     color: ${(props) => props.theme.colors.foreground};
     font-family: 'Raleway', sans-serif;
     font-size: ${(props) => props.theme.typography.fontSizes.md};
-    font-weight: ${(props) => props.theme.typography.fontWeigths.regular};
+    font-weight: ${(props) => props.theme.typography.fontWeights.regular};
 
     #root {
       height: 100%;
@@ -58,7 +58,7 @@ export function getTheme(theme: Theme): DefaultTheme {
         sm: '0.085rem',
         xs: '0.075rem',
       },
-      fontWeigths: {
+      fontWeights: {
         thin: 100,
         light: 300,
         regular: 400,

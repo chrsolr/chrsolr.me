@@ -30,7 +30,7 @@ const StyledTopBarWrapper = styled.div`
 
 const StyledBrandHeader = styled.span`
   font-size: ${(props) => props.theme.typography.fontSizes.xxl};
-  font-weight: ${(props) => props.theme.typography.fontWeigths.light};
+  font-weight: ${(props) => props.theme.typography.fontWeights.light};
   flex: 1;
 
   a {
@@ -42,12 +42,12 @@ const StyledBrandHeader = styled.span`
     }
 
     span:nth-child(2) {
-      font-weight: ${(props) => props.theme.typography.fontWeigths.semibold};
+      font-weight: ${(props) => props.theme.typography.fontWeights.semibold};
     }
 
     span:nth-child(3) {
       color: ${(props) => props.theme.colors.foreground};
-      font-weight: ${(props) => props.theme.typography.fontWeigths.thin};
+      font-weight: ${(props) => props.theme.typography.fontWeights.thin};
     }
   }
 `
@@ -71,7 +71,7 @@ function TopBar({ headerTitle, onMenuClick }: Props) {
       <StyledTopBarWrapper>
         <StyledContainer>
           <StyledBrandHeader>
-            <Link to="/">
+            <Link to='/'>
               {headerTitle.map((v) => (
                 <span key={v.toString()}>{v}</span>
               ))}
@@ -79,14 +79,14 @@ function TopBar({ headerTitle, onMenuClick }: Props) {
           </StyledBrandHeader>
           <StyledMenuIcon
             iconName={theme === 'dark' ? 'brightness_high' : 'brightness_4'}
-            type="rounded"
+            type='rounded'
             onClick={() => {
               setTheme((prev) => (prev === 'dark' ? 'light' : 'dark'))
             }}
           />
           <StyledMenuIcon
-            iconName="menu"
-            type="rounded"
+            iconName='menu'
+            type='rounded'
             onClick={onMenuClick}
           />
         </StyledContainer>

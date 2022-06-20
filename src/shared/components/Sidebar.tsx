@@ -97,10 +97,10 @@ const MenuItemLinkWrapper = styled.div<{ isActive: boolean }>`
 
 function MenuLink({ children, to, isActive, ...props }: TopBarMenuLinkProps) {
   const resolved = useResolvedPath(to)
-  const macthed = useMatch({ path: resolved.pathname, end: true })
+  const matched = useMatch({ path: resolved.pathname, end: true })
 
   return (
-    <MenuItemLinkWrapper isActive={isActive || !!macthed}>
+    <MenuItemLinkWrapper isActive={isActive || !!matched}>
       <Link to={to} {...props}>
         {children}
       </Link>
@@ -125,9 +125,6 @@ function Sidebar({ isOpen, onClose }: Props) {
       </MenuLink>
       <MenuLink to="/blog" onClick={onClose}>
         Blog
-      </MenuLink>
-      <MenuLink to="/nothing-here" onClick={onClose}>
-        No Match
       </MenuLink>
     </SidebarWrapper>
   )

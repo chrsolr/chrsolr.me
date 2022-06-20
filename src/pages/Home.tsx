@@ -13,7 +13,7 @@ const Wrapper = styled(PageWrapper)`
   padding-top: 1rem;
 `
 
-function Home() {
+export default function Home() {
   const { quote, getQuote } = useRandomQuote()
   return (
     <Wrapper>
@@ -29,5 +29,3 @@ function Home() {
     </Wrapper>
   )
 }
-
-export default Home
