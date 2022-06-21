@@ -4,7 +4,7 @@ import styled, { DefaultTheme } from 'styled-components'
 export type FontSizes = 'xxl' | 'xl' | 'lg' | 'md' | 'sm' | 'xs'
 
 interface Props {
-  children: ReactNode
+  children?: ReactNode
   size?: FontSizes
   inheritFontColor?: boolean
   weight?: number
@@ -19,12 +19,20 @@ const Text = styled.p<{
   inheritFontColor?: boolean
   weight?: number
 }>`
-  color: ${(props => props.theme.colors.foreground)};
-  font-size: ${((props) => getFontSize(props.size, props.theme))}
+  color: ${(props) => props.theme.colors.foreground};
+  font-size: ${(props) => getFontSize(props.size, props.theme)};
 `
 
-export default function Typography({ children, size, weight, inheritFontColor }: Props) {
+export default function Typography({
+  children,
+  size,
+  weight,
+  inheritFontColor,
+  ...props
+}: Props) {
   return (
-    <Text size={size} weight={weight} inheritFontColor={inheritFontColor}>{children}</Text>
+    <Text size={size} weight={weight} inheritFontColor={inheritFontColor} {...props}>
+      {children}
+    </Text>
   )
 }

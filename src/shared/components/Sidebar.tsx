@@ -2,6 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import { Link, LinkProps, useMatch, useResolvedPath } from 'react-router-dom'
 import MaterialSymbolsIcon from './MaterialSymbolsIcon'
+import Typography from './Typography'
 
 interface Props {
   isOpen?: boolean
@@ -13,7 +14,9 @@ type TopBarMenuLinkProps = LinkProps & {
 }
 
 const SidebarWrapper = styled.aside<{ isOpen?: boolean }>`
-  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   padding: 1rem;
   background-color: ${(props) => props.theme.colors.background};
   box-shadow: ${(props) =>
@@ -54,7 +57,17 @@ const SidebarHeader = styled.header`
   align-items: center;
 `
 
+const Divider = styled.div`
+  border-radius: 0.3125rem;
+  background-color: ${(props) => props.theme.colors.accent};
+  height: 5px;
+  width: 1rem;
+  margin-top: 0.75rem;
+`
+
 const MenuItemLinkWrapper = styled.div<{ isActive: boolean }>`
+  margin-top: 1rem;
+
   &:last-child {
     padding-right: 0;
   }
@@ -108,7 +121,7 @@ function MenuLink({ children, to, isActive, ...props }: TopBarMenuLinkProps) {
   )
 }
 
-function Sidebar({ isOpen, onClose }: Props) {
+export default function Sidebar({ isOpen, onClose }: Props) {
   return (
     <SidebarWrapper isOpen={isOpen}>
       <SidebarHeader>
@@ -118,8 +131,8 @@ function Sidebar({ isOpen, onClose }: Props) {
           onClick={onClose}
         />
       </SidebarHeader>
-      <h2 style={{ textAlign: 'center' }}>navigation</h2>
-      <span>∴</span>
+      <Typography size="xl">navigation</Typography>
+      <Divider />
       <MenuLink to="/" onClick={onClose}>
         Home
       </MenuLink>
@@ -129,5 +142,3 @@ function Sidebar({ isOpen, onClose }: Props) {
     </SidebarWrapper>
   )
 }
-
-export default Sidebar
