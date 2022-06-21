@@ -38,7 +38,6 @@ export default function BlogItem({ item }: Props) {
       <Link to={`/blog/${item.slug}`}>
         <StyledImage src={item.imageUrl} />
       </Link>
-
       <StyledLink size="xxl">
         <Link to={`/blog/${item.slug}`}>{item.title}</Link>
       </StyledLink>
