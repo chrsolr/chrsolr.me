@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import ProgressBar from './ProgressBar'
+import Typography from './Typography'
 
 export interface Props {
   author: string
@@ -21,7 +22,7 @@ const StyledWrapper = styled.div`
       font-size: 1rem;
     }
   }
-  
+
   @media ${(props) => props.theme.deviceSizes.sm} {
     p:nth-child(1) {
       font-size: 3rem;
@@ -53,7 +54,7 @@ const StyledWrapper = styled.div`
   }
 `
 
-const StyledAuthor = styled.p`
+const StyledAuthor = styled(Typography)<{ onClick?: () => void }>`
   font-size: 7rem;
   font-weight: ${(props) => props.theme.typography.fontWeights.thin};
   text-align: center;
@@ -63,7 +64,7 @@ const StyledAuthor = styled.p`
   }
 `
 
-const StyledQuote = styled.p`
+const StyledQuote = styled(Typography)<{ onClick?: () => void }>`
   font-size: 1.7rem;
   font-weight: ${(props) => props.theme.typography.fontWeights.thin};
   text-align: center;
@@ -77,19 +78,18 @@ const StyledQuote = styled.p`
 const StyledPermalink = styled.a`
   text-align: center;
   display: block;
+  font-size: ${(props) => props.theme.typography.fontSizes.md};
 `
 
-function Quote({ author, quote, permalink, onClick }: Props) {
+export default function Quote({ author, quote, permalink, onClick }: Props) {
   return (
     <StyledWrapper>
       <StyledAuthor onClick={onClick}>{author}</StyledAuthor>
       <StyledQuote onClick={onClick}>{quote}</StyledQuote>
       <ProgressBar progress={65} />
-      <StyledPermalink href={permalink} target='_blank' rel='noreferrer'>
+      <StyledPermalink href={permalink} target="_blank" rel="noreferrer">
         - source
       </StyledPermalink>
     </StyledWrapper>
   )
 }
-
-export default Quote

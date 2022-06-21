@@ -14,25 +14,15 @@ function getFontSize(size: FontSizes | undefined, theme: DefaultTheme) {
   return size ? theme.typography.fontSizes[size] : theme.typography.fontSizes.md
 }
 
-const Text = styled.p<{
+const Typography = styled.p<{
   size?: FontSizes
   inheritFontColor?: boolean
   weight?: number
 }>`
   color: ${(props) => props.theme.colors.foreground};
   font-size: ${(props) => getFontSize(props.size, props.theme)};
+  margin-bottom: 1rem;
+  line-height: ${(props) => props.theme.typography.lineHeights.lg};
 `
 
-export default function Typography({
-  children,
-  size,
-  weight,
-  inheritFontColor,
-  ...props
-}: Props) {
-  return (
-    <Text size={size} weight={weight} inheritFontColor={inheritFontColor} {...props}>
-      {children}
-    </Text>
-  )
-}
+export default Typography

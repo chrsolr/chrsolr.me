@@ -62,7 +62,6 @@ const Divider = styled.div`
   background-color: ${(props) => props.theme.colors.accent};
   height: 5px;
   width: 1rem;
-  margin-top: 0.75rem;
 `
 
 const MenuItemLinkWrapper = styled.div<{ isActive: boolean }>`
