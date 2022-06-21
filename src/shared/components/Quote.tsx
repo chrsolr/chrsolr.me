@@ -13,6 +13,8 @@ export interface Props {
 
 const StyledWrapper = styled.div`
   user-select: none;
+  text-align: center;
+
   @media ${(props) => props.theme.deviceSizes.xs} {
     p:nth-child(1) {
       font-size: 2rem;
@@ -57,7 +59,6 @@ const StyledWrapper = styled.div`
 const StyledAuthor = styled(Typography)<{ onClick?: () => void }>`
   font-size: 7rem;
   font-weight: ${(props) => props.theme.typography.fontWeights.thin};
-  text-align: center;
 
   &:hover {
     cursor: pointer;
@@ -67,8 +68,6 @@ const StyledAuthor = styled(Typography)<{ onClick?: () => void }>`
 const StyledQuote = styled(Typography)<{ onClick?: () => void }>`
   font-size: 1.7rem;
   font-weight: ${(props) => props.theme.typography.fontWeights.thin};
-  text-align: center;
-  margin-bottom: 1rem;
 
   &:hover {
     cursor: pointer;
@@ -76,7 +75,6 @@ const StyledQuote = styled(Typography)<{ onClick?: () => void }>`
 `
 
 const StyledPermalink = styled.a`
-  text-align: center;
   display: block;
   font-size: ${(props) => props.theme.typography.fontSizes.md};
 `

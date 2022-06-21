@@ -67,12 +67,12 @@ export function getTheme(theme: Theme): DefaultTheme {
         bold: 700,
       },
       lineHeights: {
-        xxl: '2rem',
-        xl: '1.75rem',
-        lg: '1.5rem',
-        md: '1.5rem',
-        sm: '1.25rem',
-        xs: '1rem',
+        xxl: '2',
+        xl: '1.75',
+        lg: '1.5',
+        md: '1.5',
+        sm: '1.25',
+        xs: '1',
       },
     },
     deviceSizes: {
