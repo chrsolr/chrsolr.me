@@ -5,8 +5,7 @@ export type Theme = 'light' | 'dark'
 export const GlobalStyles = createGlobalStyle`
   * {
     box-sizing: border-box;
-    margin: 0;
-    padding: 0;
+    line-height: ${(props) => props.theme.typography.lineHeights.md};
   }
 
   html {
@@ -30,6 +29,10 @@ export const GlobalStyles = createGlobalStyle`
     a {
       text-decoration: none;
       color: ${(props) => props.theme.colors.accent};
+    }
+
+    p, h1, h2, h3, h4, h5, h6 {
+      margin-bottom: 1rem;
     }
   }
 `
@@ -85,6 +88,7 @@ export function getTheme(theme: Theme): DefaultTheme {
     },
     dimensions: {
       topbarHeight: '6.25rem',
+      borderRadius: '0.75rem',
     },
   }
 }

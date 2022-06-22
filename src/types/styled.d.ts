@@ -46,6 +46,7 @@ declare module 'styled-components' {
     deviceSizes: DeviceSizes
     dimensions: {
       topbarHeight: string
+      borderRadius: string
     }
   }
 }
