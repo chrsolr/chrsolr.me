@@ -6,7 +6,7 @@ export default function BlogDetails() {
   const params = useParams() as { slug: string }
   return (
     <PageWrapper>
-      <h1>HERE</h1>
+      <h1>{params.toString()}</h1>
     </PageWrapper>
   )
 }
