@@ -23,6 +23,7 @@ export default function useRandomQuote(): HookProps {
     if (!quote) {
       ;(async () => await getQuote())()
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [quote])
 
   return { quote, getQuote }
