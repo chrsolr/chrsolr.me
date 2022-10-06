@@ -18,10 +18,8 @@ export default function Home() {
     <Wrapper>
       {quote && (
         <Quote
-          id={quote.id}
           author={quote.author}
-          quote={quote.quote}
-          permalink={quote.permalink}
+          content={quote.content}
           onClick={getQuote}
         />
       )}

@@ -5,9 +5,7 @@ import Typography from './Typography'
 
 export interface Props {
   author: string
-  id: number
-  quote: string
-  permalink: string
+  content: string
   onClick?: () => void
 }
 
@@ -79,13 +77,13 @@ const StyledPermalink = styled.a`
   font-size: ${(props) => props.theme.typography.fontSizes.md};
 `
 
-export default function Quote({ author, quote, permalink, onClick }: Props) {
+export default function Quote({ author, content, onClick }: Props) {
   return (
     <StyledWrapper>
       <StyledAuthor onClick={onClick}>{author}</StyledAuthor>
-      <StyledQuote onClick={onClick}>{quote}</StyledQuote>
+      <StyledQuote onClick={onClick}>{content}</StyledQuote>
       <ProgressBar progress={65} />
-      <StyledPermalink href={permalink} target="_blank" rel="noreferrer">
+      <StyledPermalink href={process.env.REACT_APP_QUOTE_URL} target="_blank" rel="noreferrer">
         - source
       </StyledPermalink>
     </StyledWrapper>
