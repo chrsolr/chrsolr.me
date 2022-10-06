@@ -138,6 +138,9 @@ export default function Sidebar({ isOpen, onClose }: Props) {
       <MenuLink to="/blog" onClick={onClose}>
         Blog
       </MenuLink>
+      <MenuLink to="/resume" onClick={onClose}>
+        Resume
+      </MenuLink>
     </SidebarWrapper>
   )
 }
