@@ -5,7 +5,7 @@ import Typography from '../shared/components/Typography'
 export default function Resume() {
   return (
     <PageWrapper>
-      <img src="https://media-exp1.licdn.com/dms/image/C5603AQGKKZ_eir17GA/profile-displayphoto-shrink_200_200/0/1516804819724?e=1670457600&v=beta&t=DT2Sp8KTwT_uAHQ9l89ZojXUbsxKS_vyk6aaoqNQwLU" />
+      <img alt='' src="https://media-exp1.licdn.com/dms/image/C5603AQGKKZ_eir17GA/profile-displayphoto-shrink_200_200/0/1516804819724?e=1670457600&v=beta&t=DT2Sp8KTwT_uAHQ9l89ZojXUbsxKS_vyk6aaoqNQwLU" />
       <Typography>chr.solr@gmail.com • github.com/chrsolr</Typography>
       <Typography>
         As a passionate person, I pride myself on every project I take on. I am
