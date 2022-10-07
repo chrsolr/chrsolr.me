@@ -41,8 +41,6 @@ export default function Resume() {
         {Boolean(resumeData.skills.length) &&
           resumeData.skills.map((skill) => <Typography>{skill}</Typography>)}
       </ContentWrapper>
-
-
     </PageWrapper>
   )
 }

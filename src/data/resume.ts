@@ -1,6 +1,10 @@
-import { faGithub, faInstagram, faLinkedin } from '@fortawesome/free-brands-svg-icons'
+import {
+  faGithub,
+  faInstagram,
+  faLinkedin,
+} from '@fortawesome/free-brands-svg-icons'
 
-export default {
+const profile = {
   profileImageUrl:
     'https://media-exp1.licdn.com/dms/image/C5603AQGKKZ_eir17GA/profile-displayphoto-shrink_200_200/0/1516804819724?e=1670457600&v=beta&t=DT2Sp8KTwT_uAHQ9l89ZojXUbsxKS_vyk6aaoqNQwLU',
   aboutMe: [
@@ -33,3 +37,5 @@ export default {
   education: [],
   jobs: [],
 }
+
+export default profile
