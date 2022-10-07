@@ -35,13 +35,14 @@ export default function Resume() {
               </a>
             ))}
         </SocialIconsWrapper>
+        {Boolean(resumeData.aboutMe.length) &&
+          resumeData.aboutMe.map((about) => <Typography>{about}</Typography>)}
+
+        {Boolean(resumeData.skills.length) &&
+          resumeData.skills.map((skill) => <Typography>{skill}</Typography>)}
       </ContentWrapper>
 
-      {Boolean(resumeData.aboutMe.length) &&
-        resumeData.aboutMe.map((about) => <Typography>{about}</Typography>)}
 
-      {Boolean(resumeData.skills.length) &&
-        resumeData.skills.map((skill) => <Typography>{skill}</Typography>)}
     </PageWrapper>
   )
 }
