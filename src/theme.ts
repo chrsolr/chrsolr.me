@@ -37,6 +37,15 @@ export const GlobalStyles = createGlobalStyle`
   }
 `
 
+export type FontSizes = 'xxl' | 'xl' | 'lg' | 'md' | 'sm' | 'xs'
+export type FontWeight =
+  | 'thin'
+  | 'light'
+  | 'regular'
+  | 'medium'
+  | 'semibold'
+  | 'bold'
+
 const lightTheme: DefaultTheme['colors'] = {
   foreground: '#181818',
   background: '#fafafa',

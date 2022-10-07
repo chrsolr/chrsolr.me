@@ -1,10 +1,12 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import PageWrapper from '../shared/components/PageWrapper'
 import Typography from '../shared/components/Typography'
 import Image from '../shared/components/Image'
 import styled from 'styled-components'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import resumeData from '../data/resume'
+import { LayoutContext } from '../contexts/LayoutContextProvider'
+import { getTheme } from '../theme'
 
 const ContentWrapper = styled.div`
   display: flex;
@@ -22,11 +24,21 @@ const SocialIconsWrapper = styled.div`
 `
 
 export default function Resume() {
+  const { theme } = useContext(LayoutContext)
+  const { accent } = getTheme(theme).colors
   const avatarUrl = resumeData.profileImageUrl
   return (
     <PageWrapper>
       <ContentWrapper>
         <Image src={avatarUrl} isRounded />
+        <div style={{ display: 'flex', textTransform: 'uppercase' }}>
+          <Typography weight="thin" size="xxl">
+            Christian
+          </Typography>
+          <Typography weight="semibold" size="xxl" color={accent}>
+            Soler
+          </Typography>
+        </div>
         <SocialIconsWrapper>
           {Boolean(resumeData.socials.length) &&
             resumeData.socials.map((social) => (

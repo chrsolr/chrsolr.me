@@ -3,8 +3,9 @@ import PageWrapper from '../shared/components/PageWrapper'
 import { BlogItemSummary, getBlogSummaries } from '../services/blogServices'
 import { Link } from 'react-router-dom'
 import Image from '../shared/components/Image'
-import Typography, { FontSizes } from '../shared/components/Typography'
+import Typography from '../shared/components/Typography'
 import styled from 'styled-components'
+import { FontSizes } from '../theme'
 
 interface BlogItemProps {
   item: BlogItemSummary
