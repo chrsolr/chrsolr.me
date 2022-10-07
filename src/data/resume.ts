@@ -2,7 +2,9 @@ import {
   faGithub,
   faInstagram,
   faLinkedin,
+  faCodepen,
 } from '@fortawesome/free-brands-svg-icons'
+import { faCode } from '@fortawesome/free-solid-svg-icons'
 
 const profile = {
   profileImageUrl:
@@ -17,6 +19,14 @@ const profile = {
       url: 'https://github.com/chrsolr/',
     },
     {
+      icon: faCodepen,
+      url: 'https://codepen.io/chrsolr',
+    },
+    {
+      icon: faCode,
+      url: 'https://codesandbox.io/u/chrsolr',
+    },
+    {
       icon: faLinkedin,
       url: 'https://www.linkedin.com/in/christiansoler/',
     },
@@ -27,10 +37,12 @@ const profile = {
   ],
   skills: [
     'JavaScript',
+    'TypeScript',
+    'NodeJS',
+    'ReactJs',
     'Kubernetes',
     'Docker',
-    'NodeJS',
-    'TypeScript',
+    'Styled-Components',
     'Github',
     'Bitbucket',
   ],

@@ -55,6 +55,7 @@ declare global {
   namespace NodeJS {
     interface ProcessEnv {
       REACT_APP_QUOTE_URL: string
+      PORT: number
     }
   }
 }

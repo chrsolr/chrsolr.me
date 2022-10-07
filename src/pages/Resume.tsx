@@ -31,12 +31,10 @@ export default function Resume() {
     <PageWrapper>
       <ContentWrapper>
         <Image src={avatarUrl} isRounded />
-        <div style={{ display: 'flex', textTransform: 'uppercase' }}>
-          <Typography weight="thin" size="xxl">
-            Christian
-          </Typography>
+        <div style={{ display: 'flex' }}>
+          <Typography size="xxl">christian</Typography>
           <Typography weight="semibold" size="xxl" color={accent}>
-            Soler
+            soler
           </Typography>
         </div>
         <SocialIconsWrapper>
@@ -48,7 +46,9 @@ export default function Resume() {
             ))}
         </SocialIconsWrapper>
         {Boolean(resumeData.aboutMe.length) &&
-          resumeData.aboutMe.map((about) => <Typography>{about}</Typography>)}
+          resumeData.aboutMe.map((about) => (
+            <Typography style={{ textIndent: '2rem' }}>{about}</Typography>
+          ))}
 
         {Boolean(resumeData.skills.length) &&
           resumeData.skills.map((skill) => <Typography>{skill}</Typography>)}
