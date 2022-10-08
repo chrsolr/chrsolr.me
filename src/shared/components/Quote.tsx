@@ -57,6 +57,7 @@ const StyledWrapper = styled.div`
 const StyledAuthor = styled(Typography)<{ onClick?: () => void }>`
   font-size: 7rem;
   font-weight: ${(props) => props.theme.typography.fontWeights.thin};
+  margin-bottom: 0;
 
   &:hover {
     cursor: pointer;
@@ -65,7 +66,8 @@ const StyledAuthor = styled(Typography)<{ onClick?: () => void }>`
 
 const StyledQuote = styled(Typography)<{ onClick?: () => void }>`
   font-size: 1.7rem;
-  font-weight: ${(props) => props.theme.typography.fontWeights.thin};
+  font-weight: ${(props) => props.theme.typography.fontWeights.thin};\
+  margin: 0;
 
   &:hover {
     cursor: pointer;
@@ -83,7 +85,11 @@ export default function Quote({ author, content, onClick }: Props) {
       <StyledAuthor onClick={onClick}>{author}</StyledAuthor>
       <StyledQuote onClick={onClick}>{content}</StyledQuote>
       <ProgressBar progress={65} />
-      <StyledPermalink href={process.env.REACT_APP_QUOTE_URL} target="_blank" rel="noreferrer">
+      <StyledPermalink
+        href={process.env.REACT_APP_QUOTE_URL}
+        target="_blank"
+        rel="noreferrer"
+      >
         - source
       </StyledPermalink>
     </StyledWrapper>

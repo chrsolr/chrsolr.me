@@ -8,6 +8,7 @@ const StyledProgressBar = styled.div<{ progress: number }>`
   width: 100%;
   height: 0.3rem;
   margin-bottom: 1rem;
+  margin-top: 1rem;
   overflow: hidden;
 
   div {

@@ -4,7 +4,6 @@ import {
   faLinkedin,
   faCodepen,
 } from '@fortawesome/free-brands-svg-icons'
-import { faCode } from '@fortawesome/free-solid-svg-icons'
 
 const profile = {
   profileImageUrl:
@@ -21,10 +20,6 @@ const profile = {
     {
       icon: faCodepen,
       url: 'https://codepen.io/chrsolr',
-    },
-    {
-      icon: faCode,
-      url: 'https://codesandbox.io/u/chrsolr',
     },
     {
       icon: faLinkedin,
