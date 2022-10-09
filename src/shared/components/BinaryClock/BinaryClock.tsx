@@ -23,6 +23,14 @@ const Circle = styled.div<{ isActive?: boolean }>`
   margin: 0.5rem;
 `
 
+function digitsToArray(digit: number) {
+  const digits = digit
+    .toString()
+    .split('')
+    .map((n) => +n)
+  return digits.length > 1 ? digits : [0, ...digits]
+}
+
 function BinaryClockGroup({ activeIndexes }: Props) {
   const actives = [false, false, false, false]
   activeIndexes
@@ -48,21 +56,9 @@ export default function BinaryClock() {
   setInterval(() => {
     const date = new Date()
     const currentTime = {
-      hours: date
-        .getHours()
-        .toString()
-        .split('')
-        ?.map((v) => +v),
-      minutes: date
-        .getMinutes()
-        .toString()
-        .split('')
-        ?.map((v) => +v),
-      seconds: date
-        .getSeconds()
-        .toString()
-        .split('')
-        ?.map((v) => +v),
+      hours: digitsToArray(date.getHours()),
+      minutes: digitsToArray(date.getMinutes()),
+      seconds: digitsToArray(date.getSeconds()),
     }
     setTime(currentTime as any)
   }, 1000)
@@ -78,10 +74,12 @@ export default function BinaryClock() {
         <BinaryClockGroup activeIndexes={time.minutes[0]} />
         <BinaryClockGroup activeIndexes={time.minutes[1]} />
 
-        <BinaryClockGroup activeIndexes={time.seconds[0]} />
+        <BinaryClockGroup
+          activeIndexes={time.seconds.length > 0 ? time.seconds[0] : 0}
+        />
         <BinaryClockGroup activeIndexes={time.seconds[1]} />
       </ContentWrapper>
-      <Typography>
+      <Typography size="xxl">
         {time.hours[0]}
         {time.hours[1]} : {time.minutes[0]}
         {time.minutes[1]} : {time.seconds[0]}
