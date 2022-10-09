@@ -9,6 +9,7 @@ import Sidebar from './shared/components/Sidebar'
 import { LayoutContext } from './contexts/LayoutContextProvider'
 import BlogDetails from './pages/BlogDetails'
 import Resume from './pages/Resume'
+import WorkInProgress from './pages/wip'
 
 function NavigationLayout() {
   const { isMenuOpen, toggleMenu } = useContext(LayoutContext)
@@ -29,6 +30,7 @@ function App() {
         <Route path="/" element={<NavigationLayout />}>
           <Route index element={<Home />} />
           <Route path="resume" element={<Resume />} />
+          <Route path="work-in-progress" element={<WorkInProgress />} />
           <Route path="blog" element={<Blog />} />
           <Route path="blog/:slug" element={<BlogDetails />} />
           <Route path="*" element={<NoMatch />} />

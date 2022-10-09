@@ -141,6 +141,9 @@ export default function Sidebar({ isOpen, onClose }: Props) {
       <MenuLink to="/resume" onClick={onClose}>
         Resume
       </MenuLink>
+      <MenuLink to="/work-in-progress" onClick={onClose}>
+        Work in Progress
+      </MenuLink>
     </SidebarWrapper>
   )
 }
