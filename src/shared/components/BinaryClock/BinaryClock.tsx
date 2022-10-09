@@ -74,9 +74,7 @@ export default function BinaryClock() {
         <BinaryClockGroup activeIndexes={time.minutes[0]} />
         <BinaryClockGroup activeIndexes={time.minutes[1]} />
 
-        <BinaryClockGroup
-          activeIndexes={time.seconds.length > 0 ? time.seconds[0] : 0}
-        />
+        <BinaryClockGroup activeIndexes={time.seconds[0]} />
         <BinaryClockGroup activeIndexes={time.seconds[1]} />
       </ContentWrapper>
       <Typography size="xxl">
