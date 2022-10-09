@@ -9,7 +9,7 @@ import Sidebar from './shared/components/Sidebar'
 import { LayoutContext } from './contexts/LayoutContextProvider'
 import BlogDetails from './pages/BlogDetails'
 import Resume from './pages/Resume'
-import WorkInProgress from './pages/wip'
+import WorkInProgress from './pages/WorkInProgress'
 
 function NavigationLayout() {
   const { isMenuOpen, toggleMenu } = useContext(LayoutContext)
