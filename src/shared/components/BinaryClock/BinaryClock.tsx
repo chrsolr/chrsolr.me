@@ -11,15 +11,15 @@ const ContentWrapper = styled.div`
 
   > div:nth-child(2),
   > div:nth-child(4) {
-    margin-right: 2rem;
+    margin-right: 1rem;
   }
 `
 const Circle = styled.div<{ isActive?: boolean }>`
   background-color: ${(props) =>
     props.isActive ? props.theme.colors.accent : props.theme.colors.foreground};
-  border-radius: 50%;
-  width: 50px;
-  height: 50px;
+  border-radius: ${(props) => props.theme.dimensions.borderRadius};
+  width: 5vw;
+  height: 5vw;
   margin: 0.5rem;
 `
 

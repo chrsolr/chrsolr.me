@@ -8,7 +8,9 @@ import ProgressBar from '../shared/components/ProgressBar'
 export default function WorkInProgress() {
   return (
     <PageWrapper>
-      <Typography size="xxl">Work In Progress</Typography>
+      <Typography size="xxl" style={{ textAlign: 'center' }}>
+        Work In Progress
+      </Typography>
       <ProgressBar progress={95} />
       <div
         style={{
