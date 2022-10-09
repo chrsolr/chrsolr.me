@@ -15,7 +15,7 @@ function NavigationLayout() {
   const { isMenuOpen, toggleMenu } = useContext(LayoutContext)
   return (
     <>
-      <TopBar headerTitle={['chr', 'solr', '.io']} onMenuClick={toggleMenu} />
+      <TopBar headerTitle={['chr', 'solr', '.me']} onMenuClick={toggleMenu} />
       <Sidebar isOpen={isMenuOpen} onClose={toggleMenu} />
     </>
   )

@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
 import Typography from '../Typography'
 
@@ -84,15 +84,19 @@ export default function BinaryClock() {
     seconds: [0, 0],
   })
 
-  setInterval(() => {
-    const date = new Date()
-    const currentTime = {
-      hours: splitDigitToTuple(date.getHours()),
-      minutes: splitDigitToTuple(date.getMinutes()),
-      seconds: splitDigitToTuple(date.getSeconds()),
-    }
-    setTimeAsDigits(currentTime)
-  }, 1000)
+  useEffect(() => {
+    const interval = setInterval(() => {
+      const date = new Date()
+      const currentTime = {
+        hours: splitDigitToTuple(date.getHours()),
+        minutes: splitDigitToTuple(date.getMinutes()),
+        seconds: splitDigitToTuple(date.getSeconds()),
+      }
+      setTimeAsDigits(currentTime)
+    }, 1000)
+
+    return () => clearInterval(interval)
+  }, [])
 
   return (
     <MainContent>
