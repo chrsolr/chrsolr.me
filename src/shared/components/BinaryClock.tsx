@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
-import Typography from '../Typography'
-import { useInterval } from '../../../hooks/useInterval'
+import Typography from './Typography'
+import { useInterval } from '../../hooks/useInterval'
 
 type BinaryClockTime = {
   hours: readonly [number, number]

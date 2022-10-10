@@ -1,6 +1,6 @@
 import React from 'react'
 import PageWrapper from '../shared/components/PageWrapper'
-import BinaryClock from '../shared/components/BinaryClock/BinaryClock'
+import BinaryClock from '../shared/components/BinaryClock'
 import Typography from '../shared/components/Typography'
 
 import ProgressBar from '../shared/components/ProgressBar'
