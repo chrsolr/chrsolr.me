@@ -59,9 +59,9 @@ function splitDigitToTuple(digit: number): [number, number] {
   return [isSingleDigit ? 0 : split[0], isSingleDigit ? split[0] : split[1]]
 }
 
-// TODO: CLEAN-UP
 function BinaryClockGroup({ activeIndexes }: Props) {
   const defaultState = [false, false, false, false]
+
   activeIndexes
     ?.toString(2)
     .split('')
