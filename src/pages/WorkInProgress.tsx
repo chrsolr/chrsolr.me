@@ -9,7 +9,7 @@ export default function WorkInProgress() {
   return (
     <PageWrapper>
       <Typography size="xxl" style={{ textAlign: 'center' }}>
-        Work In Progress
+        Binary Clock
       </Typography>
       <ProgressBar progress={95} />
       <div
