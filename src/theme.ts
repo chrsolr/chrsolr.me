@@ -47,13 +47,13 @@ export type FontWeight =
   | 'bold'
 
 const lightTheme: DefaultTheme['colors'] = {
-  foreground: '#181818',
+  foreground: '#002254FF',
   background: '#CBDCF7FF',
   accent: '#84ADEAFF',
 }
 
 const darkTheme: DefaultTheme['colors'] = {
-  foreground: '#FAFAFA',
+  foreground: '#CBDCF7FF',
   background: '#002254FF',
   accent: '#84ADEAFF',
 }
