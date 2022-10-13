@@ -70,9 +70,16 @@ export default function Resume() {
           {Boolean(resumeData.jobs.length) &&
             resumeData.jobs.map((job) => (
               <div style={{ marginRight: '1rem' }}>
-                <Typography>{job.companyName}</Typography>
+                <Typography weight="semibold">
+                  {job.companyName} - ({job.title})
+                </Typography>
                 <Typography>
-                  Technologies: {job.technologies.join(' ')}
+                  <i>
+                    {job.startDate}-{job.endDate}
+                  </i>
+                </Typography>
+                <Typography>
+                  Technologies: {job.technologies.join(', ')}
                 </Typography>
                 <ul>
                   {job.responsibilities.map((responsibility) => (

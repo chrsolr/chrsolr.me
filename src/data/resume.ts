@@ -57,8 +57,7 @@ const profile = {
   ],
   jobs: [
     {
-      companyName:
-        'Innowatts Inc. - (Full Stack Developer) February 2018-Present',
+      companyName: 'Innowatts Inc',
       title: 'Full Stack Developer',
       startDate: 'February 2018',
       endDate: 'Present',
@@ -82,8 +81,7 @@ const profile = {
       ],
     },
     {
-      companyName:
-        'Preventice Solutions - (Jr. Software Engineer) August 2015-June 2017',
+      companyName: 'Preventice Solutions',
       title: 'Jr. Software Engineer',
       startDate: 'August 2015',
       endDate: 'June 2017',
@@ -105,8 +103,7 @@ const profile = {
       ],
     },
     {
-      companyName:
-        'Coder Camps - (Jr. Web Developer/Teacher Assistants) September 2014-March 2015',
+      companyName: 'Coder Camps',
       title: 'Jr. Web Developer/Teacher Assistants',
       startDate: 'September 2014',
       endDate: 'March 2015',
