@@ -4,9 +4,9 @@ import Typography from '../shared/components/Typography'
 import Image from '../shared/components/Image'
 import styled from 'styled-components'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import resumeData from '../data/resume'
 import { LayoutContext } from '../contexts/LayoutContextProvider'
 import { getTheme } from '../theme'
+import resumeData from '../data/resume'
 
 const ContentWrapper = styled.div`
   display: flex;
@@ -45,13 +45,43 @@ export default function Resume() {
               </a>
             ))}
         </SocialIconsWrapper>
+
         {Boolean(resumeData.aboutMe.length) &&
           resumeData.aboutMe.map((about) => (
             <Typography style={{ textIndent: '2rem' }}>{about}</Typography>
           ))}
 
-        {Boolean(resumeData.skills.length) &&
-          resumeData.skills.map((skill) => <Typography>{skill}</Typography>)}
+        <div
+          style={{
+            display: 'flex',
+            flexWrap: 'wrap',
+            justifyContent: 'center',
+          }}
+        >
+          {Boolean(resumeData.skills.length) &&
+            resumeData.skills.map((skill) => (
+              <div style={{ marginRight: '1rem' }}>
+                <Typography>{skill}</Typography>
+              </div>
+            ))}
+        </div>
+
+        <div style={{ display: 'flex', flexDirection: 'column' }}>
+          {Boolean(resumeData.jobs.length) &&
+            resumeData.jobs.map((job) => (
+              <div style={{ marginRight: '1rem' }}>
+                <Typography>{job.companyName}</Typography>
+                <Typography>
+                  Technologies: {job.technologies.join(' ')}
+                </Typography>
+                <ul>
+                  {job.responsibilities.map((responsibility) => (
+                    <li>{responsibility}</li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+        </div>
       </ContentWrapper>
     </PageWrapper>
   )
