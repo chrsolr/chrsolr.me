@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import { Link, LinkProps, useMatch, useResolvedPath } from 'react-router-dom'
 import MaterialSymbolsIcon from './MaterialSymbolsIcon'
 import Typography from './Typography'
+import Divider from './Divider'
 
 interface Props {
   isOpen?: boolean
@@ -55,13 +56,6 @@ const SidebarHeader = styled.header`
   display: flex;
   justify-content: center;
   align-items: center;
-`
-
-const Divider = styled.div`
-  border-radius: 0.3125rem;
-  background-color: ${(props) => props.theme.colors.accent};
-  height: 5px;
-  width: 1rem;
 `
 
 const MenuItemLinkWrapper = styled.div<{ isActive: boolean }>`
