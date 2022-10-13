@@ -56,7 +56,7 @@ const StyledWrapper = styled.div`
 
 const StyledAuthor = styled(Typography)<{ onClick?: () => void }>`
   font-size: 7rem;
-  font-weight: ${(props) => props.theme.typography.fontWeights.thin};
+  font-weight: ${(props) => props.theme.typography.fontWeights.light};
   margin-bottom: 0;
 
   &:hover {
@@ -66,7 +66,7 @@ const StyledAuthor = styled(Typography)<{ onClick?: () => void }>`
 
 const StyledQuote = styled(Typography)<{ onClick?: () => void }>`
   font-size: 1.7rem;
-  font-weight: ${(props) => props.theme.typography.fontWeights.thin};\
+  font-weight: ${(props) => props.theme.typography.fontWeights.light};
   margin: 0;
 
   &:hover {
