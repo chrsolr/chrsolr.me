@@ -8,11 +8,9 @@ import { LayoutContext } from '../contexts/LayoutContextProvider'
 import { getTheme } from '../theme'
 import resumeData from '../data/resume'
 
-const ContentWrapper = styled.div`
+const ContentWrapper = styled(PageWrapper)`
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
 `
 
 const SocialIconsWrapper = styled.div`
@@ -28,9 +26,16 @@ export default function Resume() {
   const { accent } = getTheme(theme).colors
   const avatarUrl = resumeData.profileImageUrl
   return (
-    <PageWrapper>
-      <ContentWrapper>
-        <Image src={avatarUrl} isRounded />
+    <ContentWrapper>
+      <div
+        style={{
+          display: 'flex',
+          flexDirection: 'column',
+          alignItems: 'center',
+          justifyContent: 'center',
+        }}
+      >
+        <Image src={avatarUrl} isRounded style={{ margin: 0 }} />
         <div style={{ display: 'flex' }}>
           <Typography size="xxl">christian</Typography>
           <Typography weight="semibold" size="xxl" color={accent}>
@@ -45,51 +50,36 @@ export default function Resume() {
               </a>
             ))}
         </SocialIconsWrapper>
+      </div>
 
-        {Boolean(resumeData.aboutMe.length) &&
-          resumeData.aboutMe.map((about) => (
-            <Typography style={{ textIndent: '2rem' }}>{about}</Typography>
+      {Boolean(resumeData.aboutMe.length) &&
+        resumeData.aboutMe.map((about) => (
+          <Typography style={{ textIndent: '2rem' }}>{about}</Typography>
+        ))}
+
+      <div style={{ display: 'flex', flexDirection: 'column' }}>
+        {Boolean(resumeData.jobs.length) &&
+          resumeData.jobs.map((job) => (
+            <div style={{ marginRight: '1rem' }}>
+              <Typography weight="semibold">
+                {job.companyName} - ({job.title})
+              </Typography>
+              <Typography>
+                <i>
+                  {job.startDate}-{job.endDate}
+                </i>
+              </Typography>
+              <Typography>
+                Technologies: {job.technologies.join(', ')}
+              </Typography>
+              <ul>
+                {job.responsibilities.map((responsibility) => (
+                  <li>{responsibility}</li>
+                ))}
+              </ul>
+            </div>
           ))}
-
-        <div
-          style={{
-            display: 'flex',
-            flexWrap: 'wrap',
-            justifyContent: 'center',
-          }}
-        >
-          {Boolean(resumeData.skills.length) &&
-            resumeData.skills.map((skill) => (
-              <div style={{ marginRight: '1rem' }}>
-                <Typography>{skill}</Typography>
-              </div>
-            ))}
-        </div>
-
-        <div style={{ display: 'flex', flexDirection: 'column' }}>
-          {Boolean(resumeData.jobs.length) &&
-            resumeData.jobs.map((job) => (
-              <div style={{ marginRight: '1rem' }}>
-                <Typography weight="semibold">
-                  {job.companyName} - ({job.title})
-                </Typography>
-                <Typography>
-                  <i>
-                    {job.startDate}-{job.endDate}
-                  </i>
-                </Typography>
-                <Typography>
-                  Technologies: {job.technologies.join(', ')}
-                </Typography>
-                <ul>
-                  {job.responsibilities.map((responsibility) => (
-                    <li>{responsibility}</li>
-                  ))}
-                </ul>
-              </div>
-            ))}
-        </div>
-      </ContentWrapper>
-    </PageWrapper>
+      </div>
+    </ContentWrapper>
   )
 }
