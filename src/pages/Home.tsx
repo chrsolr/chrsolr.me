@@ -21,12 +21,7 @@ export default function Home() {
   return (
     <Wrapper>
       {quote && (
-        <Quote
-          author={quote.author}
-          content={quote.content}
-          progress={50}
-          onClick={getQuote}
-        />
+        <Quote author={quote.author} content={quote.content} progress={50} />
       )}
     </Wrapper>
   )

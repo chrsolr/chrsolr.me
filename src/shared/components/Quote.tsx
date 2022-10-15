@@ -61,7 +61,7 @@ const StyledAuthor = styled(Typography)<{ onClick?: () => void }>`
   margin-bottom: 0;
 
   &:hover {
-    cursor: pointer;
+    cursor: ${(props) => (props.onClick ? 'pointer' : 'auto')};
   }
 `
 
@@ -71,7 +71,7 @@ const StyledQuote = styled(Typography)<{ onClick?: () => void }>`
   margin: 0;
 
   &:hover {
-    cursor: pointer;
+    cursor: ${(props) => (props.onClick ? 'pointer' : 'auto')};
   }
 `
 
