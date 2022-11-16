@@ -1,12 +1,14 @@
 import React from 'react'
 import styled from 'styled-components'
 import ProgressBar from './ProgressBar'
+import Tag from './Tag'
 import Typography from './Typography'
 
 export interface Props {
   author: string
   content: string
   progress: number
+  tags: string[],
   onClick?: () => void
 }
 
@@ -80,19 +82,25 @@ const StyledPermalink = styled.a`
   font-size: ${(props) => props.theme.typography.fontSizes.md};
 `
 
-export default function Quote({ author, content, onClick, progress }: Props) {
+export default function Quote({author, content, onClick, tags, progress}: Props) {
   return (
     <StyledWrapper>
       <StyledAuthor onClick={onClick}>{author}</StyledAuthor>
       <StyledQuote onClick={onClick}>{content}</StyledQuote>
-      <ProgressBar progress={progress} />
-      <StyledPermalink
-        href={process.env.REACT_APP_QUOTE_URL}
-        target="_blank"
-        rel="noreferrer"
-      >
-        - source
-      </StyledPermalink>
+      <ProgressBar progress={progress}/>
+      {Boolean(tags.length) && tags.map((tag) => (
+        <StyledPermalink
+          href={`${process.env.REACT_APP_QUOTE_URL}?tags=${tag}`}
+          target="_blank"
+          rel="noreferrer"
+        >
+          <Tag
+
+          >
+            {tag}
+          </Tag>
+        </StyledPermalink>
+      ))}
     </StyledWrapper>
   )
 }

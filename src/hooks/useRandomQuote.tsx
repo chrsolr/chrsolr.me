@@ -1,30 +1,31 @@
-import { useEffect, useState } from 'react'
-import { Props as QuoteProps } from '../shared/components/Quote'
+import {useEffect, useState} from 'react'
+import {Props as QuoteProps} from '../shared/components/Quote'
 
-interface HookProps {
-  quote?: QuoteProps
-  getQuote: () => void
+type HookProps = {
+    quote?: QuoteProps
+    getQuote: () => void
+    URL: string
 }
 
 export default function useRandomQuote(): HookProps {
-  const URL = process.env.REACT_APP_QUOTE_URL
-  const [quote, setQuote] = useState<QuoteProps>()
+    const URL = 'https://api.quotable.io/random'
+    const [quote, setQuote] = useState<QuoteProps>()
 
-  const getQuote = async () => {
-    try {
-      const response = await (await fetch(URL)).json()
-      setQuote(response)
-    } catch (error) {
-      throw new Error('Error: Fetching Quote')
+    const getQuote = async () => {
+        try {
+            const response = await (await fetch(URL as string)).json()
+            console.log(response)
+            setQuote(response)
+        } catch (error) {
+            throw new Error('Error: Fetching Quote')
+        }
     }
-  }
 
-  useEffect(() => {
-    if (!quote) {
-      ;(async () => await getQuote())()
-    }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [quote])
+    useEffect(() => {
+        if (!quote) {
+            ;(async () => await getQuote())()
+        }
+    }, [quote])
 
-  return { quote, getQuote }
+    return {quote, getQuote, URL}
 }

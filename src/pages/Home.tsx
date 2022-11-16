@@ -14,14 +14,14 @@ const Wrapper = styled(PageWrapper)`
 `
 
 export default function Home() {
-  const { quote, getQuote } = useRandomQuote()
+  const { quote, URL, getQuote } = useRandomQuote()
 
-  useInterval(() => getQuote(), 5000)
+  useInterval(() => getQuote(), 8000)
 
   return (
     <Wrapper>
       {quote && (
-        <Quote author={quote.author} content={quote.content} progress={50} />
+        <Quote author={quote.author} content={quote.content} tags={quote.tags} progress={50} />
       )}
     </Wrapper>
   )
