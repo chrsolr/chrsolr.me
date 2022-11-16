@@ -82,25 +82,25 @@ const StyledPermalink = styled.a`
   font-size: ${(props) => props.theme.typography.fontSizes.md};
 `
 
-export default function Quote({author, content, onClick, tags, progress}: Props) {
+export default function Quote({ author, content, onClick, tags, progress }: Props) {
   return (
     <StyledWrapper>
       <StyledAuthor onClick={onClick}>{author}</StyledAuthor>
       <StyledQuote onClick={onClick}>{content}</StyledQuote>
-      <ProgressBar progress={progress}/>
+      <ProgressBar progress={progress} />
+      <div style={{ display: 'flex', justifyContent: 'center' }}>
       {Boolean(tags.length) && tags.map((tag) => (
         <StyledPermalink
           href={`${process.env.REACT_APP_QUOTE_URL}?tags=${tag}`}
-          target="_blank"
-          rel="noreferrer"
+          target='_blank'
+          rel='noreferrer'
         >
-          <Tag
-
-          >
+          <Tag>
             {tag}
           </Tag>
         </StyledPermalink>
       ))}
+      </div>
     </StyledWrapper>
   )
 }
