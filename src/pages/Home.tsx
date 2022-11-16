@@ -14,7 +14,7 @@ const Wrapper = styled(PageWrapper)`
 `
 
 export default function Home() {
-  const { quote, URL, getQuote } = useRandomQuote()
+  const { quote, getQuote } = useRandomQuote()
 
   useInterval(() => getQuote(), 8000)
 
