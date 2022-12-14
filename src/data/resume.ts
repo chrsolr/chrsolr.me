@@ -2,7 +2,7 @@ import { faCodepen, faGithub, faInstagram, faLinkedin } from '@fortawesome/free-
 
 const profile = {
   profileImageUrl:
-    'https://media-exp1.licdn.com/dms/image/C5603AQGKKZ_eir17GA/profile-displayphoto-shrink_200_200/0/1516804819724?e=1670457600&v=beta&t=DT2Sp8KTwT_uAHQ9l89ZojXUbsxKS_vyk6aaoqNQwLU',
+    'https://media.licdn.com/dms/image/C5603AQGKKZ_eir17GA/profile-displayphoto-shrink_800_800/0/1516804819724?e=1676505600&v=beta&t=wHWxRW-ydZoXnb8_jiczbxTFvowfy0NuMEIH83ErJsw',
   aboutMe: [
     'As a passionate person, I pride myself in my work and every project I take on. I am\n' +
     'self-motivated and driven by puzzles and challenges. These skills are what help me stand out as\n' +
