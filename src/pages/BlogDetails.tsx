@@ -17,6 +17,10 @@ const Wrapper = styled(PageWrapper)`
   pre > div {
     border-radius: ${(props) => props.theme.dimensions.borderRadius};
   }
+
+  h1, h2, h3, h4, h5, h6 {
+    color: ${(props) => props.theme.colors.accent};
+  }
 `
 
 export default function BlogDetails() {

@@ -19,6 +19,10 @@ const SocialIconsWrapper = styled.div`
   a {
     margin: 1rem;
   }
+
+  h1, h2, h3, h4, h5, h6 {
+    color: ${(props) => props.theme.colors.accent};
+  }
 `
 
 export default function Resume() {
@@ -61,7 +65,7 @@ export default function Resume() {
         {Boolean(resumeData.jobs.length) &&
           resumeData.jobs.map((job) => (
             <div style={{ marginRight: '1rem' }}>
-              <Typography weight="semibold">
+              <Typography weight="semibold" color="#dc4b74">
                 {job.companyName} - ({job.title})
               </Typography>
               <Typography>
