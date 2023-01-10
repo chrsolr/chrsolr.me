@@ -46,16 +46,27 @@ export type FontWeight =
   | 'semibold'
   | 'bold'
 
+/**
+ * Potential Color schema
+ *
+ * // color 1: #24174C
+ * // color 2: #3D308F
+ * // dark-text: #212529
+ * // grey: #f5f6f5
+ * // white: #fff
+ * // accent 1: #dc4b74
+ * // accent 2: #e79e37
+ */
 const lightTheme: DefaultTheme['colors'] = {
-  foreground: '#002254FF',
-  background: '#CBDCF7FF',
-  accent: '#84ADEAFF',
+  background: '#fff',
+  foreground: '#212529',
+  accent: '#dc4b74'
 }
 
 const darkTheme: DefaultTheme['colors'] = {
-  foreground: '#CBDCF7FF',
-  background: '#002254FF',
-  accent: '#84ADEAFF',
+  background: '#212529',
+  foreground: '#f5f6f5',
+  accent: '#dc4b74'
 }
 
 export function getTheme(theme: Theme): DefaultTheme {
