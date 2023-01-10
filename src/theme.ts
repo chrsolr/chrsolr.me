@@ -60,13 +60,15 @@ export type FontWeight =
 const lightTheme: DefaultTheme['colors'] = {
   background: '#fff',
   foreground: '#212529',
-  accent: '#dc4b74'
+  accent: '#dc4b74',
+  white: '#fff'
 }
 
 const darkTheme: DefaultTheme['colors'] = {
   background: '#212529',
   foreground: '#f5f6f5',
-  accent: '#dc4b74'
+  accent: '#dc4b74',
+  white: '#fff'
 }
 
 export function getTheme(theme: Theme): DefaultTheme {

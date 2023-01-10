@@ -3,7 +3,7 @@ import { darken } from 'polished'
 
 
 const Tag = styled.span`
-  color: ${(props) => props.theme.colors.foreground};
+  color: ${(props) => props.theme.colors.white};
   background-color: ${(props) => props.theme.colors.accent};
   border-radius: 2.5rem;
   padding: 0.25rem 1rem;

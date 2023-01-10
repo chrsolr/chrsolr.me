@@ -36,7 +36,8 @@ declare module 'styled-components' {
     colors: {
       foreground: string
       background: string
-      accent: string
+      accent: string,
+      white: '#fff'
     }
     typography: {
       fontSizes: FontSizes
