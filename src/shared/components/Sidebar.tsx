@@ -1,13 +1,14 @@
-import React from 'react'
+import React, { useState } from 'react'
 import styled from 'styled-components'
 import { Link, LinkProps, useMatch, useResolvedPath } from 'react-router-dom'
 import MaterialSymbolsIcon from './MaterialSymbolsIcon'
 import Typography from './Typography'
 import Divider from './Divider'
+import { darken } from 'polished'
 
 interface Props {
   isOpen?: boolean
-  onClose?: () => void
+  onClose: () => void
 }
 
 type TopBarMenuLinkProps = LinkProps & {
@@ -21,9 +22,9 @@ const SidebarWrapper = styled.aside<{ isOpen?: boolean }>`
   padding: 1rem;
   background-color: ${(props) => props.theme.colors.background};
   box-shadow: ${(props) =>
-    props.isOpen
-      ? '0 0 0.625rem rgba(0, 0, 0, 0.3)'
-      : '0 0 0.625rem rgba(0, 0, 0, 0)'};
+          props.isOpen
+                  ? '0 0 0.625rem rgba(0, 0, 0, 0.3)'
+                  : '0 0 0.625rem rgba(0, 0, 0, 0)'};
   position: fixed;
   width: 100%;
   z-index: 900;
@@ -31,9 +32,9 @@ const SidebarWrapper = styled.aside<{ isOpen?: boolean }>`
   right: ${(props) => (props.isOpen ? '0' : '-100%')};
   bottom: 0;
   transition: ${(props) =>
-    props.isOpen
-      ? 'right 250ms ease, box-shadow 250ms ease 250ms'
-      : 'right 250ms ease 250ms, box-shadow 250ms ease'};
+          props.isOpen
+                  ? 'right 250ms ease, box-shadow 250ms ease 250ms'
+                  : 'right 250ms ease 250ms, box-shadow 250ms ease'};
 
   @media ${(props) => props.theme.deviceSizes.md} {
     width: 50%;
@@ -59,7 +60,8 @@ const SidebarHeader = styled.header`
 `
 
 const MenuItemLinkWrapper = styled.div<{ isActive: boolean }>`
-  margin-top: 1rem;
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
 
   &:last-child {
     padding-right: 0;
@@ -67,9 +69,9 @@ const MenuItemLinkWrapper = styled.div<{ isActive: boolean }>`
 
   a {
     color: ${(props) =>
-      props.isActive
-        ? props.theme.colors.accent
-        : props.theme.colors.foreground};
+            props.isActive
+                    ? props.theme.colors.accent
+                    : props.theme.colors.foreground};
     text-decoration: none;
 
     &:before,
@@ -101,12 +103,17 @@ const MenuItemLinkWrapper = styled.div<{ isActive: boolean }>`
   }
 `
 
+const MenuSubLinkWrapper = styled.div`
+  background-color: ${(props) => darken(0.025, props.theme.colors.background)};
+  text-align: center;
+  width: calc(100% + 2rem);
+`
+
 function MenuLink({ children, to, isActive, ...props }: TopBarMenuLinkProps) {
   const resolved = useResolvedPath(to)
   const matched = useMatch({ path: resolved.pathname, end: true })
-
   return (
-    <MenuItemLinkWrapper isActive={isActive || !!matched}>
+    <MenuItemLinkWrapper isActive={isActive === undefined ? !!matched : isActive}>
       <Link to={to} {...props}>
         {children}
       </Link>
@@ -115,28 +122,47 @@ function MenuLink({ children, to, isActive, ...props }: TopBarMenuLinkProps) {
 }
 
 export default function Sidebar({ isOpen, onClose }: Props) {
+  const [showApps, setShowApps] = useState<Boolean>(false)
+
+  function close() {
+    setShowApps(false)
+    onClose()
+  }
+
   return (
     <SidebarWrapper isOpen={isOpen}>
       <SidebarHeader>
         <MaterialSymbolsIcon
-          iconName="close"
-          type="rounded"
-          onClick={onClose}
+          iconName='close'
+          type='rounded'
+          onClick={close}
         />
       </SidebarHeader>
-      <Typography size="xl">navigation</Typography>
+      <Typography size='xl'>navigation</Typography>
       <Divider />
-      <MenuLink to="/" onClick={onClose}>
+      <MenuLink to='/' onClick={close}>
         Home
       </MenuLink>
-      <MenuLink to="/blog" onClick={onClose}>
+      <MenuLink to='#' isActive={false} onClick={() => {
+        setShowApps(!showApps)
+      }}>
+        Apps
+      </MenuLink>
+      {showApps &&
+        <MenuSubLinkWrapper>
+          <MenuLink to='/apps/binary-clock' onClick={close}>
+            Binary Clock
+          </MenuLink>
+          <MenuLink to='/apps/work-in-progress' onClick={close}>
+            Working on
+          </MenuLink>
+        </MenuSubLinkWrapper>
+      }
+      <MenuLink to='/blog' onClick={close}>
         Blog
       </MenuLink>
-      <MenuLink to="/resume" onClick={onClose}>
+      <MenuLink to='/resume' onClick={close}>
         Resume
-      </MenuLink>
-      <MenuLink to="/work-in-progress" onClick={onClose}>
-        Work in Progress
       </MenuLink>
     </SidebarWrapper>
   )

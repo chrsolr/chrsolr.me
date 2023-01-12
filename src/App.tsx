@@ -10,6 +10,7 @@ import { LayoutContext } from './contexts/LayoutContextProvider'
 import BlogDetails from './pages/BlogDetails'
 import Resume from './pages/Resume'
 import WorkInProgress from './pages/WorkInProgress'
+import BinaryClockPage from './pages/BinaryClockPage'
 
 function NavigationLayout() {
   const { isMenuOpen, toggleMenu } = useContext(LayoutContext)
@@ -30,7 +31,8 @@ function App() {
         <Route path="/" element={<NavigationLayout />}>
           <Route index element={<Home />} />
           <Route path="resume" element={<Resume />} />
-          <Route path="work-in-progress" element={<WorkInProgress />} />
+          <Route path='apps/binary-clock' element={<BinaryClockPage />} />
+          <Route path="apps/work-in-progress" element={<WorkInProgress />} />
           <Route path="blog" element={<Blog />} />
           <Route path="blog/:slug" element={<BlogDetails />} />
           <Route path="*" element={<NoMatch />} />
