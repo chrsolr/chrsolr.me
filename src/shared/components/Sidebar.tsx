@@ -132,36 +132,36 @@ export default function Sidebar({ isOpen, onClose }: Props) {
   return (
     <SidebarWrapper isOpen={isOpen}>
       <SidebarHeader>
-        <MaterialSymbolsIcon
-          iconName='close'
-          type='rounded'
-          onClick={close}
-        />
+        <MaterialSymbolsIcon iconName="close" type="rounded" onClick={close} />
       </SidebarHeader>
-      <Typography size='xl'>navigation</Typography>
+      <Typography size="xl">navigation</Typography>
       <Divider />
-      <MenuLink to='/' onClick={close}>
+      <MenuLink to="/" onClick={close}>
         Home
       </MenuLink>
-      <MenuLink to='#' isActive={false} onClick={() => {
-        setShowApps(!showApps)
-      }}>
+      <MenuLink
+        to="#"
+        isActive={false}
+        onClick={() => {
+          setShowApps(!showApps)
+        }}
+      >
         Apps
       </MenuLink>
-      {showApps &&
+      {showApps && (
         <MenuSubLinkWrapper>
-          <MenuLink to='/apps/binary-clock' onClick={close}>
+          <MenuLink to="/apps/binary-clock" onClick={close}>
             Binary Clock
           </MenuLink>
-          <MenuLink to='/apps/work-in-progress' onClick={close}>
+          {/* <MenuLink to='/apps/work-in-progress' onClick={close}>
             Working on
-          </MenuLink>
+          </MenuLink> */}
         </MenuSubLinkWrapper>
-      }
-      <MenuLink to='/blog' onClick={close}>
+      )}
+      <MenuLink to="/blog" onClick={close}>
         Blog
       </MenuLink>
-      <MenuLink to='/resume' onClick={close}>
+      <MenuLink to="/resume" onClick={close}>
         Resume
       </MenuLink>
     </SidebarWrapper>
