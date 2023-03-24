@@ -5,6 +5,8 @@ import MaterialSymbolsIcon from './MaterialSymbolsIcon'
 import Typography from './Typography'
 import Divider from './Divider'
 import { darken } from 'polished'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import resumeData from '../../data/resume'
 
 interface Props {
   isOpen?: boolean
@@ -22,9 +24,9 @@ const SidebarWrapper = styled.aside<{ isOpen?: boolean }>`
   padding: 1rem;
   background-color: ${(props) => props.theme.colors.background};
   box-shadow: ${(props) =>
-          props.isOpen
-                  ? '0 0 0.625rem rgba(0, 0, 0, 0.3)'
-                  : '0 0 0.625rem rgba(0, 0, 0, 0)'};
+    props.isOpen
+      ? '0 0 0.625rem rgba(0, 0, 0, 0.3)'
+      : '0 0 0.625rem rgba(0, 0, 0, 0)'};
   position: fixed;
   width: 100%;
   z-index: 900;
@@ -32,9 +34,9 @@ const SidebarWrapper = styled.aside<{ isOpen?: boolean }>`
   right: ${(props) => (props.isOpen ? '0' : '-100%')};
   bottom: 0;
   transition: ${(props) =>
-          props.isOpen
-                  ? 'right 250ms ease, box-shadow 250ms ease 250ms'
-                  : 'right 250ms ease 250ms, box-shadow 250ms ease'};
+    props.isOpen
+      ? 'right 250ms ease, box-shadow 250ms ease 250ms'
+      : 'right 250ms ease 250ms, box-shadow 250ms ease'};
 
   @media ${(props) => props.theme.deviceSizes.md} {
     width: 50%;
@@ -69,9 +71,9 @@ const MenuItemLinkWrapper = styled.div<{ isActive: boolean }>`
 
   a {
     color: ${(props) =>
-            props.isActive
-                    ? props.theme.colors.accent
-                    : props.theme.colors.foreground};
+      props.isActive
+        ? props.theme.colors.accent
+        : props.theme.colors.foreground};
     text-decoration: none;
 
     &:before,
@@ -109,11 +111,32 @@ const MenuSubLinkWrapper = styled.div`
   width: calc(100% + 2rem);
 `
 
+const SocialIconsWrapper = styled.div`
+  display: flex;
+  flex: 1;
+  align-items: flex-end;
+
+  a {
+    margin: 1rem;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    color: ${(props) => props.theme.colors.accent};
+  }
+`
+
 function MenuLink({ children, to, isActive, ...props }: TopBarMenuLinkProps) {
   const resolved = useResolvedPath(to)
   const matched = useMatch({ path: resolved.pathname, end: true })
   return (
-    <MenuItemLinkWrapper isActive={isActive === undefined ? !!matched : isActive}>
+    <MenuItemLinkWrapper
+      isActive={isActive === undefined ? !!matched : isActive}
+    >
       <Link to={to} {...props}>
         {children}
       </Link>
@@ -164,6 +187,15 @@ export default function Sidebar({ isOpen, onClose }: Props) {
       <MenuLink to="/resume" onClick={close}>
         Resume
       </MenuLink>
+
+      <SocialIconsWrapper>
+        {Boolean(resumeData.socials.length) &&
+          resumeData.socials.map((social) => (
+            <a href={social.url} target="_blank" rel="noreferrer">
+              <FontAwesomeIcon icon={social.icon} size="2x" />
+            </a>
+          ))}
+      </SocialIconsWrapper>
     </SidebarWrapper>
   )
 }
