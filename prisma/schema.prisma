@@ -42,10 +42,10 @@ model BlogPosts {
 
 model Socials {
   id        String   @id @default(cuid())
-  user Users @relation(fields: [socialId], references: [id])
-  socialId String
+  user Users @relation(fields: [userId], references: [id])
+  userId String
   url String
   fontAwesomeIconName String
 
-  @@index([socialId])
+  @@index([userId])
 }

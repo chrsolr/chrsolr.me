@@ -7,8 +7,8 @@ import { api } from "~/utils/api";
 
 const Home: NextPage = () => {
   const user = useUser();
-  const { data: currentUserData } = api.user.getById.useQuery({
-    userId: "clfmp2h6t00008njwembvwm0s",
+  const { data: currentUserData } = api.users.getById.useQuery({
+    userId: "clfmxnryf00008nk0vsot29nj",
   });
   console.log(currentUserData);
 
