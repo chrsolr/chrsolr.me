@@ -7,9 +7,10 @@ import { api } from "~/utils/api";
 
 const Home: NextPage = () => {
   const user = useUser();
-
-  const { data } = api.example.getAll.useQuery();
-  console.log(data);
+  const { data: currentUserData } = api.user.getById.useQuery({
+    userId: "clfmp2h6t00008njwembvwm0s",
+  });
+  console.log(currentUserData);
 
   return (
     <>
