@@ -2,7 +2,7 @@ import { z } from "zod";
 
 import { createTRPCRouter, publicProcedure } from "~/server/api/trpc";
 
-export const userRouter = createTRPCRouter({
+export const usersRouter = createTRPCRouter({
   getById: publicProcedure
     .input(z.object({ userId: z.string() }))
     .query(({ input, ctx }) => {
@@ -10,6 +10,12 @@ export const userRouter = createTRPCRouter({
         where: { id: input.userId },
         include: {
           blogPosts: true,
+          socials: {
+            select: {
+              url: true,
+              fontAwesomeIconName: true,
+            },
+          },
         },
       });
     }),
