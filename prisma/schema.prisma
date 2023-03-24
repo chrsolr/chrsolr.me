@@ -11,9 +11,29 @@ datasource db {
   relationMode = "prisma"
 }
 
-
-model Example {
+model User {
     id        String   @id @default(cuid())
+    username  String   @db.VarChar(32)
+    email     String   @db.VarChar(64)
+    blogPost BlogPost[]
     createdAt DateTime @default(now())
     updatedAt DateTime @updatedAt
+
+    @@index([id, username, email])
+}
+
+model BlogPost {
+    id        String   @id @default(cuid())
+    author User @relation(fields: [authorId], references: [id])
+    authorId String
+    title String @db.Text
+    summary String @db.Text
+    slug String @db.Text
+    coverImageUrl String @db.Text
+    markdown String @db.Text
+    active Boolean @default(false)
+    createdAt DateTime @default(now())
+    updatedAt DateTime @updatedAt
+
+    @@index([authorId])
 }
