@@ -11,6 +11,9 @@ export const blogPostRouter = createTRPCRouter({
       });
     }),
   getAll: publicProcedure.query(({ ctx }) => {
-    return ctx.prisma.blogPost.findMany();
+    return ctx.prisma.blogPost.findMany({
+      where: { active: true },
+      orderBy: { createdAt: "desc" },
+    });
   }),
 });
