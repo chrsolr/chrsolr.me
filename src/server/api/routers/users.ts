@@ -6,14 +6,14 @@ export const userRouter = createTRPCRouter({
   getById: publicProcedure
     .input(z.object({ userId: z.string() }))
     .query(({ input, ctx }) => {
-      return ctx.prisma.user.findUnique({
+      return ctx.prisma.users.findUnique({
         where: { id: input.userId },
         include: {
-          blogPost: true,
+          blogPosts: true,
         },
       });
     }),
   getAll: publicProcedure.query(({ ctx }) => {
-    return ctx.prisma.user.findMany();
+    return ctx.prisma.users.findMany();
   }),
 });
