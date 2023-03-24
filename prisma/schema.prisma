@@ -11,20 +11,22 @@ datasource db {
   relationMode = "prisma"
 }
 
-model User {
+model Users {
     id        String   @id @default(cuid())
     username  String   @unique @db.VarChar(32)
     email     String   @unique @db.VarChar(64)
-    blogPost BlogPost[]
+    profileImageUrl String @db.Text
+    blogPosts BlogPosts[]
+    socials Socials[]
     createdAt DateTime @default(now())
     updatedAt DateTime @updatedAt
 
     @@index([id, username, email])
 }
 
-model BlogPost {
+model BlogPosts {
     id        String   @id @default(cuid())
-    author User @relation(fields: [authorId], references: [id])
+    author Users @relation(fields: [authorId], references: [id])
     authorId String
     title String @db.Text
     summary String @db.Text
@@ -36,4 +38,14 @@ model BlogPost {
     updatedAt DateTime @updatedAt
 
     @@index([authorId])
+}
+
+model Socials {
+  id        String   @id @default(cuid())
+  user Users @relation(fields: [socialId], references: [id])
+  socialId String
+  url String
+  fontAwesomeIconName String
+
+  @@index([socialId])
 }
