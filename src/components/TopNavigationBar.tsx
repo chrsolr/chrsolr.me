@@ -52,7 +52,7 @@ export const TopNavigationBar = function ({
         <BrandLink headerTitle={headerTitle} />
         <MaterialSymbolsIcon
           className="!mr-2"
-          iconName={theme === 'dark' ? 'brightness_high' : 'brightness_4'}
+          iconName={theme === 'dark' ? 'light_mode' : 'dark_mode'}
           onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
         />
         <MaterialSymbolsIcon iconName="menu" onClick={onMenuIconClick} />
