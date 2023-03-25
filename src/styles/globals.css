@@ -1,3 +1,30 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+* {
+  @apply box-border leading-normal;
+}
+
+body {
+  font-family: 'Raleway', sans-serif;
+}
+
+div#__next {
+  @apply h-full;
+}
+
+.top-navbar-shadow {
+  box-shadow: 0 0.25rem 0.625rem rgba(0, 0, 0, 0.1);
+}
+
+.sidebar-wrapper {
+  box-shadow: 0 0 0.625rem rgba(0, 0, 0, 0);
+  transition: right 250ms ease 250ms, box-shadow 250ms ease;
+}
+
+.sidebar-wrapper.open {
+  @apply right-0;
+  box-shadow: 0 0 0.625rem rgba(0, 0, 0, 0.3);
+  transition: right 250ms ease, box-shadow 250ms ease 250ms;
+}
