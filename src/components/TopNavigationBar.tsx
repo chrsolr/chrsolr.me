@@ -41,8 +41,10 @@ export const TopNavigationBar = function ({
       top-navbar-shadow 
       fixed top-0 left-0 z-10 
       flex h-[6.25rem] min-w-full
-      overflow-hidden !text-4xl 
-      font-light 
+      overflow-hidden bg-primary-light 
+      !text-4xl 
+      font-light
+    text-primary-dark
     dark:bg-primary-dark
     dark:text-primary-light"
     >
