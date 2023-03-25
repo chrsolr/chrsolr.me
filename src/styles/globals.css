@@ -28,3 +28,15 @@ div#__next {
   box-shadow: 0 0 0.625rem rgba(0, 0, 0, 0.3);
   transition: right 250ms ease, box-shadow 250ms ease 250ms;
 }
+
+.material-icon {
+  @apply text-4xl;
+  font-variation-settings: 'FILL' 0, 'wght' 200, 'GRAD' 0, 'opsz' 48;
+  user-select: none;
+}
+
+.material-icon.fill {
+  @apply text-4xl;
+  font-variation-settings: 'FILL' 1, 'wght' 200, 'GRAD' 0, 'opsz' 48;
+  user-select: none;
+}
