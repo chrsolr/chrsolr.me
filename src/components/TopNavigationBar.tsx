@@ -36,19 +36,24 @@ export const TopNavigationBar = function ({
   const { theme, setTheme } = useTheme()
 
   return (
-    <div className="top-navbar-shadow top-0 left-0 z-10 flex h-[6.25rem] min-w-full overflow-hidden text-4xl font-light dark:bg-primary-dark dark:text-primary-light">
-      <div className="container flex items-center">
+    <div
+      className="
+      top-navbar-shadow 
+      fixed top-0 left-0 z-10 
+      flex h-[6.25rem] min-w-full
+      overflow-hidden !text-4xl 
+      font-light 
+    dark:bg-primary-dark
+    dark:text-primary-light"
+    >
+      <div className="container mx-auto flex items-center">
         <BrandLink headerTitle={headerTitle} />
         <MaterialSymbolsIcon
-          className="mr-2 text-4xl"
+          className="!mr-2"
           iconName={theme === 'dark' ? 'brightness_high' : 'brightness_4'}
           onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
         />
-        <MaterialSymbolsIcon
-          className="!text-4xl"
-          iconName="menu"
-          onClick={onMenuIconClick}
-        />
+        <MaterialSymbolsIcon iconName="menu" onClick={onMenuIconClick} />
       </div>
     </div>
   )
