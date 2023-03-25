@@ -55,7 +55,11 @@ export const TopNavigationBar = function ({
           iconName={theme === 'dark' ? 'light_mode' : 'dark_mode'}
           onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
         />
-        <MaterialSymbolsIcon iconName="menu" onClick={onMenuIconClick} />
+        <MaterialSymbolsIcon
+          className="!text-4xl"
+          iconName="menu"
+          onClick={onMenuIconClick}
+        />
       </div>
     </div>
   )
