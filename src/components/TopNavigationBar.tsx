@@ -51,7 +51,7 @@ export const TopNavigationBar = function ({
       <div className="container mx-auto flex items-center">
         <BrandLink headerTitle={headerTitle} />
         <MaterialSymbolsIcon
-          className="!mr-2"
+          className="!mr-2 !text-4xl"
           iconName={theme === 'dark' ? 'light_mode' : 'dark_mode'}
           onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
         />
