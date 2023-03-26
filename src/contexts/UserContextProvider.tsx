@@ -2,22 +2,22 @@ import { useUser } from '@clerk/nextjs'
 import React, { type ReactNode } from 'react'
 import { api } from '~/utils/api'
 
-export type UserContextProps =
-  | {
-      profileImageUrl: string
-      isSignedIn: boolean
-      isLoaded: boolean
-    }
-  | undefined
+type UserContextProps = {
+  profileImageUrl: string
+  isSignedIn: boolean
+  isLoaded: boolean
+}
 
-export const UserContext = React.createContext<UserContextProps>(undefined)
+export const UserContext = React.createContext<UserContextProps>({
+  profileImageUrl: '',
+  isSignedIn: false,
+  isLoaded: false,
+})
 export const UserProvider = function ({ children }: { children: ReactNode }) {
   const user = useUser()
   const { data: currentUser } = api.users.getById.useQuery({
     userId: user.user?.id,
   })
-
-  console.log({ currentUser, user })
 
   return (
     <UserContext.Provider
