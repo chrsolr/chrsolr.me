@@ -1,11 +1,11 @@
 import React, { type ReactNode, useState } from 'react'
 
-export type LayoutContextProps = {
+type Props = {
   isMenuOpen: boolean
   toggleMenu: () => void
 }
 
-export const LayoutContext = React.createContext<LayoutContextProps>({
+export const LayoutContext = React.createContext<Props>({
   isMenuOpen: false,
   toggleMenu: () => null,
 })

@@ -11,12 +11,11 @@ import { SideBar } from '~/components/Sidebar'
 import {
   LayoutProvider,
   LayoutContext,
-  type LayoutContextProps,
 } from './../contexts/LayoutContextProvider'
+import { UserProvider } from '~/contexts/UserContextProvider'
 
 function NavigationLayout({ children }: { children: ReactNode }) {
-  const { isMenuOpen, toggleMenu } =
-    useContext<LayoutContextProps>(LayoutContext)
+  const { isMenuOpen, toggleMenu } = useContext(LayoutContext)
   return (
     <>
       <TopNavigationBar
@@ -32,13 +31,15 @@ function NavigationLayout({ children }: { children: ReactNode }) {
 const MyApp: AppType = ({ Component, pageProps }) => {
   return (
     <ClerkProvider {...pageProps}>
-      <ThemeProvider attribute="class">
-        <LayoutProvider>
-          <NavigationLayout>
-            <Component {...pageProps} />
-          </NavigationLayout>
-        </LayoutProvider>
-      </ThemeProvider>
+      <UserProvider>
+        <ThemeProvider attribute="class">
+          <LayoutProvider>
+            <NavigationLayout>
+              <Component {...pageProps} />
+            </NavigationLayout>
+          </LayoutProvider>
+        </ThemeProvider>
+      </UserProvider>
     </ClerkProvider>
   )
 }
