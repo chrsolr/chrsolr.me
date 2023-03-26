@@ -4,10 +4,14 @@ import { createTRPCRouter, publicProcedure } from '~/server/api/trpc'
 
 export const usersRouter = createTRPCRouter({
   getById: publicProcedure
-    .input(z.object({ userId: z.string(), id: z.string().optional() }))
+    .input(z.object({ userId: z.string().optional() }))
     .query(({ input, ctx }) => {
+      if (!input.userId) {
+        return {}
+      }
+
       return ctx.prisma.users.findUnique({
-        where: { id: input.userId },
+        where: { clerkUserId: input.userId },
         include: {
           blogPosts: true,
           socials: {
