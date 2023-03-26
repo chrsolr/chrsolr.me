@@ -17,7 +17,7 @@ export default function Document() {
           rel="stylesheet"
         />
       </Head>
-      <body className="darks bg-primary-light pt-[7rem] text-primary-dark dark:bg-primary-dark dark:text-primary-light">
+      <body className="darks bg-primary-light text-primary-dark dark:bg-primary-dark dark:text-primary-light">
         <Main />
         <NextScript />
       </body>
