@@ -116,7 +116,11 @@ export const SideBar = function ({ isOpen, onClose }: ComponentProps) {
         ${getOpenClassName(isOpen)}`}
     >
       <div className="flex h-[6.25rem] items-center justify-center">
-        <MaterialSymbolsIcon iconName="close" onClick={onClose} />
+        <MaterialSymbolsIcon
+          className="!text-4xl"
+          iconName="close"
+          onClick={onClose}
+        />
       </div>
 
       <Typography size="2xl" className="lowercase">
