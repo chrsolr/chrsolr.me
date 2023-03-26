@@ -1,9 +1,8 @@
 import { MaterialSymbolsIcon } from './MaterialSymbolsIcon'
 import { Typography } from './Typography'
-import { useContext, useState, type ReactNode } from 'react'
+import { useState, type ReactNode } from 'react'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
-import { UserContext } from '~/contexts/UserContextProvider'
 
 type ComponentProps = {
   isOpen: boolean
@@ -89,9 +88,6 @@ const SideBarLink = function ({
 
 export const SideBar = function ({ isOpen, onClose }: ComponentProps) {
   const [showApps, setShowApps] = useState<boolean>(false)
-  const { user } = useContext(UserContext)
-
-  console.log('------------SIDEBAR', user)
 
   function close() {
     setShowApps(false)
