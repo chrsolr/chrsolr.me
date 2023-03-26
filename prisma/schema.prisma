@@ -15,6 +15,7 @@ model Users {
     id        String   @id @default(cuid())
     username  String   @unique @db.VarChar(32)
     email     String   @unique @db.VarChar(64)
+    clerkUserId String @unique
     profileImageUrl String @db.Text
     blogPosts BlogPosts[]
     socials Socials[]
