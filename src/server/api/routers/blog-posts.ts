@@ -1,6 +1,5 @@
-import { z } from "zod";
-
-import { createTRPCRouter, publicProcedure } from "~/server/api/trpc";
+import { z } from 'zod'
+import { createTRPCRouter, publicProcedure } from '~/server/api/trpc'
 
 export const blogPostsRouter = createTRPCRouter({
   getById: publicProcedure
@@ -8,12 +7,12 @@ export const blogPostsRouter = createTRPCRouter({
     .query(({ input, ctx }) => {
       return ctx.prisma.blogPosts.findUnique({
         where: { id: input.blogPostId },
-      });
+      })
     }),
   getAll: publicProcedure.query(({ ctx }) => {
     return ctx.prisma.blogPosts.findMany({
       where: { active: true },
-      orderBy: { createdAt: "desc" },
-    });
+      orderBy: { createdAt: 'desc' },
+    })
   }),
-});
+})

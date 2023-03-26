@@ -1,10 +1,8 @@
 import { useTheme } from 'next-themes'
+import Image from 'next/image'
 import Link from 'next/link'
-import React, { useContext, useEffect, useState } from 'react'
-import {
-  type UserContextProps,
-  UserContext,
-} from '~/contexts/UserContextProvider'
+import { useContext, useEffect, useState } from 'react'
+import { UserContext } from '~/contexts/UserContextProvider'
 import { getUniqueKey } from '~/utils/helpers'
 import { MaterialSymbolsIcon } from './MaterialSymbolsIcon'
 
@@ -39,8 +37,7 @@ export const TopNavigationBar = function ({
 }: Props) {
   const [hydrated, setHydrated] = useState(false)
   const { theme, setTheme } = useTheme()
-  const { isSignedIn, isLoaded, profileImageUrl } =
-    useContext<UserContextProps>(UserContext)
+  const { isSignedIn, isLoaded, profileImageUrl } = useContext(UserContext)
 
   useEffect(() => {
     setHydrated(true)
@@ -67,11 +64,12 @@ export const TopNavigationBar = function ({
         <BrandLink headerTitle={headerTitle} />
 
         {isSignedIn && profileImageUrl && (
-          // eslint-disable-next-line @next/next/no-img-element
-          <img
+          <Image
             className="!mr-2 !h-8 !w-8 rounded-full p-1 ring-1 ring-primary-dark dark:ring-primary-light"
             src={profileImageUrl}
             alt="Rounded avatar"
+            width={32}
+            height={32}
           />
         )}
 
