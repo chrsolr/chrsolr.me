@@ -1,7 +1,3 @@
-import React from 'react'
-
-type Props = {}
-
-export const SocialMediaLink = ({}: Props) => {
+export const SocialMediaLink = () => {
   return <div>SocialMediaLink</div>
 }
