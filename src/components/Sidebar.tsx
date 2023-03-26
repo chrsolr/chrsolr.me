@@ -53,9 +53,7 @@ const SideBarLink = function ({
   const baseClassName = `
     text-xl lowercase
     font-normal mb-2
-    text-primary-dark
     hover:text-accent
-    dark:text-primary-light
     dark:hover:text-accent
     before:relative
     before:translate-x-[-15px]
