@@ -1,3 +1,6 @@
+import { MaterialSymbolsIcon } from './MaterialSymbolsIcon'
+import { Typography } from './Typography'
+
 type ComponentProps = {
   isOpen: boolean
   onClose: () => void
@@ -5,6 +8,10 @@ type ComponentProps = {
 
 function getOpenClassName(isOpen: boolean): string {
   return isOpen ? 'open' : ''
+}
+
+const SideBarLink = function ({}) {
+  return <></>
 }
 
 export const SideBar = function ({ isOpen, onClose }: ComponentProps) {
@@ -25,7 +32,19 @@ export const SideBar = function ({ isOpen, onClose }: ComponentProps) {
         xl:w-1/4
         ${getOpenClassName(isOpen)}`}
     >
-      SIDEBAR
+      <div className="flex h-[6.25rem] items-center justify-center">
+        <MaterialSymbolsIcon
+          className="!text-4xl"
+          iconName="close"
+          onClick={onClose}
+        />
+      </div>
+
+      <Typography size="3xl" className="lowercase">
+        Navigation
+      </Typography>
+
+      <div className="my-4 h-1.5 min-w-[1rem] overflow-hidden rounded-full bg-accent" />
     </div>
   )
 }
