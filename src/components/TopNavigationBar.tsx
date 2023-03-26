@@ -75,7 +75,7 @@ export const TopNavigationBar = function ({
 
         <MaterialSymbolsIcon
           className="!mr-2 !text-4xl"
-          iconName={theme === 'dark' ? 'light_mode' : 'dark_mode'}
+          iconName={theme === 'dark' ? 'brightness_high' : 'brightness_low'}
           onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
         />
         <MaterialSymbolsIcon
