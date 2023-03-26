@@ -1,8 +1,10 @@
-import { MaterialSymbolsIcon } from './MaterialSymbolsIcon'
-import { Typography } from './Typography'
-import { useState, type ReactNode } from 'react'
+import { SignInButton, SignOutButton } from '@clerk/nextjs'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
+import { useContext, useState, type ReactNode } from 'react'
+import { UserContext } from '~/contexts/UserContextProvider'
+import { MaterialSymbolsIcon } from './MaterialSymbolsIcon'
+import { Typography } from './Typography'
 
 type ComponentProps = {
   isOpen: boolean
@@ -88,6 +90,7 @@ const SideBarLink = function ({
 
 export const SideBar = function ({ isOpen, onClose }: ComponentProps) {
   const [showApps, setShowApps] = useState<boolean>(false)
+  const { isSignedIn } = useContext(UserContext)
 
   function close() {
     setShowApps(false)
@@ -148,6 +151,10 @@ export const SideBar = function ({ isOpen, onClose }: ComponentProps) {
         </SideBarLink>
         <SideBarLink to="/resume" onClick={close}>
           Resume
+        </SideBarLink>
+        <SideBarLink to="#" onClick={close}>
+          {!isSignedIn && <SignInButton mode="modal">sign in</SignInButton>}
+          {isSignedIn && <SignOutButton>sign out</SignOutButton>}
         </SideBarLink>
       </div>
     </aside>
