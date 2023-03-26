@@ -1,8 +1,9 @@
 import { MaterialSymbolsIcon } from './MaterialSymbolsIcon'
 import { Typography } from './Typography'
-import { type ReactNode } from 'react'
+import { useState, type ReactNode } from 'react'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
+import { boolean } from 'zod'
 
 type ComponentProps = {
   isOpen: boolean
@@ -14,7 +15,6 @@ function getOpenClassName(isOpen: boolean): string {
 }
 
 function getActiveClassName(isActive: boolean) {
-  console.log('-------', isActive)
   return isActive
     ? `
     text-accent
@@ -42,13 +42,15 @@ const SideBarLink = function ({
   children,
   to,
   onClick,
+  isActive,
 }: {
   children: ReactNode
   to: string
+  isActive?: boolean
   onClick?: () => void
 }) {
   const router = useRouter()
-  const baseClassName = ` 
+  const baseClassName = `
     text-xl lowercase
     font-normal mb-2
     text-primary-dark
@@ -77,7 +79,7 @@ const SideBarLink = function ({
     <Link href={to} legacyBehavior>
       <a
         className={`${baseClassName} ${getActiveClassName(
-          router.pathname === to,
+          isActive === undefined ? router.pathname === to : isActive,
         )}`}
         onClick={onClick}
       >
@@ -88,6 +90,13 @@ const SideBarLink = function ({
 }
 
 export const SideBar = function ({ isOpen, onClose }: ComponentProps) {
+  const [showApps, setShowApps] = useState<boolean>(false)
+
+  function close() {
+    setShowApps(false)
+    onClose()
+  }
+
   return (
     <aside
       className={`
@@ -115,17 +124,28 @@ export const SideBar = function ({ isOpen, onClose }: ComponentProps) {
       </Typography>
 
       <div className="my-4 h-1.5 min-w-[1rem] overflow-hidden rounded-full bg-accent" />
-      <div className="flex flex-1 flex-col items-center">
-        <SideBarLink to="/" onClick={() => null}>
+      <div className="flex min-w-full flex-1 flex-col items-center">
+        <SideBarLink to="/" onClick={close}>
           Home
         </SideBarLink>
-        <SideBarLink to="/apps" onClick={() => null}>
+        <SideBarLink
+          to="#"
+          isActive={false}
+          onClick={() => setShowApps(!showApps)}
+        >
           Apps
         </SideBarLink>
-        <SideBarLink to="/blog" onClick={() => null}>
+        {showApps && (
+          <div className="w-[calc(100%+2rem)] bg-[#f9f9f9] text-center dark:bg-[#1b1f22]">
+            <SideBarLink to="/apps/binary-clock" onClick={close}>
+              Binary Clock
+            </SideBarLink>
+          </div>
+        )}
+        <SideBarLink to="/blog" onClick={close}>
           Blog
         </SideBarLink>
-        <SideBarLink to="/resume" onClick={() => null}>
+        <SideBarLink to="/resume" onClick={close}>
           Resume
         </SideBarLink>
       </div>
