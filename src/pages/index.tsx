@@ -5,7 +5,7 @@ import { useContext } from 'react'
 import { UserContext } from '~/contexts/UserContextProvider'
 
 const Home: NextPage = () => {
-  const { user } = useContext(UserContext)
+  const { isSignedIn } = useContext(UserContext)
   return (
     <>
       <Head>
@@ -15,8 +15,8 @@ const Home: NextPage = () => {
       </Head>
       <main className="flex w-full max-w-3xl justify-center">
         <div>
-          {!user?.isSignedIn && <SignInButton />}
-          {user?.isSignedIn && <SignOutButton />}
+          {!isSignedIn && <SignInButton />}
+          {isSignedIn && <SignOutButton />}
         </div>
       </main>
     </>

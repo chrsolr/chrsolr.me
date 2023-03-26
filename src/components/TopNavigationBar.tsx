@@ -1,6 +1,10 @@
 import { useTheme } from 'next-themes'
 import Link from 'next/link'
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
+import {
+  type UserContextProps,
+  UserContext,
+} from '~/contexts/UserContextProvider'
 import { getUniqueKey } from '~/utils/helpers'
 import { MaterialSymbolsIcon } from './MaterialSymbolsIcon'
 
@@ -35,12 +39,14 @@ export const TopNavigationBar = function ({
 }: Props) {
   const [hydrated, setHydrated] = useState(false)
   const { theme, setTheme } = useTheme()
+  const { isSignedIn, isLoaded, profileImageUrl } =
+    useContext<UserContextProps>(UserContext)
 
   useEffect(() => {
     setHydrated(true)
   }, [])
 
-  if (!hydrated) {
+  if (!hydrated && !isLoaded) {
     return null
   }
 
@@ -59,6 +65,16 @@ export const TopNavigationBar = function ({
     >
       <div className="container mx-auto flex items-center">
         <BrandLink headerTitle={headerTitle} />
+
+        {isSignedIn && profileImageUrl && (
+          // eslint-disable-next-line @next/next/no-img-element
+          <img
+            className="!mr-2 !h-8 !w-8 rounded-full p-1 ring-1 ring-primary-dark dark:ring-primary-light"
+            src={profileImageUrl}
+            alt="Rounded avatar"
+          />
+        )}
+
         <MaterialSymbolsIcon
           className="!mr-2 !text-4xl"
           iconName={theme === 'dark' ? 'light_mode' : 'dark_mode'}

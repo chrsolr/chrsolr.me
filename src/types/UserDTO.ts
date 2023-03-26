@@ -5,14 +5,11 @@ export type UserDTO = {
   profileImageUrl: string
   createdAt: Date
   updatedAt: Date
-  blogPosts: BlogPost[]
-  socials: Social[]
-  isLoaded: boolean
-  isSignedIn: boolean
-  user: unknown
+  blogPosts: BlogPostDTO[]
+  socials: SocialDTO[]
 }
 
-export type BlogPost = {
+export type BlogPostDTO = {
   id: string
   authorId: string
   title: string
@@ -25,7 +22,7 @@ export type BlogPost = {
   updatedAt: Date
 }
 
-export type Social = {
+export type SocialDTO = {
   url: string
   fontAwesomeIconName: string
 }
