@@ -1,10 +1,10 @@
-import { z } from "zod";
+import { z } from 'zod'
 
-import { createTRPCRouter, publicProcedure } from "~/server/api/trpc";
+import { createTRPCRouter, publicProcedure } from '~/server/api/trpc'
 
 export const usersRouter = createTRPCRouter({
   getById: publicProcedure
-    .input(z.object({ userId: z.string() }))
+    .input(z.object({ userId: z.string(), id: z.string().optional() }))
     .query(({ input, ctx }) => {
       return ctx.prisma.users.findUnique({
         where: { id: input.userId },
@@ -17,9 +17,9 @@ export const usersRouter = createTRPCRouter({
             },
           },
         },
-      });
+      })
     }),
   getAll: publicProcedure.query(({ ctx }) => {
-    return ctx.prisma.users.findMany();
+    return ctx.prisma.users.findMany()
   }),
-});
+})
