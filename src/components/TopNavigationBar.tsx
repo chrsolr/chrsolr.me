@@ -1,6 +1,6 @@
 import { useTheme } from 'next-themes'
 import Link from 'next/link'
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { getUniqueKey } from '~/utils/helpers'
 import { MaterialSymbolsIcon } from './MaterialSymbolsIcon'
 
@@ -33,7 +33,16 @@ export const TopNavigationBar = function ({
   headerTitle,
   onMenuIconClick,
 }: Props) {
+  const [hydrated, setHydrated] = useState(false)
   const { theme, setTheme } = useTheme()
+
+  useEffect(() => {
+    setHydrated(true)
+  }, [])
+
+  if (!hydrated) {
+    return null
+  }
 
   return (
     <div

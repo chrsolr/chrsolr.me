@@ -7,14 +7,16 @@ import { ClerkProvider } from '@clerk/nextjs'
 import React, { type ReactNode } from 'react'
 import { ThemeProvider } from 'next-themes'
 import { TopNavigationBar } from '~/components/TopNavigationBar'
+import { SideBar } from '~/components/Sidebar'
 
 function NavigationLayout({ children }: { children: ReactNode }) {
   return (
     <>
       <TopNavigationBar
         headerTitle={['chr', 'solr', '.me']}
-        onMenuIconClick={() => 0}
+        onMenuIconClick={() => null}
       />
+      <SideBar isOpen onClose={() => null} />
       {children}
     </>
   )
