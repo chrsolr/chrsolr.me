@@ -4,19 +4,26 @@ import { api } from '~/utils/api'
 
 import '~/styles/globals.css'
 import { ClerkProvider } from '@clerk/nextjs'
-import React, { type ReactNode } from 'react'
+import React, { useContext, type ReactNode } from 'react'
 import { ThemeProvider } from 'next-themes'
 import { TopNavigationBar } from '~/components/TopNavigationBar'
 import { SideBar } from '~/components/Sidebar'
+import {
+  LayoutProvider,
+  LayoutContext,
+  type LayoutContextProps,
+} from './../contexts/LayoutContextProvider'
 
 function NavigationLayout({ children }: { children: ReactNode }) {
+  const { isMenuOpen, toggleMenu } =
+    useContext<LayoutContextProps>(LayoutContext)
   return (
     <>
       <TopNavigationBar
         headerTitle={['chr', 'solr', '.me']}
-        onMenuIconClick={() => null}
+        onMenuIconClick={toggleMenu}
       />
-      <SideBar isOpen onClose={() => null} />
+      <SideBar isOpen={isMenuOpen} onClose={toggleMenu} />
       {children}
     </>
   )
@@ -26,9 +33,11 @@ const MyApp: AppType = ({ Component, pageProps }) => {
   return (
     <ClerkProvider {...pageProps}>
       <ThemeProvider attribute="class">
-        <NavigationLayout>
-          <Component {...pageProps} />
-        </NavigationLayout>
+        <LayoutProvider>
+          <NavigationLayout>
+            <Component {...pageProps} />
+          </NavigationLayout>
+        </LayoutProvider>
       </ThemeProvider>
     </ClerkProvider>
   )
