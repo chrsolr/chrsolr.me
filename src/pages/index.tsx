@@ -2,10 +2,13 @@ import { type NextPage } from 'next'
 import Head from 'next/head'
 import { PageWrapper } from '~/components/PageWrapper'
 import { Quote } from '~/components/Quote'
+import { useInterval } from '~/hooks/useInterval'
 import { useRandomQuote } from '~/hooks/useRandomQuote'
 
 const Home: NextPage = () => {
   const { quote, URL, getQuote } = useRandomQuote()
+  // eslint-disable-next-line @typescript-eslint/no-misused-promises
+  useInterval(() => getQuote(), 10000)
 
   return (
     <>

@@ -22,7 +22,7 @@ export const useRandomQuote = (): HookReturnValue => {
 
   useEffect(() => {
     if (!quote) {
-      void getQuote()
+      void (async () => getQuote())()
     }
   }, [quote])
 
