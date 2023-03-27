@@ -20,7 +20,7 @@ export const Quote = ({
     <div className="flex flex-col items-center">
       <Typography
         size="5xl"
-        className="sm:text-6xl md:text-7xl lg:text-7xl xl:text-8xl 2xl:text-9xl"
+        className="text-center sm:text-6xl md:text-7xl lg:text-7xl xl:text-8xl 2xl:text-9xl"
       >
         {author}
       </Typography>
