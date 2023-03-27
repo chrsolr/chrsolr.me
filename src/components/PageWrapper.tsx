@@ -1,15 +1,27 @@
 import { type ReactNode } from 'react'
+import { mergeTailwindClasses } from '~/utils/helpers'
 
 type Props = {
   children: ReactNode
+  className?: string
   disableContainer?: boolean
 }
 
-export const PageWrapper = ({ children, disableContainer }: Props) => {
+export const PageWrapper = ({
+  children,
+  className = '',
+  disableContainer,
+}: Props) => {
+  const twClasses = mergeTailwindClasses(
+    `${className} flex h-screen w-full flex-col overflow-hidden pt-[7rem]`,
+  )
+
   return (
-    <main className="h-screen w-full overflow-hidden pt-[7rem]">
-      {!disableContainer && <div className="container mx-auto">{children}</div>}
-      {disableContainer && <div>{children}</div>}
+    <main className={twClasses}>
+      {!disableContainer && (
+        <div className="container mx-auto flex-1">{children}</div>
+      )}
+      {disableContainer && <>{children}</>}
     </main>
   )
 }
