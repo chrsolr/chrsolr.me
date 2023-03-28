@@ -133,7 +133,7 @@ export const SideBar = function ({ isOpen, onClose }: ComponentProps) {
           Home
         </SideBarLink>
         <SideBarLink
-          to="#"
+          to=""
           isActive={false}
           onClick={() => setShowApps(!showApps)}
         >
