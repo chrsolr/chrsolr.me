@@ -1,13 +1,13 @@
 import Head from "next/head";
 import { PageWrapper } from "~/components/PageWrapper";
 
-export default function Resume() {
+export default function Blog() {
   return <>
-  <Head>
-        <title>chrsolr.me - home</title>
+      <Head>
+        <title>chrsolr.me - blog</title>
       </Head>
       <PageWrapper>
-        RESUME
+        BLOG POST HERE
       </PageWrapper>
   </>
 }
