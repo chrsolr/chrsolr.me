@@ -9,6 +9,18 @@ export const blogPostsRouter = createTRPCRouter({
         where: { id: input.blogPostId },
       })
     }),
+  getBySlug: publicProcedure
+    .input(z.object({ slug: z.string() }))
+    .query(({ input, ctx }) => {
+      return ctx.prisma.blogPosts.findFirst({
+        where: { slug: input.slug, active: true },
+        select: {
+          coverImageUrl: true,
+          title: true,
+          markdown: true,
+        },
+      })
+    }),
   getAll: publicProcedure.query(({ ctx }) => {
     return ctx.prisma.blogPosts.findMany({
       where: { active: true },
