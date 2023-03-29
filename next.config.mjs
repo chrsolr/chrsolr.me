@@ -19,11 +19,11 @@ const config = {
     defaultLocale: 'en',
   },
   images: {
-    domains: [
-      'upload.wikimedia.org',
-      'media-exp1.licdn.com',
-      'i.imgur.com',
-      'images.clerk.dev',
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: '**',
+      },
     ],
   },
 }
