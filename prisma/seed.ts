@@ -58,19 +58,19 @@ async function main() {
       socials: {
         create: [
           {
-            fontAwesomeIconName: 'faGithub',
+            fontAwesomeIconName: 'github',
             url: 'https://github.com/chrsolr/',
           },
           {
-            fontAwesomeIconName: 'faCodepen',
+            fontAwesomeIconName: 'codepen',
             url: 'https://codepen.io/chrsolr',
           },
           {
-            fontAwesomeIconName: 'faLinkedin',
+            fontAwesomeIconName: 'linkedin',
             url: 'https://www.linkedin.com/in/christiansoler/',
           },
           {
-            fontAwesomeIconName: 'faInstagram',
+            fontAwesomeIconName: 'instagram',
             url: 'https://www.instagram.com/7w3n7y/',
           },
         ],
