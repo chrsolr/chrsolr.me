@@ -32,14 +32,12 @@ export const Quote = ({ author, content, tags }: QuoteProps) => {
 
       <div className="flex">
         {tags?.map((tag) => (
-          <>
-            <div
-              key={getUniqueKey()}
-              className={`mr-4 overflow-hidden rounded-full bg-accent py-1 px-4 text-primary-light last:mr-0`}
-            >
-              {tag}
-            </div>
-          </>
+          <div
+            key={getUniqueKey()}
+            className={`mr-4 overflow-hidden rounded-full bg-accent py-1 px-4 text-primary-light last:mr-0`}
+          >
+            {tag}
+          </div>
         ))}
       </div>
     </div>
