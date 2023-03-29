@@ -1,17 +1,20 @@
 import { useUser } from '@clerk/nextjs'
 import React, { type ReactNode } from 'react'
+import { type SocialDTO } from '~/types/UserDTO'
 import { api } from '~/utils/api'
 
 type UserContextProps = {
   profileImageUrl: string
   isSignedIn: boolean
   isLoaded: boolean
+  socials?: SocialDTO[]
 }
 
 export const UserContext = React.createContext<UserContextProps>({
   profileImageUrl: '',
   isSignedIn: false,
   isLoaded: false,
+  socials: [],
 })
 export const UserProvider = function ({ children }: { children: ReactNode }) {
   const user = useUser()
@@ -27,6 +30,7 @@ export const UserProvider = function ({ children }: { children: ReactNode }) {
           'https://upload.wikimedia.org/wikipedia/commons/8/89/Portrait_Placeholder.png?20170328184010',
         isSignedIn: !!user?.isSignedIn,
         isLoaded: !!user?.isLoaded,
+        socials: currentUser?.socials,
       }}
     >
       {children}

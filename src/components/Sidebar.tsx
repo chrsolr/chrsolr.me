@@ -1,10 +1,23 @@
 import { SignInButton, SignOutButton } from '@clerk/nextjs'
+import {
+  faCodepen,
+  faGithub,
+  faInstagram,
+  faLinkedin,
+  IconName,
+} from '@fortawesome/free-brands-svg-icons'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
-import { useContext, useState, type ReactNode } from 'react'
+import { useContext, useEffect, useState, type ReactNode } from 'react'
 import { UserContext } from '~/contexts/UserContextProvider'
+import { getUniqueKey } from '~/utils/helpers'
 import { MaterialSymbolsIcon } from './MaterialSymbolsIcon'
 import { Typography } from './Typography'
+
+import { library } from '@fortawesome/fontawesome-svg-core'
+
+library.add(faCodepen, faGithub, faInstagram, faLinkedin)
 
 type ComponentProps = {
   isOpen: boolean
@@ -89,7 +102,16 @@ const SideBarLink = function ({
 
 export const SideBar = function ({ isOpen, onClose }: ComponentProps) {
   const [showApps, setShowApps] = useState<boolean>(false)
-  const { isSignedIn } = useContext(UserContext)
+  const [hydrated, setHydrated] = useState(false)
+  const { isSignedIn, isLoaded, socials } = useContext(UserContext)
+
+  useEffect(() => {
+    setHydrated(true)
+  }, [])
+
+  if (!hydrated && !isLoaded) {
+    return null
+  }
 
   function close() {
     setShowApps(false)
@@ -152,6 +174,22 @@ export const SideBar = function ({ isOpen, onClose }: ComponentProps) {
           {!isSignedIn && <SignInButton mode="modal">sign in</SignInButton>}
           {isSignedIn && <SignOutButton>sign out</SignOutButton>}
         </SideBarLink>
+
+        <div className="flex flex-1 items-end text-accent">
+          {socials?.map((social) => (
+            <Link
+              key={getUniqueKey()}
+              href={social.url}
+              target="_blank"
+              className="mr-4"
+            >
+              <FontAwesomeIcon
+                size="lg"
+                icon={['fab', social.fontAwesomeIconName as IconName]}
+              />
+            </Link>
+          ))}
+        </div>
       </div>
     </aside>
   )
