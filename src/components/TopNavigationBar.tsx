@@ -15,8 +15,8 @@ type BrandLinkProps = Pick<Props, 'headerTitle'>
 function BrandLink({ headerTitle }: BrandLinkProps) {
   return (
     <span className="flex-1">
-      <Link href="/" legacyBehavior>
-        <a>
+      <Link href="/">
+        <>
           {headerTitle.map((v) => (
             <span
               key={getUniqueKey()}
@@ -25,7 +25,7 @@ function BrandLink({ headerTitle }: BrandLinkProps) {
               {v}
             </span>
           ))}
-        </a>
+        </>
       </Link>
     </span>
   )
@@ -52,7 +52,7 @@ export const TopNavigationBar = function ({
       className="
       top-navbar-shadow 
       fixed top-0 left-0 z-10 
-      flex h-[6.25rem] min-w-full
+      flex h-[100px] min-w-full
       overflow-hidden bg-primary-light 
       !text-4xl 
       font-light

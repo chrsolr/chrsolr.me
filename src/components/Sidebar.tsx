@@ -75,15 +75,14 @@ const SideBarLink = function ({
     `
 
   return (
-    <Link href={to} legacyBehavior>
-      <a
-        className={`${baseClassName} ${getActiveClassName(
-          isActive === undefined ? router.pathname === to : isActive,
-        )}`}
-        onClick={onClick}
-      >
-        {children}
-      </a>
+    <Link
+      href={to}
+      className={`${baseClassName} ${getActiveClassName(
+        isActive === undefined ? router.pathname === to : isActive,
+      )}`}
+      onClick={onClick}
+    >
+      {children}
     </Link>
   )
 }
