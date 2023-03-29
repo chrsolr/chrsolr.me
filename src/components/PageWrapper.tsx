@@ -13,14 +13,12 @@ export const PageWrapper = ({
   disableContainer,
 }: Props) => {
   const twClasses = mergeTailwindClasses(
-    `${className} flex h-screen w-full flex-col overflow-hidden pt-[7rem]`,
+    `${className} container mx-auto flex-1`,
   )
 
   return (
-    <main className={twClasses}>
-      {!disableContainer && (
-        <div className="container mx-auto flex-1">{children}</div>
-      )}
+    <main className="flex h-screen w-full flex-col pt-[7rem]">
+      {!disableContainer && <div className={twClasses}>{children}</div>}
       {disableContainer && <>{children}</>}
     </main>
   )
