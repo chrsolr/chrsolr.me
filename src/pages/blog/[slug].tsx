@@ -1,14 +1,12 @@
-/* eslint-disable react/no-children-prop */
-/* eslint-disable @typescript-eslint/no-unsafe-assignment */
 import { type GetServerSidePropsContext } from 'next'
 import Head from 'next/head'
 import ReactMarkdown from 'react-markdown'
+import { type CodeProps } from 'react-markdown/lib/ast-to-react'
+import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter'
+import { a11yDark } from 'react-syntax-highlighter/dist/cjs/styles/prism'
 import rehypeRaw from 'rehype-raw'
 import { PageWrapper } from '~/components/PageWrapper'
 import { api } from '~/utils/api'
-
-import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter'
-import { a11yDark } from 'react-syntax-highlighter/dist/cjs/styles/prism'
 
 export function getServerSideProps({ params }: GetServerSidePropsContext) {
   return { props: { slug: params?.slug } }
@@ -43,15 +41,24 @@ export default function BlogPostDetails({ slug }: { slug: string }) {
           {blog?.markdown && (
             <ReactMarkdown
               rehypePlugins={[rehypeRaw]}
+              // eslint-disable-next-line react/no-children-prop
               children={blog?.markdown}
               components={{
-                code({ node, inline, className, children, ...props }) {
+                code({
+                  node,
+                  inline,
+                  className,
+                  children,
+                  ...props
+                }: CodeProps) {
                   const match = /language-(\w+)/.exec(className || '')
                   return !inline && match ? (
                     <SyntaxHighlighter
+                      // eslint-disable-next-line @typescript-eslint/no-explicit-any, @typescript-eslint/no-unsafe-assignment
+                      style={a11yDark as any}
                       showLineNumbers
+                      // eslint-disable-next-line react/no-children-prop
                       children={String(children).replace(/\n$/, '')}
-                      style={a11yDark}
                       language={match[1]}
                       PreTag="div"
                       {...props}
