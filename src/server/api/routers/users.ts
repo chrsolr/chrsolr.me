@@ -1,21 +1,22 @@
-import { type User } from '@clerk/nextjs/dist/api'
 import { clerkClient } from '@clerk/nextjs/server'
 import { z } from 'zod'
 
 import { createTRPCRouter, publicProcedure } from '~/server/api/trpc'
+import { type UserDTO } from '~/types/UserDTO'
 
-export type GetUserByIdReturnType = Partial<User>
+export type GetUserByIdReturnType = Partial<Pick<UserDTO, 'profileImageUrl'>> &
+  Partial<Pick<UserDTO, 'socials'>>
 
 export const usersRouter = createTRPCRouter({
   getById: publicProcedure
     .input(z.object({ userId: z.string().optional() }))
     .query(async ({ input, ctx }): Promise<GetUserByIdReturnType> => {
       if (!input.userId) {
-        return { profileImageUrl: undefined }
+        return {}
       }
 
       const currentClerkUser = await clerkClient.users.getUser(input.userId)
-      const bdUser = await ctx.prisma.users.findUnique({
+      const dbUser = await ctx.prisma.users.findUnique({
         where: { clerkUserId: input.userId },
         include: {
           blogPosts: true,
@@ -27,8 +28,10 @@ export const usersRouter = createTRPCRouter({
           },
         },
       })
-
-      return { profileImageUrl: currentClerkUser.profileImageUrl }
+      return {
+        profileImageUrl: currentClerkUser.profileImageUrl,
+        socials: dbUser?.socials,
+      }
     }),
   getAll: publicProcedure.query(({ ctx }) => {
     return ctx.prisma.users.findMany()
