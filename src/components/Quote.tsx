@@ -10,13 +10,7 @@ export type QuoteProps = {
   permalink: string
 }
 
-export const Quote = ({
-  author,
-  content,
-  tags,
-  authorSlug,
-  permalink,
-}: QuoteProps) => {
+export const Quote = ({ author, content, tags }: QuoteProps) => {
   return (
     <div className="flex flex-col items-center">
       <Typography
