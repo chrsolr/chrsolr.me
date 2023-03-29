@@ -148,9 +148,6 @@ export const SideBar = function ({ isOpen, onClose }: ComponentProps) {
         <SideBarLink to="/blog" onClick={close}>
           Blog
         </SideBarLink>
-        <SideBarLink to="/resume" onClick={close}>
-          Resume
-        </SideBarLink>
         <SideBarLink to="#" onClick={close}>
           {!isSignedIn && <SignInButton mode="modal">sign in</SignInButton>}
           {isSignedIn && <SignOutButton>sign out</SignOutButton>}
