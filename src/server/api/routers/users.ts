@@ -2,7 +2,7 @@ import { clerkClient } from '@clerk/nextjs/server'
 import { z } from 'zod'
 
 import { createTRPCRouter, publicProcedure } from '~/server/api/trpc'
-import { type UserDTO } from '~/types/UserDTO'
+import { type SocialDTO, type UserDTO } from '~/types/UserDTO'
 
 export type GetUserByIdReturnType = Partial<Pick<UserDTO, 'profileImageUrl'>> &
   Partial<Pick<UserDTO, 'socials'>>
@@ -33,7 +33,32 @@ export const usersRouter = createTRPCRouter({
         socials: dbUser?.socials,
       }
     }),
-  getAll: publicProcedure.query(({ ctx }) => {
-    return ctx.prisma.users.findMany()
-  }),
+  getUserSocialsByUsername: publicProcedure
+    .input(z.object({ username: z.string() }))
+    .query(async ({ input, ctx }): Promise<SocialDTO[]> => {
+      const dbUser = await ctx.prisma.users.findUnique({
+        where: { username: input.username },
+        include: {
+          blogPosts: true,
+          socials: {
+            select: {
+              url: true,
+              fontAwesomeIconName: true,
+            },
+          },
+        },
+      })
+      return dbUser?.socials ?? []
+    }),
+  getSiteSocials: publicProcedure.query(
+    async ({ ctx }): Promise<SocialDTO[]> => {
+      const dbUser = await ctx.prisma.users.findUnique({
+        where: { username: 'chrsolr' },
+        select: {
+          socials: true,
+        },
+      })
+      return dbUser?.socials ?? []
+    },
+  ),
 })
