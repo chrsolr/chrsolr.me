@@ -2,7 +2,7 @@ import { clerkClient } from '@clerk/nextjs/server'
 import { z } from 'zod'
 
 import { createTRPCRouter, publicProcedure } from '~/server/api/trpc'
-import { SocialDTO, type UserDTO } from '~/types/UserDTO'
+import { type SocialDTO, type UserDTO } from '~/types/UserDTO'
 
 export type GetUserByIdReturnType = Partial<Pick<UserDTO, 'profileImageUrl'>> &
   Partial<Pick<UserDTO, 'socials'>>

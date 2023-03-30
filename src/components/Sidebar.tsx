@@ -4,7 +4,7 @@ import {
   faGithub,
   faInstagram,
   faLinkedin,
-  IconName,
+  type IconName,
 } from '@fortawesome/free-brands-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import Link from 'next/link'
