@@ -1,3 +1,5 @@
+'use client'
+
 import { type GetServerSidePropsContext } from 'next'
 import Head from 'next/head'
 import ReactMarkdown from 'react-markdown'

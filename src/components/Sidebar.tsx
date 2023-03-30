@@ -16,6 +16,7 @@ import { MaterialSymbolsIcon } from './MaterialSymbolsIcon'
 import { Typography } from './Typography'
 
 import { library } from '@fortawesome/fontawesome-svg-core'
+import { api } from '~/utils/api'
 
 library.add(faCodepen, faGithub, faInstagram, faLinkedin)
 
@@ -103,7 +104,9 @@ const SideBarLink = function ({
 export const SideBar = function ({ isOpen, onClose }: ComponentProps) {
   const [showApps, setShowApps] = useState<boolean>(false)
   const [hydrated, setHydrated] = useState(false)
-  const { isSignedIn, isLoaded, socials } = useContext(UserContext)
+  const { isSignedIn, isLoaded } = useContext(UserContext)
+
+  const { data: socials } = api.users.getSiteSocials.useQuery()
 
   useEffect(() => {
     setHydrated(true)

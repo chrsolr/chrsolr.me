@@ -16,6 +16,7 @@ export const UserContext = React.createContext<UserContextProps>({
   isLoaded: false,
   socials: [],
 })
+
 export const UserProvider = function ({ children }: { children: ReactNode }) {
   const user = useUser()
   const { data: currentUser } = api.users.getById.useQuery({
