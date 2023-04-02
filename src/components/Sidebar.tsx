@@ -4,6 +4,8 @@ import {
   faGithub,
   faInstagram,
   faLinkedin,
+  faTwitch,
+  faYoutube,
   type IconName,
 } from '@fortawesome/free-brands-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -18,7 +20,7 @@ import { Typography } from './Typography'
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { api } from '~/utils/api'
 
-library.add(faCodepen, faGithub, faInstagram, faLinkedin)
+library.add(faCodepen, faGithub, faInstagram, faLinkedin, faYoutube, faTwitch)
 
 type ComponentProps = {
   isOpen: boolean
