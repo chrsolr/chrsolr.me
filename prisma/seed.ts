@@ -73,12 +73,18 @@ async function main() {
             fontAwesomeIconName: 'instagram',
             url: 'https://www.instagram.com/7w3n7y/',
           },
+          {
+            fontAwesomeIconName: 'twitch',
+            url: 'https://www.twitch.tv/7w3n7y',
+          },
+          {
+            fontAwesomeIconName: 'youtube',
+            url: 'https://www.youtube.com/@chrsolr',
+          },
         ],
       },
     },
   })
-
-  console.log({ chrsolr })
 }
 main()
   .then(async () => {
