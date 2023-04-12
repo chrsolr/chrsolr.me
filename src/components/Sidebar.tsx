@@ -36,7 +36,7 @@ function getActiveClassName(isActive: boolean) {
     ? `
     text-accent
     before:opacity-100 
-    safter:opacity-100
+    after:opacity-100
     before:text-primary-dark
     after:text-primary-dark
     dark:text-accent
