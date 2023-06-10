@@ -6,7 +6,6 @@ import {
   faLinkedin,
   faTwitch,
   faYoutube,
-  type IconName,
 } from '@fortawesome/free-brands-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import Link from 'next/link'
@@ -16,9 +15,7 @@ import { UserContext } from '~/contexts/UserContextProvider'
 import { getUniqueKey } from '~/utils/helpers'
 import { MaterialSymbolsIcon } from './MaterialSymbolsIcon'
 import { Typography } from './Typography'
-
 import { library } from '@fortawesome/fontawesome-svg-core'
-import { api } from '~/utils/api'
 
 library.add(faCodepen, faGithub, faInstagram, faLinkedin, faYoutube, faTwitch)
 
@@ -34,25 +31,25 @@ function getOpenClassName(isOpen: boolean): string {
 function getActiveClassName(isActive: boolean) {
   return isActive
     ? `
-    text-accent
-    before:opacity-100 
-    after:opacity-100
-    before:text-primary-dark
-    after:text-primary-dark
-    dark:text-accent
-    dark:before:text-primary-light
-    dark:after:text-primary-light
-    `
+text-accent
+before:opacity-100 
+after:opacity-100
+before:text-primary-dark
+after:text-primary-dark
+dark:text-accent
+dark:before:text-primary-light
+dark:after:text-primary-light
+`
     : `
-    before:opacity-0 
-    after:opacity-0
-    hover:before:opacity-100
-    hover:after:opacity-100
-    before:text-primary-dark
-    after:text-primary-dark
-    dark:before:text-primary-light
-    dark:after:text-primary-light
-    `
+before:opacity-0 
+after:opacity-0
+hover:before:opacity-100
+hover:after:opacity-100
+before:text-primary-dark
+after:text-primary-dark
+dark:before:text-primary-light
+dark:after:text-primary-light
+`
 }
 
 const SideBarLink = function ({
@@ -61,41 +58,41 @@ const SideBarLink = function ({
   onClick,
   isActive,
 }: {
-  children: ReactNode
-  to: string
-  isActive?: boolean
-  onClick?: () => void
-}) {
+    children: ReactNode
+    to: string
+    isActive?: boolean
+    onClick?: () => void
+  }) {
   const router = useRouter()
   const baseClassName = `
-    text-xl lowercase
-    font-normal mb-2
-    hover:text-accent
-    dark:hover:text-accent
-    before:relative
-    before:translate-x-[-15px]
-    before:transform-gpu
-    before:text-secondary
-    before:transition-all
-    before:duration-300
-    before:ease-in-out
-    before:content-['[_']
-    after:relative
-    after:translate-x-[15px]
-    after:transform-gpu
-    after:text-secondary
-    after:transition-all
-    after:duration-300
-    after:ease-in-out
-    after:content-['_]']
-    `
+text-xl lowercase
+font-normal mb-2
+hover:text-accent
+dark:hover:text-accent
+before:relative
+before:translate-x-[-15px]
+before:transform-gpu
+before:text-secondary
+before:transition-all
+before:duration-300
+before:ease-in-out
+before:content-['[_']
+after:relative
+after:translate-x-[15px]
+after:transform-gpu
+after:text-secondary
+after:transition-all
+after:duration-300
+after:ease-in-out
+after:content-['_]']
+`
 
   return (
     <Link
       href={to}
       className={`${baseClassName} ${getActiveClassName(
-        isActive === undefined ? router.pathname === to : isActive,
-      )}`}
+isActive === undefined ? router.pathname === to : isActive,
+)}`}
       onClick={onClick}
     >
       {children}
@@ -108,7 +105,31 @@ export const SideBar = function ({ isOpen, onClose }: ComponentProps) {
   const [hydrated, setHydrated] = useState(false)
   const { isSignedIn, isLoaded } = useContext(UserContext)
 
-  const { data: socials } = api.users.getSiteSocials.useQuery()
+  const socials = [{
+    url: 'https://github.com/chrsolr/',
+    icon: faGithub,
+    name: 'Github'
+  },{
+      url: 'https://codepen.io/chrsolr',
+      icon: faCodepen,
+      name: 'Codepen'
+    },{
+      url: 'https://www.linkedin.com/in/christiansoler/',
+      icon: faLinkedin,
+      name: 'LinkedIn'
+    },{
+      url: 'https://www.instagram.com/7w3n7y/',
+      icon: faInstagram,
+      name: 'Instagram'
+    },{
+      url: 'https://www.twitch.tv/7w3n7y',
+      icon: faTwitch,
+      name: 'Twitch'
+    },{
+      url: 'https://www.youtube.com/@chrsolr',
+      icon: faYoutube,
+      name: 'YouTube'
+    }]
 
   useEffect(() => {
     setHydrated(true)
@@ -126,20 +147,20 @@ export const SideBar = function ({ isOpen, onClose }: ComponentProps) {
   return (
     <aside
       className={`
-        sidebar-wrapper
-        fixed top-0 bottom-0 -right-full
-        z-30 flex w-full
-        flex-col items-center
-      bg-primary-light p-4
-        !text-2xl
-      text-primary-dark
-      dark:bg-primary-dark
-        dark:text-primary-light
-        md:-right-1/2
-        md:w-1/2
-        xl:-right-1/4
-        xl:w-1/4
-        ${getOpenClassName(isOpen)}`}
+sidebar-wrapper
+fixed top-0 bottom-0 -right-full
+z-30 flex w-full
+flex-col items-center
+bg-primary-light p-4
+!text-2xl
+text-primary-dark
+dark:bg-primary-dark
+dark:text-primary-light
+md:-right-1/2
+md:w-1/2
+xl:-right-1/4
+xl:w-1/4
+${getOpenClassName(isOpen)}`}
     >
       <div className="flex h-[6.25rem] items-center justify-center">
         <MaterialSymbolsIcon
@@ -190,7 +211,7 @@ export const SideBar = function ({ isOpen, onClose }: ComponentProps) {
             >
               <FontAwesomeIcon
                 size="lg"
-                icon={['fab', social.fontAwesomeIconName as IconName]}
+                icon={social.icon}
               />
             </Link>
           ))}
