@@ -1,8 +1,8 @@
 version: "3.9"
 
 services:
-  chrsolr_web:
-    image: node:18.18.2
+  web_app:
+    image: node:18.18.2-slim
     container_name: chrsolr-web
     build:
       context: .
