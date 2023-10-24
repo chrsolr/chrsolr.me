@@ -1,5 +1,5 @@
 const Main = () => {
-  return <>Hey from Main</>
+  return <>Hey from West-Main, Let's go!</>
 }
 
 export default Main
