@@ -12,6 +12,11 @@ export default {
       fontFamily: {
         sans: ['var(--font-sans)', ...fontFamily.sans],
       },
+      colors: {
+        'primary-dark': '#212529',
+        'primary-light': '#ffffff',
+        accent: '#dc4b74',
+      },
     },
   },
   plugins: [require('@tailwindcss/typography')],
