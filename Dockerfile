@@ -4,8 +4,9 @@ WORKDIR /app
 
 COPY package.json .
 
-RUN npm install
+RUN corepack enable
+RUN yarn install
 
 COPY . .
 
-CMD ["npm", "start"]
+CMD ["yarn", "start"]
