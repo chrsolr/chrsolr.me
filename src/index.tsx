@@ -1,8 +1,7 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
-import './_global.css'
+import './styles.css'
 import Main from './pages/Main'
-import reportWebVitals from './reportWebVitals'
 import { BrowserRouter } from 'react-router-dom'
 
 const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement)
@@ -14,5 +13,3 @@ root.render(
     </BrowserRouter>
   </React.StrictMode>,
 )
-
-reportWebVitals()

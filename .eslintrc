@@ -8,31 +8,20 @@
     "@typescript-eslint"
   ],
   "extends": [
-    "react-app",
-    "react-app/jest",
     "eslint:recommended",
     "plugin:@typescript-eslint/eslint-recommended",
     "plugin:@typescript-eslint/recommended",
     "plugin:import/recommended",
     "plugin:import/typescript",
-    "plugin:prettier/recommended",
-    "prettier",
+    "plugin:prettier/recommended"
   ],
   "parser": "@typescript-eslint/parser",
   "ignorePatterns": [
-		"build/",
+    "build/",
     "dist/",
     "jest.config.js",
-		"**/*.test.*"
+    "**/*.test.*"
   ],
-  "parserOptions": {
-    "project": "./tsconfig.json"
-  },
-  "settings": {
-    "import/resolver": {
-      "typescript": {}
-    }
-  },
   "rules": {
     "@typescript-eslint/no-empty-function": "off",
     "no-unused-vars": "off",

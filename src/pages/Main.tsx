@@ -1,13 +1,8 @@
 const Main = () => {
-  return <>
-    Hey from Main
-  </>
+  return <>Hey from Main</>
 }
 
-
 export default Main
-
-
 
 // import { ReactNode, useContext } from 'react'
 // import { Route, Routes } from 'react-router-dom'
