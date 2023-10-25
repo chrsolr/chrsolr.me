@@ -8,8 +8,8 @@ import { useEffect, useState } from 'react'
 
 type Props = {
   headerTitle: string[]
+  onMenuIconClick: () => void
 }
-
 type BrandLinkProps = Pick<Props, 'headerTitle'>
 
 function BrandLink({ headerTitle }: BrandLinkProps) {
@@ -20,7 +20,7 @@ function BrandLink({ headerTitle }: BrandLinkProps) {
           {headerTitle.map((v) => (
             <span
               key={getUniqueKey()}
-              className="even:text-accent last:font-thin even:font-semibold"
+              className="even:font-semibold even:text-accent"
             >
               {v}
             </span>
@@ -31,9 +31,12 @@ function BrandLink({ headerTitle }: BrandLinkProps) {
   )
 }
 
-export const TopNavigationBar = function ({ headerTitle }: Props) {
+export const TopNavigationBar = function ({
+  headerTitle,
+  onMenuIconClick,
+}: Props) {
   const [hydrated, setHydrated] = useState<boolean>(false)
-  const { theme, setTheme } = useTheme()
+  const { theme = 'light', setTheme } = useTheme()
 
   useEffect(() => {
     setHydrated(true)
@@ -43,17 +46,7 @@ export const TopNavigationBar = function ({ headerTitle }: Props) {
     return null
   }
   return (
-    <div
-      className="top-navbar-shadow 
-				bg-primary-light text-primary-dark dark:bg-primary-dark dark:text-primary-light 
-				fixed left-0 top-0
-				z-10 flex 
-				h-[100px] 
-				min-w-full
-				overflow-hidden
-				!text-4xl
-				font-light"
-    >
+    <div className="top-navbar-shadow text-pr flex h-[100px] min-w-full overflow-hidden bg-primary-light !text-4xl font-light text-primary-dark dark:bg-primary-dark dark:text-primary-light">
       <div className="container mx-auto flex items-center">
         <BrandLink headerTitle={headerTitle} />
 
@@ -67,7 +60,7 @@ export const TopNavigationBar = function ({ headerTitle }: Props) {
         <MaterialSymbolsIcon
           className="!text-4xl"
           iconName="menu"
-          onClick={() => console.log('Toggle Theme Here')}
+          onClick={onMenuIconClick}
         />
       </div>
     </div>

@@ -1,8 +1,9 @@
 import '~/styles/globals.css'
 import { Raleway } from 'next/font/google'
 import { type ReactChildren } from '~/shared/types'
-import { TopNavigationBar } from '~/components/TopNavigationBar'
 import ThemeProvider from '~/providers/ThemeProvider'
+import { LayoutProvider } from '~/providers/LayoutContextProvider'
+import NavigationLayout from '~/components/NavigationLayout'
 
 const raleway = Raleway({
   subsets: ['latin'],
@@ -30,10 +31,9 @@ export default function RootLayout({ children }: ReactChildren) {
         className={`font-sans ${raleway.variable} bg-primary-light text-primary-dark dark:bg-primary-dark dark:text-primary-light`}
       >
         <ThemeProvider>
-          <TopNavigationBar
-            headerTitle={['chr', 'solr', '.me']}
-          ></TopNavigationBar>
-          {children}
+          <LayoutProvider>
+            <NavigationLayout>{children}</NavigationLayout>
+          </LayoutProvider>
         </ThemeProvider>
       </body>
     </html>
