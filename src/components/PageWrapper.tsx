@@ -17,7 +17,7 @@ export const PageWrapper = ({
   )
 
   return (
-    <main className="flex h-screen w-full flex-col pt-[7rem]">
+    <main className="flex h-screen w-full flex-col pt-[8rem]">
       {!disableContainer && <div className={twClasses}>{children}</div>}
       {disableContainer && <>{children}</>}
     </main>

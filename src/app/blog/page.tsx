@@ -1,3 +1,5 @@
+import { PageWrapper } from '~/components/PageWrapper'
+
 export default function Page() {
-  return <h1>Blog Posts</h1>
+  return <PageWrapper>Blog</PageWrapper>
 }

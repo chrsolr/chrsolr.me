@@ -28,7 +28,7 @@ export default function RootLayout({ children }: ReactChildren) {
         <link rel="preconnect" href="https://fonts.gstatic.com" />
       </head>
       <body
-        className={`font-sans ${raleway.variable} bg-primary-light text-primary-dark dark:bg-primary-dark dark:text-primary-light`}
+        className={`font-sans ${raleway.variable} bg-primary-light text-primary-dark antialiased dark:bg-primary-dark dark:text-primary-light`}
       >
         <ThemeProvider>
           <LayoutProvider>
