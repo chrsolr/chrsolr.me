@@ -3,7 +3,6 @@
 import { useTheme } from 'next-themes'
 import Link from 'next/link'
 import { getUniqueKey } from '~/utils/helpers'
-import { MaterialSymbolsIcon } from './MaterialSymbolsIcon'
 import { useEffect, useState } from 'react'
 
 type Props = {
@@ -30,10 +29,7 @@ function BrandLink({ headerTitle }: BrandLinkProps) {
   )
 }
 
-export const TopNavigationBar = function ({
-  headerTitle,
-  onMenuIconClick,
-}: Props) {
+export const TopNavigationBar = function ({ headerTitle }: Props) {
   const [hydrated, setHydrated] = useState<boolean>(false)
   const { theme = 'light', setTheme } = useTheme()
 

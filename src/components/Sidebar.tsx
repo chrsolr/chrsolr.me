@@ -10,7 +10,6 @@ import {
 } from '@fortawesome/free-brands-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import Link from 'next/link'
-import { useRouter } from 'next/router'
 import { useEffect, useState, type ReactNode } from 'react'
 import { getUniqueKey } from '~/utils/helpers'
 import { MaterialSymbolsIcon } from './MaterialSymbolsIcon'
