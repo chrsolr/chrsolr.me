@@ -1,7 +1,6 @@
-import { getBlogBySlug } from '~/apis/blog'
-import { PageWrapper } from '~/components/PageWrapper'
 import showdown from 'showdown'
-const converter = new showdown.Converter()
+import { getBlogBySlug, getBlogPosts } from '~/apis/blog'
+import { PageWrapper } from '~/components/PageWrapper'
 
 type Params = {
   params: {
@@ -9,8 +8,17 @@ type Params = {
   }
 }
 
+export async function generateStaticParams() {
+  const posts = await getBlogPosts()
+  return posts.map(({ slug, markdown }) => ({
+    slug,
+    markdown,
+  }))
+}
+
 export default async function BlogPostDetails({ params: { slug } }: Params) {
-  const markdown = await getBlogBySlug(slug)
+  const converter = new showdown.Converter()
+  const { markdown } = await getBlogBySlug(slug)
   const htmlContent = converter.makeHtml(markdown)
 
   return (
@@ -24,10 +32,11 @@ export default async function BlogPostDetails({ params: { slug } }: Params) {
         prose-h5:text-accent 
         prose-p:text-primary-dark 
         prose-a:text-accent 
-        prose-pre:p-0 
-        prose-ul:text-primary-dark 
+        prose-pre:px-4 
+        prose-pre:py-4 
+        prose-ul:text-primary-dark
         prose-img:w-full
-        prose-img:rounded-2xl 
+        prose-img:rounded-2xl
         dark:prose-p:text-primary-light
         dark:prose-strong:text-primary-light
         dark:prose-pre:bg-primary-dark
