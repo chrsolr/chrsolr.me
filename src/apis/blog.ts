@@ -4,12 +4,13 @@ import fs from 'fs'
 export async function getBlogBySlug(
   slug: string,
 ): Promise<{ slug: string; markdown: string }> {
-  const filename = `${slug.replace(/\.md$/, '')}.md`
-  const filePath = join('./src/markdowns', filename)
+  const filename = slug.replace(/\.md$/, '')
+  const filePath = join('./src/markdowns', `${filename}.md`)
   const markdown = await fs.promises.readFile(filePath, 'utf8')
 
+  console.log({ filename, filePath, slug })
   return {
-    slug,
+    slug: filename,
     markdown,
   }
 }

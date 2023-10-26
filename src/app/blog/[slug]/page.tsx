@@ -10,9 +10,8 @@ type Params = {
 
 export async function generateStaticParams() {
   const posts = await getBlogPosts()
-  return posts.map(({ slug, markdown }) => ({
+  return posts.map(({ slug }) => ({
     slug,
-    markdown,
   }))
 }
 
