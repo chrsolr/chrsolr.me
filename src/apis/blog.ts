@@ -8,7 +8,6 @@ export async function getBlogBySlug(
   const filePath = join('./src/markdowns', `${filename}.md`)
   const markdown = await fs.promises.readFile(filePath, 'utf8')
 
-  console.log({ filename, filePath, slug })
   return {
     slug: filename,
     markdown,
