@@ -5,7 +5,7 @@ export default function Page() {
   return (
     <PageWrapper>
       <h3>Blog</h3>
-      <Link href="/blog/binary-clock">Binary Clock</Link>
+      <Link href="/blog/coding-bootcamps-student">Coding Bootcamps Student</Link>
     </PageWrapper>
   )
 }
