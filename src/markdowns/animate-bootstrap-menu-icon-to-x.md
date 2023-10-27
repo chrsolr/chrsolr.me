@@ -1,8 +1,10 @@
 ---
-title: Animate Bootstrap Menu Icon To (X)
-author: Christian Soler
-date: 2016-03-23
-slug: animate-bootstrap-menu-icon-to-x
+title: 'Animate Bootstrap Menu Icon To (X)'
+author: 'Christian Soler'
+date: '2016-03-23'
+slug: 'animate-bootstrap-menu-icon-to-x'
+summary: "In this post we are going to animate the Bootstrap Navigation Icon that is displayed in mobile devices. We'll be animating the transition from the Hamburger Icon (☰) to a Close Icon (×). This effect is used in many Webpages and Mobile Devices such as Android Devices. Let's get started!!"
+coverImageUrl: 'https://i.imgur.com/wuKtuYc.jpg'
 ---
 
 ![](https://i.imgur.com/wuKtuYc.jpg)

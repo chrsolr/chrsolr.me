@@ -3,6 +3,8 @@ title: Show/Hide Bootstrap Navbar on Scroll
 author: Christian Soler
 date: 2016-04-04 
 slug: show-hide-bootstrap-navbar-on-scroll
+summary: 'Today I’ll show you an user experience trick for your website. I’ll teach you how to show/hide a Twitter Bootstrap 3 Navigation Bar depending in which direction the user scrolls. E.g. If the user scrolls down the navigation bar will hide giving the user more screen real state. If the user scrolls up the navigation bar will show so the user can use the navigation menu. Let’s get started!!!'
+coverImageUrl: 'https://v4-alpha.getbootstrap.com/assets/brand/bootstrap-social.png'
 ---
 
 ![](https://v4-alpha.getbootstrap.com/assets/brand/bootstrap-social.png)

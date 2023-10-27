@@ -19,13 +19,22 @@ export async function getBlogBySlug(id: string): Promise<{
   author: string
   date: string
   slug: string
+  summary: string
+  coverImageUrl: string
   markdown: string
 }> {
   const filename = id.replace(/\.md$/, '')
   const filePath = join('./src/markdowns', `${filename}.md`)
   const fileContent = await fs.promises.readFile(filePath, 'utf8')
   const {
-    data: { title = '', author = '', date = '', slug = '' },
+    data: {
+      title = '',
+      author = '',
+      date = '',
+      slug = '',
+      summary = '',
+      coverImageUrl = '',
+    },
     content,
   }: TMatterFile = matter(fileContent)
 
@@ -34,6 +43,8 @@ export async function getBlogBySlug(id: string): Promise<{
     author,
     date: DateTime.fromJSDate(new Date(date)).toFormat('LLLL dd, yyyy'),
     slug,
+    summary,
+    coverImageUrl,
     markdown: content,
   }
 }
