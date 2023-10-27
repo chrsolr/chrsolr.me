@@ -61,12 +61,11 @@ export const TopNavigationBar = function ({ headerTitle }: Props) {
           <Link href="/" className="mr-12">
             Home
           </Link>
-          <Link href="/apps" className="mr-12">
-            Apps
-          </Link>
+
           <Link href="/blog" className="mr-12">
             Blog
           </Link>
+
           <Link
             href="#"
             className=""
