@@ -1,9 +1,11 @@
 'use client'
 
-import { useTheme } from 'next-themes'
 import Link from 'next/link'
 import { getUniqueKey } from '~/utils/helpers'
-import { useEffect, useState } from 'react'
+import { useContext, useEffect, useState } from 'react'
+import { faBars } from '@fortawesome/free-solid-svg-icons'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { LayoutContext } from '~/providers/LayoutContextProvider'
 
 type Props = {
   headerTitle: string[]
@@ -14,7 +16,7 @@ type BrandLinkProps = Pick<Props, 'headerTitle'>
 
 function BrandLink({ headerTitle }: BrandLinkProps) {
   return (
-    <Link href="/" className="font-raleway">
+    <Link href="/" className="flex-1 font-raleway">
       <>
         {headerTitle.map((v) => (
           <span
@@ -31,7 +33,7 @@ function BrandLink({ headerTitle }: BrandLinkProps) {
 
 export const TopNavigationBar = function ({ headerTitle }: Props) {
   const [hydrated, setHydrated] = useState<boolean>(false)
-  const { theme = 'light', setTheme } = useTheme()
+  const { toggleMenu } = useContext(LayoutContext)
 
   useEffect(() => {
     setHydrated(true)
@@ -44,52 +46,29 @@ export const TopNavigationBar = function ({ headerTitle }: Props) {
   return (
     <div
       className="
-      top-navbar-shadow 
-      fixed left-0 top-0 z-10 
+      top-navbar-shadow
+      fixed left-0 top-0 z-10
       flex h-28 min-w-full
-      overflow-hidden bg-primary-light 
-      !text-4xl 
+      overflow-hidden bg-primary-light
+      !text-4xl
       font-light
     text-primary-dark
     dark:bg-primary-dark
     dark:text-primary-light"
     >
-      <div className="container mx-auto flex flex-col items-center justify-center">
+      <div
+        className="
+        container mx-auto flex 
+        items-center justify-center"
+      >
         <BrandLink headerTitle={headerTitle} />
 
-        <div className="flex text-[1.25rem] lowercase">
-          <Link href="/" className="mr-12">
-            Home
-          </Link>
-
-          <Link href="/blog" className="mr-12">
-            Blog
-          </Link>
-
-          <Link
-            href="#"
-            className=""
-            onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
-          >
-            {theme}
-          </Link>
-        </div>
-
-        {/*
-
-        <MaterialSymbolsIcon
-          className="!mr-2 !text-4xl"
-          fill="fill"
-          iconName={theme === 'dark' ? 'brightness_4' : 'brightness_high'}
-          onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
+        <FontAwesomeIcon
+          className="hover:cursor-pointer"
+          size="xs"
+          icon={faBars}
+          onClick={toggleMenu}
         />
-
-        <MaterialSymbolsIcon
-          className="!text-4xl"
-          iconName="menu"
-          onClick={onMenuIconClick}
-        />
-        */}
       </div>
     </div>
   )

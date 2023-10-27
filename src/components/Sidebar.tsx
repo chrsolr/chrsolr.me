@@ -12,9 +12,10 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import Link from 'next/link'
 import { useEffect, useState, type ReactNode } from 'react'
 import { getUniqueKey } from '~/utils/helpers'
-import { MaterialSymbolsIcon } from './MaterialSymbolsIcon'
 import { Typography } from './Typography'
 import { library } from '@fortawesome/fontawesome-svg-core'
+import { faTimes } from '@fortawesome/free-solid-svg-icons'
+import { useTheme } from 'next-themes'
 
 library.add(faCodepen, faGithub, faInstagram, faLinkedin, faYoutube, faTwitch)
 
@@ -100,7 +101,7 @@ after:content-['_]']
 }
 
 export const SideBar = function ({ isOpen, onClose }: ComponentProps) {
-  const [showApps, setShowApps] = useState(false)
+  const { theme = 'light', setTheme } = useTheme()
   const [hydrated, setHydrated] = useState(false)
 
   const socials = [
@@ -145,7 +146,6 @@ export const SideBar = function ({ isOpen, onClose }: ComponentProps) {
   }
 
   function close() {
-    setShowApps(false)
     onClose()
   }
 
@@ -168,9 +168,10 @@ xl:w-1/4
 ${getOpenClassName(isOpen)}`}
     >
       <div className="flex h-[6.25rem] items-center justify-center">
-        <MaterialSymbolsIcon
-          className="!text-4xl"
-          iconName="close"
+        <FontAwesomeIcon
+          className="hover:cursor-pointer"
+          size="lg"
+          icon={faTimes}
           onClick={onClose}
         />
       </div>
@@ -180,26 +181,21 @@ ${getOpenClassName(isOpen)}`}
       </Typography>
 
       <div className="my-4 h-1.5 min-w-[1rem] overflow-hidden rounded-full bg-accent" />
+
       <div className="flex min-w-full flex-1 flex-col items-center">
         <SideBarLink to="/" onClick={close}>
           Home
         </SideBarLink>
-        <SideBarLink
-          to=""
-          isActive={false}
-          onClick={() => setShowApps(!showApps)}
-        >
-          Apps
-        </SideBarLink>
-        {showApps && (
-          <div className="w-[calc(100%+2rem)] bg-[#f9f9f9] text-center dark:bg-[#1b1f22]">
-            <SideBarLink to="/apps/binary-clock" onClick={close}>
-              Binary Clock
-            </SideBarLink>
-          </div>
-        )}
+
         <SideBarLink to="/blog" onClick={close}>
           Blog
+        </SideBarLink>
+
+        <SideBarLink
+          to="#"
+          onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
+        >
+          Theme: {theme}
         </SideBarLink>
 
         <div className="flex flex-1 items-end text-accent">
