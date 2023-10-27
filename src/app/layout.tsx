@@ -1,5 +1,5 @@
 import '~/styles/globals.css'
-import { Raleway } from 'next/font/google'
+import { Raleway, Tilt_Neon, Kanit } from 'next/font/google'
 import { type ReactChildren } from '~/shared/types'
 import ThemeProvider from '~/providers/ThemeProvider'
 import { LayoutProvider } from '~/providers/LayoutContextProvider'
@@ -7,7 +7,18 @@ import NavigationLayout from '~/components/NavigationLayout'
 
 const raleway = Raleway({
   subsets: ['latin'],
-  variable: '--font-sans',
+  variable: '--font-raleway',
+})
+
+const tilt_neon = Tilt_Neon({
+  subsets: ['latin'],
+  variable: '--font-tilt',
+})
+
+const kanit = Kanit({
+  subsets: ['latin'],
+  variable: '--font-kanit',
+  weight: '200',
 })
 
 export const metadata = {
@@ -20,7 +31,7 @@ export default function RootLayout({ children }: ReactChildren) {
   return (
     <html lang="en" className="dark">
       <body
-        className={`font-sans ${raleway.variable} bg-primary-light text-primary-dark antialiased dark:bg-primary-dark dark:text-primary-light`}
+        className={`font-raleway ${raleway.variable} ${tilt_neon.variable} ${kanit.variable} bg-primary-light text-primary-dark antialiased dark:bg-primary-dark dark:text-primary-light`}
       >
         <ThemeProvider>
           <LayoutProvider>

@@ -1,23 +1,26 @@
 import Link from 'next/link'
+import { getBlogPosts } from '~/apis/blog'
 import { PageWrapper } from '~/components/PageWrapper'
 
-export default function Page() {
+export default async function Page() {
+  const posts = await getBlogPosts()
+
   return (
     <PageWrapper>
       <h3>Blog</h3>
+
+      <hr />
+
       <ul>
-        <li>
-          <Link href="/blog/coding-bootcamps-student">
-            - Coding Bootcamps Student
-          </Link>
-        </li>
-        <li>
-          <Link href="/blog/animate-bootstrap-menu-icon-to-x">
-            - Animate Bootstrap 3 Menu Icon To (X)
-          </Link>
-        </li>
+        {Boolean(posts.length) &&
+          posts.map((post) => (
+            <li key={post.slug}>
+              <Link href={`/blog/${post.slug}`}>
+                - {post.title} - {post.date}
+              </Link>
+            </li>
+          ))}
       </ul>
-      <br />
     </PageWrapper>
   )
 }

@@ -1,3 +1,10 @@
+---
+title: Animate Bootstrap Menu Icon To (X)
+author: Christian Soler
+date: 2016-03-23
+slug: animate-bootstrap-menu-icon-to-x
+---
+
 ![](https://i.imgur.com/wuKtuYc.jpg)
 
 # Animate Bootstrap Menu Icon To (X)

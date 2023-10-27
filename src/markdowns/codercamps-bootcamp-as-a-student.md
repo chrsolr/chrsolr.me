@@ -1,3 +1,10 @@
+---
+title: CoderCamps Bootcamp as a Student
+author: Christian Soler
+date: 2015-07-11
+slug: codercamps-bootcamp-as-a-student
+---
+
 ![](/assets/images/1520081303786.jpeg)
 
 # CoderCamps Bootcamp as a Student
