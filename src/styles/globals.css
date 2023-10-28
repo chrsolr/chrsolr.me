@@ -4,6 +4,7 @@
 
 * {
   @apply box-border leading-normal;
+  outline: none;
 }
 
 body {

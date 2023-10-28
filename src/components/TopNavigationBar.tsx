@@ -16,7 +16,7 @@ type BrandLinkProps = Pick<Props, 'headerTitle'>
 
 function BrandLink({ headerTitle }: BrandLinkProps) {
   return (
-    <Link href="/" className="flex-1 font-raleway">
+    <Link href="/" className="font-raleway">
       <>
         {headerTitle.map((v) => (
           <span
@@ -61,7 +61,9 @@ export const TopNavigationBar = function ({ headerTitle }: Props) {
         container mx-auto flex 
         items-center justify-center"
       >
-        <BrandLink headerTitle={headerTitle} />
+        <div className="flex-1">
+          <BrandLink headerTitle={headerTitle} />
+        </div>
 
         <FontAwesomeIcon
           className="hover:cursor-pointer"
