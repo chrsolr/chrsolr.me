@@ -5,7 +5,6 @@ import {
   faGithub,
   faInstagram,
   faLinkedin,
-  faTwitch,
   faYoutube,
 } from '@fortawesome/free-brands-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -15,9 +14,10 @@ import { getUniqueKey } from '~/utils/helpers'
 import { Typography } from './Typography'
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { faTimes } from '@fortawesome/free-solid-svg-icons'
+import { faSquare } from '@fortawesome/free-regular-svg-icons'
 import { useTheme } from 'next-themes'
 
-library.add(faCodepen, faGithub, faInstagram, faLinkedin, faYoutube, faTwitch)
+library.add(faCodepen, faGithub, faInstagram, faLinkedin, faYoutube)
 
 type ComponentProps = {
   isOpen: boolean
@@ -111,6 +111,11 @@ export const SideBar = function ({ isOpen, onClose }: ComponentProps) {
       name: 'Github',
     },
     {
+      url: 'https://codesandbox.io/u/chrsolr',
+      icon: faSquare,
+      name: 'CodeSandbox',
+    },
+    {
       url: 'https://codepen.io/chrsolr',
       icon: faCodepen,
       name: 'Codepen',
@@ -121,19 +126,14 @@ export const SideBar = function ({ isOpen, onClose }: ComponentProps) {
       name: 'LinkedIn',
     },
     {
-      url: 'https://www.instagram.com/7w3n7y/',
-      icon: faInstagram,
-      name: 'Instagram',
-    },
-    {
-      url: 'https://www.twitch.tv/7w3n7y',
-      icon: faTwitch,
-      name: 'Twitch',
-    },
-    {
       url: 'https://www.youtube.com/@chrsolr',
       icon: faYoutube,
       name: 'YouTube',
+    },
+    {
+      url: 'https://www.instagram.com/7w3n7y/',
+      icon: faInstagram,
+      name: 'Instagram',
     },
   ]
 
