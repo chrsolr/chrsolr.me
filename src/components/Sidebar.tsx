@@ -191,6 +191,10 @@ ${getOpenClassName(isOpen)}`}
           Blog
         </SideBarLink>
 
+        <SideBarLink to="/about" onClick={close}>
+          About
+        </SideBarLink>
+
         <SideBarLink
           to="#"
           onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}

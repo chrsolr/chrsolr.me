@@ -1,3 +1,4 @@
+/* eslint-disable react/no-unescaped-entities */
 import Image from 'next/image'
 import { PageWrapper } from '~/components/PageWrapper'
 import { Typography } from '~/components/Typography'
@@ -49,7 +50,68 @@ export default function Page() {
           The Journey
         </Typography>
 
-        <Typography>Talk about how I became a Software Developer</Typography>
+        <Typography>
+          My journey in the world of technology began when a friend in the
+          Bronx, NYC, introduced me to a virus he had programmed on Windows 3.1
+          using a floppy disk. At that time, I had little exposure to computers,
+          but I was fascinated by what technology could do.
+        </Typography>
+
+        <Typography>
+          As I grew older, I started learning the basics of computer hardware
+          and troubleshooting, but coding was still a foreign concept to me. It
+          wasn't until I was 29 that I decided to return to school, embarking on
+          a career path in information technology. Luckily, a nearby college had
+          a program that allowed students to earn their GED and an associate's
+          degree in just two years, and I qualified for it. This was a turning
+          point in my life, a moment when I realized I could achieve something
+          significant.
+        </Typography>
+
+        <Typography>
+          Initially, I explored various aspects of IT, taking Unix and
+          networking classes, only to find that they didn't resonate with me. My
+          true passion emerged when I took an introductory C++ class, and I fell
+          in love with programming.Initially, I explored various aspects of IT,
+          taking Unix and networking classes, only to find that they didn't
+          resonate with me. My true passion emerged when I took an introductory
+          C++ class, and I fell in love with programming.
+        </Typography>
+
+        <Typography>
+          Around the same time, the smartphone industry was booming, and I began
+          researching programming languages for my HTC 7 Windows phone. C#
+          caught my attention, and I started watching YouTube tutorials to learn
+          it. My first application project was a calculator app, and I also
+          created an Xbox achievement app where I stored data in an XML file.
+        </Typography>
+
+        <Typography>
+          After completing my associate's degree, my wife and I decided to move
+          to Rhode Island, where I could pursue a computer science degree. This
+          decision had its pros and cons. While it allowed me to focus on my
+          coding passion and excel in class, my grades suffered as I prioritized
+          coding over other subjects.
+        </Typography>
+
+        <Typography>
+          A few years later, we relocated to Texas, and I considered returning
+          to college. However, I faced the prospect of losing 30 credits, so I
+          opted for a different path. I enrolled in a coding boot camp, which
+          was a valuable experience due to my prior coding education and the
+          shared enthusiasm for programming among my peers.A few years later, we
+          relocated to Texas, and I considered returning to college. However, I
+          faced the prospect of losing 30 credits, so I opted for a different
+          path. I enrolled in a coding boot camp, which was a valuable
+          experience due to my prior coding education and the shared enthusiasm
+          for programming among my peers.
+        </Typography>
+
+        <Typography>
+          Since completing the boot camp, I've worked in three different
+          companies, each with its own set of technologies and work cultures,
+          contributing to the ongoing journey of my career in technology.
+        </Typography>
       </section>
 
       <section>
@@ -70,7 +132,7 @@ export default function Page() {
         </ul>
       </section>
 
-      <section>
+      <section className="hidden">
         <Typography size="xl" weight="semibold" className="text-accent">
           Work Experience
         </Typography>
