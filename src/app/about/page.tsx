@@ -2,6 +2,7 @@
 import Image from 'next/image'
 import { PageWrapper } from '~/components/PageWrapper'
 import { Typography } from '~/components/Typography'
+import Link from 'next/link'
 
 export default function Page() {
   return (
@@ -82,8 +83,16 @@ export default function Page() {
           Around the same time, the smartphone industry was booming, and I began
           researching programming languages for my HTC 7 Windows phone. C#
           caught my attention, and I started watching YouTube tutorials to learn
-          it. My first application project was a calculator app, and I also
-          created an Xbox achievement app where I stored data in an XML file.
+          it. My first application project was a{' '}
+          <Link
+            className="text-accent"
+            href="https://github.com/chrsolr-archives/QuickyCalc-WindowsPhones"
+            target="_blank"
+          >
+            calculator
+          </Link>{' '}
+          app, and I also created an Xbox achievement app where I stored data in
+          an XML file.
         </Typography>
 
         <Typography>
