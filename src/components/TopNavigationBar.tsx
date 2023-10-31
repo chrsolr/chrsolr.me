@@ -44,23 +44,16 @@ export const TopNavigationBar = function ({ headerTitle }: Props) {
   }
 
   return (
-    <div
+    <nav
       className="
-      top-navbar-shadow
-      fixed left-0 top-0 z-10
-      flex h-28 min-w-full
-      overflow-hidden bg-primary-light
-      !text-4xl
-      font-light
-    text-primary-dark
-    dark:bg-primary-dark
-    dark:text-primary-light"
+        z-10 flex h-28
+        select-none overflow-hidden
+        bg-primary-light
+        !text-4xl
+        font-light
+        dark:bg-primary-dark"
     >
-      <div
-        className="
-        container mx-auto flex 
-        items-center justify-center"
-      >
+      <div className="container mx-auto flex items-center justify-center">
         <div className="flex-1">
           <BrandLink headerTitle={headerTitle} />
         </div>
@@ -72,6 +65,6 @@ export const TopNavigationBar = function ({ headerTitle }: Props) {
           onClick={toggleMenu}
         />
       </div>
-    </div>
+    </nav>
   )
 }

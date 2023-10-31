@@ -10,14 +10,14 @@ const NavigationLayout = ({ children }: ReactChildren) => {
   const { isMenuOpen, toggleMenu } = useContext(LayoutContext)
 
   return (
-    <>
+    <div className="">
       <TopNavigationBar
         headerTitle={['[', '/', 'chr', 'solr', '.me', '/', ']']}
         onMenuIconClick={toggleMenu}
       />
       <SideBar isOpen={isMenuOpen} onClose={toggleMenu} />
       {children}
-    </>
+    </div>
   )
 }
 

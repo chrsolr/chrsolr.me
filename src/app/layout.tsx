@@ -29,9 +29,18 @@ export const metadata = {
 
 export default function RootLayout({ children }: ReactChildren) {
   return (
-    <html lang="en" className="dark">
+    <html lang="en" className="overflow-y-scroll text-[16px]">
       <body
-        className={`font-raleway ${raleway.variable} ${tilt_neon.variable} ${kanit.variable} bg-primary-light text-primary-dark antialiased dark:bg-primary-dark dark:text-primary-light`}
+        className={`
+          font-raleway 
+          antialiased 
+          ${raleway.variable} 
+          ${tilt_neon.variable} 
+          ${kanit.variable}
+          bg-primary-light 
+          text-primary-dark 
+          dark:bg-primary-dark 
+          dark:text-primary-light`}
       >
         <ThemeProvider>
           <LayoutProvider>

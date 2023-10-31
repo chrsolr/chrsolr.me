@@ -1,7 +1,7 @@
 'use client'
 
 import { useEffect, useState } from 'react'
-import { getUniqueKey } from './../utils/helpers'
+import { getUniqueKey } from '~/utils/helpers'
 import { Typography } from './Typography'
 import { useInterval } from '~/hooks/useInterval'
 
@@ -48,7 +48,7 @@ export const Quote = () => {
   useInterval(() => getQuote(), 10000)
 
   if (!quote) {
-    return <>$...</>
+    return <></>
   }
 
   return (

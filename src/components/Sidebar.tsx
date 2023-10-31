@@ -101,8 +101,8 @@ after:content-['_]']
 }
 
 export const SideBar = function ({ isOpen, onClose }: ComponentProps) {
-  const { theme = 'light', setTheme } = useTheme()
   const [hydrated, setHydrated] = useState(false)
+  const { theme = 'light', setTheme } = useTheme()
 
   const socials = [
     {
@@ -152,20 +152,19 @@ export const SideBar = function ({ isOpen, onClose }: ComponentProps) {
   return (
     <aside
       className={`
-sidebar-wrapper
-fixed -right-full bottom-0 top-0
-z-30 flex w-full
-flex-col items-center
-bg-primary-light p-4
-!text-2xl
-text-primary-dark
-dark:bg-primary-dark
-dark:text-primary-light
-md:-right-1/2
-md:w-1/2
-xl:-right-1/4
-xl:w-1/4
-${getOpenClassName(isOpen)}`}
+        sidebar-wrapper
+        fixed
+        -right-full bottom-0 top-0 z-20
+        flex w-full select-none
+        flex-col items-center
+        bg-primary-light p-4
+        !text-2xl 
+        dark:bg-primary-dark
+        md:-right-1/2
+        md:w-1/2
+        xl:-right-1/4
+        xl:w-1/4
+        ${getOpenClassName(isOpen)}`}
     >
       <div className="flex h-[6.25rem] items-center justify-center">
         <FontAwesomeIcon

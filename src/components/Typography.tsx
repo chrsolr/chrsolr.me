@@ -90,12 +90,12 @@ function getFontWeight(weight: FontWeight) {
 export const Typography = ({
   children,
   onClick,
-  className = '',
+  className = 'mb-6',
   size = 'base',
   weight = 'normal',
 }: Props) => {
   const twClasses = mergeTailwindClasses(
-    `mb-4 ${className} ${getFontSize(size)} ${getFontWeight(weight)}`,
+    `${className} ${getFontSize(size)} ${getFontWeight(weight)}`,
   )
   return (
     <p className={twClasses} onClick={onClick}>
