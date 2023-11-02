@@ -5,6 +5,7 @@ import {
   faGithub,
   faInstagram,
   faLinkedin,
+  faTwitch,
   faYoutube,
 } from '@fortawesome/free-brands-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -17,7 +18,7 @@ import { faTimes } from '@fortawesome/free-solid-svg-icons'
 import { faSquare } from '@fortawesome/free-regular-svg-icons'
 import { useTheme } from 'next-themes'
 
-library.add(faCodepen, faGithub, faInstagram, faLinkedin, faYoutube)
+library.add(faCodepen, faGithub, faInstagram, faLinkedin, faYoutube, faTwitch)
 
 type ComponentProps = {
   isOpen: boolean
@@ -126,14 +127,19 @@ export const SideBar = function ({ isOpen, onClose }: ComponentProps) {
       name: 'LinkedIn',
     },
     {
+      url: 'https://www.instagram.com/7w3n7y/',
+      icon: faInstagram,
+      name: 'Instagram',
+    },
+    {
       url: 'https://www.youtube.com/@chrsolr',
       icon: faYoutube,
       name: 'YouTube',
     },
     {
-      url: 'https://www.instagram.com/7w3n7y/',
-      icon: faInstagram,
-      name: 'Instagram',
+      url: 'https://www.twitch.tv/7w3n7y/',
+      icon: faTwitch,
+      name: 'Twitch',
     },
   ]
 
