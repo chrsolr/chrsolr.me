@@ -3,7 +3,6 @@
 import {
   faCodepen,
   faGithub,
-  faInstagram,
   faLinkedin,
   faTwitch,
   faYoutube,
@@ -18,7 +17,7 @@ import { faTimes } from '@fortawesome/free-solid-svg-icons'
 import { faSquare } from '@fortawesome/free-regular-svg-icons'
 import { useTheme } from 'next-themes'
 
-library.add(faCodepen, faGithub, faInstagram, faLinkedin, faYoutube, faTwitch)
+library.add(faCodepen, faGithub, faLinkedin, faYoutube, faTwitch)
 
 type ComponentProps = {
   isOpen: boolean
@@ -127,17 +126,12 @@ export const SideBar = function ({ isOpen, onClose }: ComponentProps) {
       name: 'LinkedIn',
     },
     {
-      url: 'https://www.instagram.com/7w3n7y/',
-      icon: faInstagram,
-      name: 'Instagram',
-    },
-    {
       url: 'https://www.youtube.com/@chrsolr',
       icon: faYoutube,
       name: 'YouTube',
     },
     {
-      url: 'https://www.twitch.tv/7w3n7y/',
+      url: 'https://www.twitch.tv/chrsolr/',
       icon: faTwitch,
       name: 'Twitch',
     },
@@ -192,6 +186,10 @@ export const SideBar = function ({ isOpen, onClose }: ComponentProps) {
           Home
         </SideBarLink>
 
+        <SideBarLink to="/aoc" onClick={close}>
+          Advent of Code
+        </SideBarLink>
+
         <SideBarLink to="/blog" onClick={close}>
           Blog
         </SideBarLink>
@@ -202,7 +200,10 @@ export const SideBar = function ({ isOpen, onClose }: ComponentProps) {
 
         <SideBarLink
           to="#"
-          onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
+          onClick={() => {
+            setTheme(theme === 'dark' ? 'light' : 'dark')
+            close()
+          }}
         >
           Theme: {theme}
         </SideBarLink>
@@ -210,6 +211,7 @@ export const SideBar = function ({ isOpen, onClose }: ComponentProps) {
         <div className="flex flex-1 items-end text-accent">
           {socials?.map((social) => (
             <Link
+              title={social.name}
               key={getUniqueKey()}
               href={social.url}
               target="_blank"
