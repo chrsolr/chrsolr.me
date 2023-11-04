@@ -9,7 +9,6 @@ export default function Page() {
         Advent of Code
       </Typography>
 
-      <Typography size="2xl">AoC - 2015</Typography>
       <div className="relative overflow-x-auto rounded border border-gray-200 dark:border-gray-700">
         <table className="w-full  border-gray-200 text-left text-sm dark:border-gray-700">
           <thead className="bg-gray-100 text-xs uppercase dark:bg-gray-600">
@@ -38,13 +37,35 @@ export default function Page() {
                   href="https://codesandbox.io/s/aoc-2015-day-01-hplgvm"
                   target="_blank"
                 >
-                  Source Code
+                  Code
                 </Link>
               </td>
               <td className="px-6 py-4">
                 <Link
                   className="text-accent"
                   href="https://adventofcode.com/2015/day/1"
+                  target="_blank"
+                >
+                  Instructions
+                </Link>
+              </td>
+            </tr>
+            <tr className="">
+              <td className="px-6 py-4">2015</td>
+              <td className="px-6 py-4">02</td>
+              <td className="px-6 py-4">
+                <Link
+                  className="text-accent"
+                  href="https://codesandbox.io/s/aoc-2015-day-02-2f4jp8"
+                  target="_blank"
+                >
+                  Code
+                </Link>
+              </td>
+              <td className="px-6 py-4">
+                <Link
+                  className="text-accent"
+                  href="https://adventofcode.com/2015/day/2"
                   target="_blank"
                 >
                   Instructions
