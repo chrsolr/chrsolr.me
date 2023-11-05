@@ -3,6 +3,34 @@ import { Typography } from '~/components/Typography'
 import Link from 'next/link'
 
 export default function Page() {
+  const aoc = {
+    '2015': [
+      {
+        solutionUrl: 'https://codesandbox.io/s/aoc-2015-day-01-hplgvm',
+        year: 2015,
+        day: 1,
+        instructionUrl: 'https://adventofcode.com/2015/day/1',
+      },
+      {
+        solutionUrl: 'https://codesandbox.io/s/aoc-2015-day-02-2f4jp8"',
+        year: 2015,
+        day: 2,
+        instructionUrl: 'https://adventofcode.com/2015/day/2',
+      },
+      {
+        solutionUrl: 'https://codesandbox.io/s/aoc-2015-day-03-jx2zst',
+        year: 2015,
+        day: 3,
+        instructionUrl: 'https://adventofcode.com/2015/day/3',
+      },
+      {
+        solutionUrl: 'https://codesandbox.io/s/aoc-2015-day-04-f3tsz6',
+        year: 2015,
+        day: 4,
+        instructionUrl: 'https://adventofcode.com/2015/day/4',
+      },
+    ],
+  }
   return (
     <PageWrapper>
       <Typography size="4xl" weight="semibold" className="text-accent">
@@ -28,50 +56,31 @@ export default function Page() {
             </tr>
           </thead>
           <tbody>
-            <tr className="">
-              <td className="px-6 py-4">2015</td>
-              <td className="px-6 py-4">01</td>
-              <td className="px-6 py-4">
-                <Link
-                  className="text-accent"
-                  href="https://codesandbox.io/s/aoc-2015-day-01-hplgvm"
-                  target="_blank"
-                >
-                  Code
-                </Link>
-              </td>
-              <td className="px-6 py-4">
-                <Link
-                  className="text-accent"
-                  href="https://adventofcode.com/2015/day/1"
-                  target="_blank"
-                >
-                  Instructions
-                </Link>
-              </td>
-            </tr>
-            <tr className="">
-              <td className="px-6 py-4">2015</td>
-              <td className="px-6 py-4">02</td>
-              <td className="px-6 py-4">
-                <Link
-                  className="text-accent"
-                  href="https://codesandbox.io/s/aoc-2015-day-02-2f4jp8"
-                  target="_blank"
-                >
-                  Code
-                </Link>
-              </td>
-              <td className="px-6 py-4">
-                <Link
-                  className="text-accent"
-                  href="https://adventofcode.com/2015/day/2"
-                  target="_blank"
-                >
-                  Instructions
-                </Link>
-              </td>
-            </tr>
+            {Boolean(aoc['2015'].length) &&
+              aoc['2015'].map(({ year, day, solutionUrl, instructionUrl }) => (
+                <tr key={`${year}-${day}`} className="">
+                  <td className="px-6 py-4">{year}</td>
+                  <td className="px-6 py-4">{day}</td>
+                  <td className="px-6 py-4">
+                    <Link
+                      className="text-accent"
+                      href={solutionUrl}
+                      target="_blank"
+                    >
+                      Code
+                    </Link>
+                  </td>
+                  <td className="px-6 py-4">
+                    <Link
+                      className="text-accent"
+                      href={instructionUrl}
+                      target="_blank"
+                    >
+                      Instructions
+                    </Link>
+                  </td>
+                </tr>
+              ))}
           </tbody>
         </table>
       </div>
