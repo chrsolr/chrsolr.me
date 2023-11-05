@@ -73,11 +73,7 @@ export default function Page() {
           Initially, I explored various aspects of IT, taking Unix and
           networking classes, only to find that they didn't resonate with me. My
           true passion emerged when I took an introductory C++ class, and I fell
-          in love with programming.Initially, I explored various aspects of IT,
-          taking Unix and networking classes, only to find that they didn't
-          resonate with me. My true passion emerged when I took an introductory
-          C++ class, and I fell in love with programming.
-        </Typography>
+          in love with programming.</Typography>
 
         <Typography>
           Around the same time, the smartphone industry was booming, and I began
@@ -108,13 +104,7 @@ export default function Page() {
           to college. However, I faced the prospect of losing 30 credits, so I
           opted for a different path. I enrolled in a coding boot camp, which
           was a valuable experience due to my prior coding education and the
-          shared enthusiasm for programming among my peers.A few years later, we
-          relocated to Texas, and I considered returning to college. However, I
-          faced the prospect of losing 30 credits, so I opted for a different
-          path. I enrolled in a coding boot camp, which was a valuable
-          experience due to my prior coding education and the shared enthusiasm
-          for programming among my peers.
-        </Typography>
+          shared enthusiasm for programming among my peers.</Typography>
 
         <Typography>
           Since completing the boot camp, I've worked in three different
