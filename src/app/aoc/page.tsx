@@ -39,8 +39,15 @@ export default function Page() {
         day: 1,
         instructionUrl: 'https://adventofcode.com/2022/day/1',
       },
+      {
+        solutionUrl: 'https://codesandbox.io/s/aoc-2022-day-02-2pymm2',
+        year: 2022,
+        day: 2,
+        instructionUrl: 'https://adventofcode.com/2022/day/2',
+      },
     ],
   }
+
   return (
     <PageWrapper>
       <Typography size="4xl" weight="semibold" className="text-accent">
