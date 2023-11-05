@@ -3,6 +3,7 @@ import { Typography } from '~/components/Typography'
 import AdventOfCodeTable, {
   type AdventOfCodeTableItem,
 } from '~/components/AdventOfCodeTable'
+import { getUniqueKey } from '~/utils/helpers'
 
 export default function Page() {
   const aoc: Record<'2015' | '2022', AdventOfCodeTableItem[]> = {
@@ -72,8 +73,9 @@ export default function Page() {
         Advent of Code
       </Typography>
 
-      <AdventOfCodeTable items={aoc['2015']} />
-      <AdventOfCodeTable items={aoc['2022']} />
+      {Object.values(aoc).map((items) => (
+        <AdventOfCodeTable key={getUniqueKey()} items={items} />
+      ))}
     </PageWrapper>
   )
 }
