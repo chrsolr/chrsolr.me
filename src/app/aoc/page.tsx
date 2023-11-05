@@ -45,6 +45,24 @@ export default function Page() {
         day: 2,
         instructionUrl: 'https://adventofcode.com/2022/day/2',
       },
+      {
+        solutionUrl: 'https://codesandbox.io/s/aoc-2022-day-03-7phshx',
+        year: 2022,
+        day: 3,
+        instructionUrl: 'https://adventofcode.com/2022/day/3',
+      },
+      {
+        solutionUrl: 'https://codesandbox.io/s/aoc-2022-day-04-d6nfxz',
+        year: 2022,
+        day: 4,
+        instructionUrl: 'https://adventofcode.com/2022/day/4',
+      },
+      {
+        solutionUrl: 'https://codesandbox.io/s/aoc-2022-day-05-klk8sh',
+        year: 2022,
+        day: 5,
+        instructionUrl: 'https://adventofcode.com/2022/day/5',
+      },
     ],
   }
 
