@@ -1,4 +1,5 @@
 import Link from 'next/link'
+
 export type AdventOfCodeTableItem = {
   solutionUrl: string
   year: number
@@ -16,16 +17,16 @@ export default function AdventOfCodeTable({ items }: Props) {
       <table className="w-full  border-gray-200 text-left text-sm dark:border-gray-700">
         <thead className="bg-gray-100 text-xs uppercase dark:bg-gray-600">
           <tr>
-            <th scope="col" className="px-6 py-3">
+            <th scope="col" className="whitespace-nowrap px-6 py-3">
               Year
             </th>
-            <th scope="col" className="px-6 py-3">
+            <th scope="col" className="whitespace-nowrap px-6 py-3">
               Day
             </th>
-            <th scope="col" className="px-6 py-3">
+            <th scope="col" className="whitespace-nowrap px-6 py-3">
               Code sandbox
             </th>
-            <th scope="col" className="px-6 py-3">
+            <th scope="col" className="whitespace-nowrap px-6 py-3">
               Challenge
             </th>
           </tr>

@@ -3,6 +3,7 @@ import { getBlogPosts } from '~/apis/blog'
 import { PageWrapper } from '~/components/PageWrapper'
 import { Typography } from '~/components/Typography'
 import { getUniqueKey } from '~/utils/helpers'
+import Title from '~/components/Title'
 
 export default async function Page() {
   const posts = await getBlogPosts()
@@ -23,9 +24,7 @@ export default async function Page() {
           </div>
 
           <Link href={`/blog/${post.slug}`} className="text-accent">
-            <Typography size="4xl" className="mb-2">
-              {post.title}
-            </Typography>
+            <Title className="mb-2">{post.title}</Title>
           </Link>
 
           <Typography size="sm" className="lowercase text-gray-500">
@@ -37,7 +36,7 @@ export default async function Page() {
           <Typography>{post.summary}</Typography>
 
           <Link href={`/blog/${post.slug}`} className="text-accent">
-            <Typography className="mb-0">read more...</Typography>
+            read more...
           </Link>
         </div>
       ))}

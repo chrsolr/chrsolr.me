@@ -1,9 +1,9 @@
 import { PageWrapper } from '~/components/PageWrapper'
-import { Typography } from '~/components/Typography'
 import AdventOfCodeTable, {
   type AdventOfCodeTableItem,
 } from '~/components/AdventOfCodeTable'
 import { getUniqueKey } from '~/utils/helpers'
+import Title from '~/components/Title'
 
 export default function Page() {
   const aoc: Record<'2015' | '2022', AdventOfCodeTableItem[]> = {
@@ -69,9 +69,7 @@ export default function Page() {
 
   return (
     <PageWrapper>
-      <Typography size="4xl" weight="semibold" className="text-accent">
-        Advent of Code
-      </Typography>
+      <Title>Advent of Code</Title>
 
       {Object.values(aoc).map((items) => (
         <AdventOfCodeTable key={getUniqueKey()} items={items} />
