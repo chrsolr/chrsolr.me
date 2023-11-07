@@ -32,6 +32,12 @@ export default function Page() {
         day: 4,
         instructionUrl: 'https://adventofcode.com/2015/day/4',
       },
+      {
+        solutionUrl: 'https://codesandbox.io/s/aoc-2015-day-05-pd9k3r',
+        year: 2015,
+        day: 5,
+        instructionUrl: 'https://adventofcode.com/2015/day/5',
+      },
     ],
     '2022': [
       {
