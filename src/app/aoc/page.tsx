@@ -38,6 +38,12 @@ export default function Page() {
         day: 5,
         instructionUrl: 'https://adventofcode.com/2015/day/5',
       },
+      {
+        solutionUrl: 'https://codesandbox.io/s/aoc-2015-day-06-84gd6g',
+        year: 2015,
+        day: 6,
+        instructionUrl: 'https://adventofcode.com/2015/day/6',
+      },
     ],
     '2022': [
       {
