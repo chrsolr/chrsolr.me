@@ -4,7 +4,6 @@ import AdventOfCodeTable, {
 } from '~/components/AdventOfCodeTable'
 import { getUniqueKey } from '~/utils/helpers'
 import Title from '~/components/Title'
-import { Typography } from '~/components/Typography'
 
 export default function Page() {
   const aoc: Record<'2015' | '2022', AdventOfCodeTableItem[]> = {
@@ -14,7 +13,7 @@ export default function Page() {
         year: 2015,
         day: 1,
         instructionUrl: 'https://adventofcode.com/2015/day/1',
-        revised: false,
+        revised: true,
       },
       {
         solutionUrl: 'https://codesandbox.io/s/aoc-2015-day-02-2f4jp8"',
