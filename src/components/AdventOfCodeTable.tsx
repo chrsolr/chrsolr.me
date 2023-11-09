@@ -5,6 +5,7 @@ export type AdventOfCodeTableItem = {
   year: number
   day: number
   instructionUrl: string
+  revised: boolean
 }
 
 type Props = {
@@ -29,11 +30,14 @@ export default function AdventOfCodeTable({ items }: Props) {
             <th scope="col" className="whitespace-nowrap px-6 py-3">
               Challenge
             </th>
+            <th scope="col" className="whitespace-nowrap px-6 py-3">
+              Revised
+            </th>
           </tr>
         </thead>
         <tbody>
           {Boolean(items.length) &&
-            items.map(({ year, day, solutionUrl, instructionUrl }) => (
+            items.map(({ year, day, solutionUrl, instructionUrl, revised }) => (
               <tr key={`${year}-${day}`} className="">
                 <td className="px-6 py-4">{year}</td>
                 <td className="px-6 py-4">{day}</td>
@@ -55,6 +59,7 @@ export default function AdventOfCodeTable({ items }: Props) {
                     Instructions
                   </Link>
                 </td>
+                <td className="px-6 py-4">{revised ? 'Yes' : 'No'}</td>
               </tr>
             ))}
         </tbody>
