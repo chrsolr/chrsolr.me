@@ -20,7 +20,7 @@ export default function Page() {
         year: 2015,
         day: 2,
         instructionUrl: 'https://adventofcode.com/2015/day/2',
-        revised: false,
+        revised: true,
       },
       {
         solutionUrl: 'https://codesandbox.io/s/aoc-2015-day-03-jx2zst',
