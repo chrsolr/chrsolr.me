@@ -16,7 +16,7 @@ export default function Page() {
         revised: true,
       },
       {
-        solutionUrl: 'https://codesandbox.io/s/aoc-2015-day-02-2f4jp8"',
+        solutionUrl: 'https://codesandbox.io/s/aoc-2015-day-02-2f4jp8',
         year: 2015,
         day: 2,
         instructionUrl: 'https://adventofcode.com/2015/day/2',
