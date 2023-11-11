@@ -27,14 +27,14 @@ export default function Page() {
         year: 2015,
         day: 3,
         instructionUrl: 'https://adventofcode.com/2015/day/3',
-        revised: false,
+        revised: true,
       },
       {
         solutionUrl: 'https://codesandbox.io/s/aoc-2015-day-04-f3tsz6',
         year: 2015,
         day: 4,
         instructionUrl: 'https://adventofcode.com/2015/day/4',
-        revised: false,
+        revised: true,
       },
       {
         solutionUrl: 'https://codesandbox.io/s/aoc-2015-day-05-pd9k3r',
