@@ -4,6 +4,7 @@ import AdventOfCodeTable, {
 } from '~/components/AdventOfCodeTable'
 import { getUniqueKey } from '~/utils/helpers'
 import Title from '~/components/Title'
+import Link from 'next/link'
 
 export default function Page() {
   const aoc: Record<'2015' | '2022', AdventOfCodeTableItem[]> = {
@@ -41,14 +42,14 @@ export default function Page() {
         year: 2015,
         day: 5,
         instructionUrl: 'https://adventofcode.com/2015/day/5',
-        revised: false,
+        revised: true,
       },
       {
         solutionUrl: 'https://codesandbox.io/s/aoc-2015-day-06-84gd6g',
         year: 2015,
         day: 6,
         instructionUrl: 'https://adventofcode.com/2015/day/6',
-        revised: false,
+        revised: true,
       },
     ],
     '2022': [
@@ -92,7 +93,14 @@ export default function Page() {
 
   return (
     <PageWrapper>
-      <Title>Advent of Code</Title>
+      <Title className="mb-2">Advent of Code</Title>
+      <Link
+        className="text-accent"
+        href="https://github.com/chrsolr-playground/advent-of-code"
+        target="_blank"
+      >
+        Github - Source Code
+      </Link>
 
       {Object.values(aoc).map((items) => (
         <AdventOfCodeTable key={getUniqueKey()} items={items} />
