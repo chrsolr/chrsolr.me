@@ -10,13 +10,18 @@ export default {
     },
     extend: {
       fontFamily: {
-        raleway: ['var(--font-raleway)', ...fontFamily.sans],
-        tilt: ['var(--font-tilt)', ...fontFamily.sans],
-        kanit: ['var(--font-kanit)', ...fontFamily.sans],
+        ubuntuMono: ['var(--font-ubuntu-mono)', ...fontFamily.sans],
       },
       colors: {
         'primary-dark': '#212529',
         'primary-light': '#ffffff',
+        'text-primary-light': '#555',
+        'fg-light': '#333',
+        'fg-light-deep': '#000',
+        'fg-light-subtle': '#555',
+        'fg-dark': '#eee',
+        'fg-dark-deep': '#fff',
+        'fg-dark-subtle': '#bbb',
         accent: '#dc4b74',
       },
     },

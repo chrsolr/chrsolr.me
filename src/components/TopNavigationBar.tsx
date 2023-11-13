@@ -16,7 +16,7 @@ type BrandLinkProps = Pick<Props, 'headerTitle'>
 
 function BrandLink({ headerTitle }: BrandLinkProps) {
   return (
-    <Link href="/" className="font-raleway">
+    <Link href="/">
       <>
         {headerTitle.map((v) => (
           <span

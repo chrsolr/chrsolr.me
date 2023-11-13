@@ -19,14 +19,14 @@ export default function Page() {
 
           <div className="ml-4 flex">
             <span className="text-4xl font-light lowercase text-accent">
-              Christian{' '}
+              Christian
             </span>
             <span className="text-4xl font-semibold lowercase text-accent">
               Soler
             </span>
           </div>
 
-          <Typography size="lg" className="lowercase text-gray-500">
+          <Typography size="lg" className="lowercase text-fg-light-subtle">
             Software Developer
           </Typography>
         </div>

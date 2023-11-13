@@ -23,7 +23,14 @@ export default async function BlogPostDetails({ params: { slug } }: Params) {
   return (
     <PageWrapper>
       <div
-        className="prose
+        className="prose-p:text-fg-light
+        prose-ul:text-fg-light
+        dark:prose-p:text-fg-dark
+        dark:prose-strong:text-fg-dark
+        dark:prose-ol:text-fg-dark
+        dark:prose-ul:text-fg-dark
+        dark:prose-pre:text-fg-light
+        prose
         max-w-none
         prose-h1:m-0
         prose-h1:mb-6
@@ -41,23 +48,17 @@ export default async function BlogPostDetails({ params: { slug } }: Params) {
         prose-h6:mb-0
         prose-p:m-0
         prose-p:mb-6
-        prose-p:text-primary-dark
         prose-a:text-accent
         prose-pre:m-0
         prose-pre:mb-6
         prose-pre:px-4
         prose-pre:py-4
         prose-ol:mb-6
-        prose-ul:text-primary-dark
         prose-img:m-0
         prose-img:w-full
         prose-img:rounded-2xl
         prose-hr:my-4
-        dark:prose-p:text-primary-light
-        dark:prose-strong:text-primary-light
-        dark:prose-pre:bg-primary-dark
-        dark:prose-ol:text-primary-light
-        dark:prose-ul:text-primary-light
+        dark:prose-pre:bg-primary-light
         "
       >
         <div dangerouslySetInnerHTML={{ __html: htmlContent }}></div>
