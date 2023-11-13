@@ -55,7 +55,7 @@ export const TopNavigationBar = function ({ headerTitle }: Props) {
     >
       <div className="container mx-auto flex items-center justify-center">
         <div className="flex-1">
-          <BrandLink headerTitle={headerTitle} />
+          {/*<BrandLink headerTitle={headerTitle} />*/}
         </div>
 
         <FontAwesomeIcon
