@@ -1,5 +1,3 @@
-'use client'
-
 import {
   faCodepen,
   faGithub,
@@ -13,43 +11,28 @@ import Link from 'next/link'
 import { PageWrapper } from '~/components/PageWrapper'
 import { Typography } from '~/components/Typography'
 import { getUniqueKey } from '~/utils/helpers'
-import CIcon from '@coreui/icons-react'
-import {
-  cibCodepen,
-  cibCodesandbox,
-  cibGithub,
-  cibLeetcode,
-  cibLinkedin,
-  cibTwitch,
-  cibYoutube,
-} from '@coreui/icons'
 
 export default function Page() {
   const socials = [
     {
       url: 'https://github.com/chrsolr/',
-      icon: cibGithub,
+      icon: faGithub,
       name: 'Github',
     },
     {
       url: 'https://codesandbox.io/u/chrsolr',
-      icon: cibCodesandbox,
+      icon: faSquare,
       name: 'CodeSandbox',
     },
     {
       url: 'https://codepen.io/chrsolr',
-      icon: cibCodepen,
+      icon: faCodepen,
       name: 'Codepen',
     },
     {
       url: 'https://www.linkedin.com/in/christiansoler/',
-      icon: cibLinkedin,
+      icon: faLinkedin,
       name: 'LinkedIn',
-    },
-    {
-      url: 'https://leetcode.com/chrsolr/',
-      icon: cibLeetcode,
-      name: 'Leetcode',
     },
   ]
 
@@ -68,9 +51,9 @@ export default function Page() {
                 key={getUniqueKey()}
                 href={social.url}
                 target="_blank"
-                className="flex items-center hover:text-accent"
+                className="hover:text-accent"
               >
-                <CIcon icon={social.icon} className="mr-2 h-3 w-3" />
+                <FontAwesomeIcon className="mr-2" icon={social.icon} />
                 {social.name}
               </Link>
               <span className="mx-2 last:hidden"> - </span>

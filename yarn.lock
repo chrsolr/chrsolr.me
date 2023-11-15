@@ -19,16 +19,6 @@
   dependencies:
     regenerator-runtime "^0.14.0"
 
-"@coreui/icons-react@^2.2.1":
-  version "2.2.1"
-  resolved "https://registry.yarnpkg.com/@coreui/icons-react/-/icons-react-2.2.1.tgz#4d2ee7836c3e555acb3dd0b2f676af2d651a7b0c"
-  integrity sha512-44bdKV5fZpVRpY6M7AL15tSAB2S4/xFzAojMsYe9k46mjyX7QLAKoowioEtLXxOqCRUBBBgxAXyjvJeeJlZwxg==
-
-"@coreui/icons@^3.0.1":
-  version "3.0.1"
-  resolved "https://registry.yarnpkg.com/@coreui/icons/-/icons-3.0.1.tgz#a6b77a3d3578a59b08474fbfe29de0ebc5ea4c80"
-  integrity sha512-u9UKEcRMyY9pa4jUoLij8pAR03g5g6TLWV33/Mx2ix8sffyi0eO4fLV8DSTQljDCw938zt7KYog5cVKEAJUxxg==
-
 "@eslint-community/eslint-utils@^4.2.0", "@eslint-community/eslint-utils@^4.4.0":
   version "4.4.0"
   resolved "https://registry.yarnpkg.com/@eslint-community/eslint-utils/-/eslint-utils-4.4.0.tgz#a23514e8fb9af1269d5f7788aa556798d61c6b59"
