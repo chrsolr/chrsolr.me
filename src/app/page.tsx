@@ -2,8 +2,6 @@ import {
   faCodepen,
   faGithub,
   faLinkedin,
-  faTwitch,
-  faYoutube,
 } from '@fortawesome/free-brands-svg-icons'
 import { faSquare } from '@fortawesome/free-regular-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
