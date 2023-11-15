@@ -14,7 +14,7 @@ type Props = {
 
 export default function AdventOfCodeTable({ items }: Props) {
   return (
-    <div className="relative mb-8 overflow-x-auto rounded border border-gray-200 dark:border-gray-700">
+    <div className="relative mb-8 overflow-x-auto rounded border border-gray-200 first:mt-8 dark:border-gray-700">
       <table className="w-full  border-gray-200 text-left text-sm dark:border-gray-700">
         <thead className="bg-gray-100 text-xs uppercase dark:bg-gray-600">
           <tr>

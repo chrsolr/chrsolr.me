@@ -99,7 +99,7 @@ export default function Page() {
         href="https://github.com/chrsolr-playground/advent-of-code"
         target="_blank"
       >
-        Github - Source Code
+        <p className="mb-2">Github - Source Code</p>
       </Link>
 
       {Object.values(aoc).map((items) => (
