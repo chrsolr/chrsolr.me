@@ -24,10 +24,10 @@ export default function RootLayout({ children }: ReactChildren) {
         className={`
           antialiased 
           ${ubuntu_mono.variable}
-          text-fg-light 
-          dark:text-fg-dark
-          bg-primary-light
-          dark:bg-primary-dark`}
+          bg-primary-light 
+          text-fg-light
+          dark:bg-primary-dark
+          dark:text-fg-dark`}
       >
         <ThemeProvider>
           <LayoutProvider>

@@ -55,7 +55,7 @@ export const Quote = () => {
     <div className="flex flex-col items-center">
       <Typography
         size="5xl"
-        className="text-fg-light-deep dark:text-fg-dark-deep text-center 
+        className="text-center text-fg-light-deep dark:text-fg-dark-deep 
           sm:text-6xl md:text-7xl lg:text-7xl xl:text-8xl 2xl:text-9xl"
       >
         {quote.author}
@@ -64,7 +64,7 @@ export const Quote = () => {
       <Typography
         size="base"
         weight="light"
-        className="text-fg-light-subtle dark:text-fg-dark-subtle text-center md:text-xl lg:text-2xl xl:text-2xl 2xl:text-3xl"
+        className="text-center text-fg-light-subtle dark:text-fg-dark-subtle md:text-xl lg:text-2xl xl:text-2xl 2xl:text-3xl"
       >
         {quote.content}
       </Typography>
@@ -75,7 +75,7 @@ export const Quote = () => {
         {quote.tags?.map((tag) => (
           <div
             key={getUniqueKey()}
-            className={`text-fg-dark-deep mr-4 select-none overflow-hidden rounded-full bg-accent px-4 py-1 last:mr-0`}
+            className={`mr-4 select-none overflow-hidden rounded-full bg-accent px-4 py-1 text-fg-dark-deep last:mr-0`}
           >
             {tag}
           </div>
