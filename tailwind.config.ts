@@ -11,8 +11,6 @@ export default {
     extend: {
       fontFamily: {
         raleway: ['var(--font-raleway)', ...fontFamily.sans],
-        tilt: ['var(--font-tilt)', ...fontFamily.sans],
-        kanit: ['var(--font-kanit)', ...fontFamily.sans],
       },
       colors: {
         'primary-dark': '#212529',
