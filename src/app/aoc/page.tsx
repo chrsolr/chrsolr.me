@@ -58,7 +58,7 @@ export default function Page() {
         year: 2022,
         day: 1,
         instructionUrl: 'https://adventofcode.com/2022/day/1',
-        revised: false,
+        revised: true,
       },
       {
         solutionUrl: 'https://codesandbox.io/s/aoc-2022-day-02-2pymm2',
