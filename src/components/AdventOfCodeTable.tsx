@@ -1,11 +1,11 @@
 import Link from 'next/link'
 
 export type AdventOfCodeTableItem = {
-  solutionUrl: string
   year: number
   day: number
   instructionUrl: string
   revised: boolean
+  slug: string
 }
 
 type Props = {
@@ -37,15 +37,14 @@ export default function AdventOfCodeTable({ items }: Props) {
         </thead>
         <tbody>
           {Boolean(items.length) &&
-            items.map(({ year, day, solutionUrl, instructionUrl, revised }) => (
+            items.map(({ year, day, instructionUrl, revised, slug }) => (
               <tr key={`${year}-${day}`} className="">
                 <td className="px-6 py-4">{year}</td>
                 <td className="px-6 py-4">{day}</td>
                 <td className="px-6 py-4">
                   <Link
                     className="text-accent"
-                    href={solutionUrl}
-                    target="_blank"
+                    href={`/aoc/${slug}?day=${day}&year=${year}`}
                   >
                     Code
                   </Link>
