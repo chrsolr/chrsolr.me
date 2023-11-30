@@ -1,7 +1,7 @@
 'use client'
 
-import { PageWrapper } from '~/components/PageWrapper'
 import Title from '~/components/Title'
+import { PageWrapper } from '~/components/PageWrapper'
 import { useSearchParams } from 'next/navigation'
 
 type Params = {
