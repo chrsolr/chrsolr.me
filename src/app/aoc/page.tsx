@@ -97,7 +97,7 @@ export default function Page() {
         revised: true,
         slug: 'aoc-2023-day-01-k7clcq',
       },
-    ]
+    ],
   }
 
   return (
