@@ -97,6 +97,7 @@ export const Typography = ({
   const twClasses = mergeTailwindClasses(
     `${className} ${getFontSize(size)} ${getFontWeight(weight)}`,
   )
+
   return (
     <p className={twClasses} onClick={onClick}>
       {children}
