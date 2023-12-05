@@ -97,6 +97,13 @@ export default function Page() {
         revised: true,
         slug: 'aoc-2023-day-01-k7clcq',
       },
+      {
+        year: 2023,
+        day: 2,
+        instructionUrl: 'https://adventofcode.com/2023/day/2',
+        revised: false,
+        slug: 'aoc-2023-day-02-cxv8gn',
+      },
     ],
   }
 
