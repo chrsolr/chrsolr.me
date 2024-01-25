@@ -1,6 +1,16 @@
-# chrsolr.me
+# Welcome
 
-### Todo's
+Welcome to the source code of my personal website. [chrsolr.me](https://www.chrsolr.me).
 
-- Integration with Web API (Dotnet Core) or GoLang
-- Apps Page (Random stupid stuff)
+
+## Current Branch Tech Stack
+
+- NextJs 13 (App Router)
+- Typescript
+- TailwindCss
+- Fontawesome
+
+
+## Other Versions
+
+Coming Soon...
