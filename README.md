@@ -3,7 +3,7 @@
 Welcome to the source code of my personal website. [chrsolr.me](https://www.chrsolr.me).
 
 
-## Current Branch Tech Stack
+### Current Branch Tech Stack
 
 - NextJs 13 (App Router)
 - Typescript
@@ -11,6 +11,6 @@ Welcome to the source code of my personal website. [chrsolr.me](https://www.chrs
 - Fontawesome
 
 
-## Other Versions
+### Other Versions
 
-Coming Soon...
+- [Dotnet Blazor](https://github.com/chrsolr/chrsolr.me/tree/feature/dotnet) (Currently In Development)
