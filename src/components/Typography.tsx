@@ -1,15 +1,23 @@
+import { cn } from "@/lib/utils";
 import { ReactNode } from "react";
 
 export function Typography({
   as = "p",
+  className = "",
   children,
 }: {
-  as?: "h1" | "h2" | "h3" | "h4" | "p";
+  as?: "h1" | "h2" | "h3" | "h4" | "p" | "span";
+  className?: string;
   children: ReactNode;
 }) {
   if (as === "h1") {
     return (
-      <h1 className="scroll-m-20 text-4xl font-extrabold tracking-tight lg:text-5xl">
+      <h1
+        className={cn(
+          "scroll-m-20 text-4xl font-extrabold tracking-tight lg:text-5xl",
+          className,
+        )}
+      >
         {children}
       </h1>
     );
@@ -17,7 +25,12 @@ export function Typography({
 
   if (as === "h2") {
     return (
-      <h2 className="scroll-m-20 border-b pb-2 text-3xl font-semibold tracking-tight first:mt-0">
+      <h2
+        className={cn(
+          "scroll-m-20 border-b pb-2 text-3xl font-semibold tracking-tight first:mt-0",
+          className,
+        )}
+      >
         {children}
       </h2>
     );
@@ -25,7 +38,12 @@ export function Typography({
 
   if (as === "h3") {
     return (
-      <h3 className="scroll-m-20 text-2xl font-semibold tracking-tight">
+      <h3
+        className={cn(
+          "scroll-m-20 text-2xl font-semibold tracking-tight",
+          className,
+        )}
+      >
         {children}
       </h3>
     );
@@ -33,11 +51,24 @@ export function Typography({
 
   if (as === "h4") {
     return (
-      <h4 className="scroll-m-20 text-xl font-semibold tracking-tight">
+      <h4
+        className={cn(
+          "scroll-m-20 text-xl font-semibold tracking-tight",
+          className,
+        )}
+      >
         {children}
       </h4>
     );
   }
 
-  return <p className="leading-7 [&:not(:first-child)]:mt-6">{children}</p>;
+  if (as === "span") {
+    return <span className={cn("leading-4", className)}>{children}</span>;
+  }
+
+  return (
+    <p className={cn("leading-7 [&:not(:first-child)]:mt-6", className)}>
+      {children}
+    </p>
+  );
 }
