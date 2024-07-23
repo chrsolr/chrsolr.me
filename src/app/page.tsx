@@ -1,13 +1,13 @@
+import { Editor } from '@/components/Editor'
 import { Typography } from '@/components/Typography'
 import Link from 'next/link'
 
-export default function Home() {
+const HomeForMobile = () => {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-center">
+    <>
       <div
         className="container flex flex-col items-center justify-center"
-        style={{ display: 'flex' }}
-      >
+        style={{ display: 'flex' }}>
         <Typography as="h1">
           <Typography as="span" className="text-accent-yellow">
             christian
@@ -20,6 +20,14 @@ export default function Home() {
       <Link className="text-accent-pink" href="https://github.com/chrsolr/">
         <Typography as="h3">github</Typography>
       </Link>
+    </>
+  )
+}
+
+export default function Home() {
+  return (
+    <main className="flex min-h-screen min-w-full flex-col">
+      <Editor />
     </main>
   )
 }
