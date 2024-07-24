@@ -1,15 +1,42 @@
+'use client'
+
 import { useInterval } from '@/hooks/useInterval'
 import { Typography } from './Typography'
+import { DateTime } from 'luxon'
+import { useCallback, useEffect, useState } from 'react'
 
 export default function StatusBar({
-  modeState = 'normal',
   url = '',
-  currentTime = Date.now().toString(),
 }: {
-  modeState: 'normal' | 'insert'
   url: string
-  currentTime: string
 }) {
+  const [currentTime, setCurrentTime] = useState<string>('--:--:-- --')
+  const [modeState, setModeState] = useState<'normal' | 'insert'>('normal')
+
+  const handleKeyStroke = useCallback((e: KeyboardEvent) => {
+    const keystroke = e.key
+
+    if (keystroke === 'i') {
+      setModeState('insert')
+    }
+
+    if (keystroke === 'Escape') {
+      setModeState('normal')
+    }
+  }, [])
+
+  useEffect(() => {
+    document.addEventListener('keydown', handleKeyStroke)
+
+    return () => {
+      document.removeEventListener('keydown', handleKeyStroke)
+    }
+  }, [])
+
+  useInterval(() => {
+    setCurrentTime(DateTime.now().toLocaleString(DateTime.TIME_WITH_SECONDS))
+  }, 1000)
+
   return (
     <div className="flex min-w-full bg-background-light justify-between fixed left-0 bottom-0">
       <div className="flex">
