@@ -5,9 +5,11 @@ import { Typography } from './Typography'
 import { DateTime } from 'luxon'
 import { useCallback, useEffect, useState } from 'react'
 import { usePathname } from 'next/navigation'
+import Link from 'next/link'
 
 export default function StatusBar() {
   const pathname = usePathname() === '/' ? '/home' : usePathname()
+  const [showNavigation, setShowNavigation] = useState<boolean>(false)
   const [modeState, setModeState] = useState<'normal' | 'insert'>('normal')
   const [currentTime, setCurrentTime] = useState<string>('--:--:-- --')
   const [isMilitaryTime, setIsMilitaryTime] = useState<boolean>(false)
@@ -23,6 +25,10 @@ export default function StatusBar() {
 
     if (keystroke === 'Escape') {
       setModeState('normal')
+    }
+
+    if (keystroke === '-') {
+      setShowNavigation((prev) => !prev)
     }
   }, [])
 
@@ -67,11 +73,41 @@ export default function StatusBar() {
             {modeState}
           </Typography>
         )}
-        <Typography
-          as="span"
-          className="bg-background-light-accent flex items-center justify-center text-foreground-muted px-3 py-1 text-md">
-          {subPath}
-        </Typography>
+        <div>
+          {showNavigation && (
+            <div className="absolute bottom-8">
+              <Link
+                tabIndex={0}
+                href="https://github.com/chrsolr/chrsolr/tree/main/blog">
+                <Typography
+                  as="span"
+                  className="bg-background-light-accent flex items-center justify-center text-foreground-muted px-3 py-1 text-md border-b-background border-b hover:cursor-pointer">
+                  blog
+                </Typography>
+              </Link>
+
+              <Link
+                tabIndex={0}
+                href="https://github.com/chrsolr/advent-of-code">
+                <Typography
+                  as="span"
+                  className="bg-background-light-accent flex items-center justify-center text-foreground-muted px-3 py-1 text-md border-b-background border-b hover:cursor-pointer">
+                  aoc
+                </Typography>
+              </Link>
+            </div>
+          )}
+          <div
+            onClick={() => {
+              setShowNavigation((prev) => !prev)
+            }}>
+            <Typography
+              as="span"
+              className="bg-background-light-accent select-none flex items-center justify-center text-foreground-muted px-3 py-1 text-md hover:cursor-pointer">
+              {subPath}
+            </Typography>
+          </div>
+        </div>
         <Typography
           as="span"
           className="text-foreground-muted flex items-center justify-center px-3 py-1 text-md whitespace-nowrap text-ellipsis overflow-hidden ...">

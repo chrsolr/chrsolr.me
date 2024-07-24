@@ -5,15 +5,17 @@ export function Typography({
   as = 'p',
   className = '',
   children,
+  tabIndex = -1,
 }: {
   as?: 'h1' | 'h2' | 'h3' | 'h4' | 'p' | 'span'
   className?: string
   children: ReactNode
-  props?: unknown
+  tabIndex?: number
 }) {
   if (as === 'h1') {
     return (
       <h1
+        tabIndex={tabIndex}
         className={cn(
           'scroll-m-20 text-4xl font-extrabold tracking-tight lg:text-5xl',
           className,
@@ -26,6 +28,7 @@ export function Typography({
   if (as === 'h2') {
     return (
       <h2
+        tabIndex={tabIndex}
         className={cn(
           'scroll-m-20 border-b pb-2 text-3xl font-semibold tracking-tight first:mt-0',
           className,
@@ -38,6 +41,7 @@ export function Typography({
   if (as === 'h3') {
     return (
       <h3
+        tabIndex={tabIndex}
         className={cn(
           'scroll-m-20 text-2xl font-semibold tracking-tight',
           className,
@@ -50,6 +54,7 @@ export function Typography({
   if (as === 'h4') {
     return (
       <h4
+        tabIndex={tabIndex}
         className={cn(
           'scroll-m-20 text-xl font-semibold tracking-tight',
           className,
@@ -60,11 +65,17 @@ export function Typography({
   }
 
   if (as === 'span') {
-    return <span className={cn('leading-4', className)}>{children}</span>
+    return (
+      <span tabIndex={tabIndex} className={cn('leading-4', className)}>
+        {children}
+      </span>
+    )
   }
 
   return (
-    <p className={cn('leading-7 [&:not(:first-child)]', className)}>
+    <p
+      tabIndex={tabIndex}
+      className={cn('leading-7 [&:not(:first-child)]', className)}>
       {children}
     </p>
   )

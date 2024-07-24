@@ -12,7 +12,10 @@ export default function Home() {
           soler
         </Typography>
       </Typography>
-      <Link className="text-accent-pink" href="https://github.com/chrsolr/">
+      <Link
+        tabIndex={-1}
+        className="text-accent-pink"
+        href="https://github.com/chrsolr/">
         <Typography as="h3">github</Typography>
       </Link>
     </main>
