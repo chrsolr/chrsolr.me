@@ -8,9 +8,11 @@ import { usePathname } from 'next/navigation'
 
 export default function StatusBar() {
   const pathname = usePathname() === '/' ? '/home' : usePathname()
-  const [currentTime, setCurrentTime] = useState<string>('--:--:-- --')
   const [modeState, setModeState] = useState<'normal' | 'insert'>('normal')
+  const [currentTime, setCurrentTime] = useState<string>('--:--:-- --')
   const [isMilitaryTime, setIsMilitaryTime] = useState<boolean>(false)
+  const [subPath, setSubPath] = useState<string>('main')
+  const [urlPath, setUrlPath] = useState<string>('/home')
 
   const handleKeyStroke = useCallback((e: KeyboardEvent) => {
     const keystroke = e.key
@@ -32,17 +34,21 @@ export default function StatusBar() {
     setCurrentTime(DateTime.now().toLocaleString(timeFormat))
   }
 
+  useInterval(() => {
+    handleOnClockClick()
+  }, 200)
+
   useEffect(() => {
+    const [, path, rest] = pathname.split('/')
+    setSubPath(path === 'home' ? 'main' : path)
+    setUrlPath(path === 'home' ? '/home' : rest)
+
     document.addEventListener('keydown', handleKeyStroke)
 
     return () => {
       document.removeEventListener('keydown', handleKeyStroke)
     }
   }, [])
-
-  useInterval(() => {
-    handleOnClockClick()
-  }, 200)
 
   return (
     <div className="flex min-w-full bg-background-light justify-between fixed left-0 bottom-0">
@@ -64,12 +70,12 @@ export default function StatusBar() {
         <Typography
           as="span"
           className="bg-background-light-accent flex items-center justify-center text-foreground-muted px-3 py-1 text-md">
-          main
+          {subPath}
         </Typography>
         <Typography
           as="span"
           className="text-foreground-muted flex items-center justify-center px-3 py-1 text-md whitespace-nowrap text-ellipsis overflow-hidden ...">
-          {pathname}
+          {urlPath}
         </Typography>
       </div>
       <div
