@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import { JetBrains_Mono } from 'next/font/google'
 import '@/styles/globals.css'
 import { cn } from '@/lib/utils'
+import NavigationLayout from '@/components/NavigationLayout'
 
 const mainFont = JetBrains_Mono({
   weight: ['200', '400', '600'],
@@ -27,7 +28,7 @@ export default function RootLayout({
           'min-h-screen bg-background font-sans text-foreground antialiased',
           mainFont.variable,
         )}>
-        {children}
+        <NavigationLayout>{children}</NavigationLayout>
       </body>
     </html>
   )
