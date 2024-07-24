@@ -6,7 +6,7 @@ export default function NavigationLayout({
   return (
     <>
       {children}
-      <StatusBar url={'/home'} />
+      <StatusBar />
     </>
   )
 }

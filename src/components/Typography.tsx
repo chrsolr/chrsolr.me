@@ -1,5 +1,5 @@
 import { cn } from '@/lib/utils'
-import { ReactNode } from 'react'
+import type { ReactNode } from 'react'
 
 export function Typography({
   as = 'p',
@@ -9,6 +9,7 @@ export function Typography({
   as?: 'h1' | 'h2' | 'h3' | 'h4' | 'p' | 'span'
   className?: string
   children: ReactNode
+  props?: unknown
 }) {
   if (as === 'h1') {
     return (
@@ -16,8 +17,7 @@ export function Typography({
         className={cn(
           'scroll-m-20 text-4xl font-extrabold tracking-tight lg:text-5xl',
           className,
-        )}
-      >
+        )}>
         {children}
       </h1>
     )
@@ -29,8 +29,7 @@ export function Typography({
         className={cn(
           'scroll-m-20 border-b pb-2 text-3xl font-semibold tracking-tight first:mt-0',
           className,
-        )}
-      >
+        )}>
         {children}
       </h2>
     )
@@ -42,8 +41,7 @@ export function Typography({
         className={cn(
           'scroll-m-20 text-2xl font-semibold tracking-tight',
           className,
-        )}
-      >
+        )}>
         {children}
       </h3>
     )
@@ -55,8 +53,7 @@ export function Typography({
         className={cn(
           'scroll-m-20 text-xl font-semibold tracking-tight',
           className,
-        )}
-      >
+        )}>
         {children}
       </h4>
     )
