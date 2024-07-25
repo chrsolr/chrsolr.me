@@ -14,8 +14,6 @@ export default function StatusBar() {
   const [modeState, setModeState] = useState<'normal' | 'insert'>('normal')
   const [currentTime, setCurrentTime] = useState<string>('--:--:-- --')
   const [isMilitaryTime, setIsMilitaryTime] = useState<boolean>(false)
-  const [subPath, setSubPath] = useState<string>('main')
-  const [urlPath, setUrlPath] = useState<string>('/home')
   const { storeInLocalStorage, retrieveFromLocalStorage } = useLocalStorage()
 
   const handleKeyStroke = useCallback((e: KeyboardEvent) => {
@@ -53,10 +51,6 @@ export default function StatusBar() {
   }, 200)
 
   useEffect(() => {
-    const [, path, rest] = pathname.split('/')
-    setSubPath(path === 'home' ? 'main' : path)
-    setUrlPath(path === 'home' ? '/home' : rest)
-
     setIsMilitaryTime(
       retrieveFromLocalStorage<boolean>('isMilitaryTime', false),
     )
@@ -137,15 +131,15 @@ export default function StatusBar() {
               as="span"
               className="text-md flex select-none items-center justify-center bg-background-light-accent px-3 py-1 text-foreground-muted hover:cursor-pointer"
             >
-              {subPath}
+              menu
             </Typography>
           </div>
         </div>
         <Typography
           as="span"
-          className="text-md ... flex items-center justify-center overflow-hidden text-ellipsis whitespace-nowrap px-3 py-1 text-foreground-muted"
+          className="text-md flex items-center justify-center overflow-hidden text-ellipsis whitespace-nowrap px-3 py-1 text-foreground-muted"
         >
-          {urlPath}
+          {pathname}
         </Typography>
       </div>
       <div className="flex hover:cursor-pointer" onClick={handleOnClockClick}>
