@@ -8,6 +8,31 @@ import { useCallback, useEffect, useState } from 'react'
 import { Typography } from './Typography'
 import { useLocalStorage } from '@/hooks/useLocalStorage'
 
+const MenuLink = ({
+  to,
+  tabIndex,
+  label,
+  target,
+  onClick = () => {},
+}: {
+  to: string
+  tabIndex: number
+  label: string
+  target?: '_top' | '_self' | '_blank' | '_parent'
+  onClick?: () => void
+}) => {
+  return (
+    <Link tabIndex={tabIndex} href={to} target={target} onClick={onClick}>
+      <Typography
+        as="span"
+        className="text-md flex items-center justify-center border-b border-b-background bg-background-light-accent px-3 py-1 text-foreground-muted hover:cursor-pointer"
+      >
+        {label}
+      </Typography>
+    </Link>
+  )
+}
+
 export default function StatusBar() {
   const pathname = usePathname() === '/' ? '/home' : usePathname()
   const [showNavigation, setShowNavigation] = useState<boolean>(false)
@@ -84,42 +109,36 @@ export default function StatusBar() {
         <div>
           {showNavigation && (
             <div className="absolute bottom-8">
-              <Link
+              <MenuLink
                 tabIndex={0}
-                href="https://github.com/chrsolr/chrsolr/tree/main/blog"
-              >
-                <Typography
-                  as="span"
-                  className="text-md flex items-center justify-center border-b border-b-background bg-background-light-accent px-3 py-1 text-foreground-muted hover:cursor-pointer"
-                >
-                  blog
-                </Typography>
-              </Link>
+                to="https://github.com/chrsolr/chrsolr/tree/main/blog"
+                label="blog"
+              />
 
-              <Link
+              <MenuLink
                 tabIndex={0}
-                href="https://github.com/chrsolr/advent-of-code"
-              >
-                <Typography
-                  as="span"
-                  className="text-md flex items-center justify-center border-b border-b-background bg-background-light-accent px-3 py-1 text-foreground-muted hover:cursor-pointer"
-                >
-                  aoc
-                </Typography>
-              </Link>
+                to="https://github.com/chrsolr/advent-of-code"
+                label="aoc"
+              />
 
-              <Link
+              <MenuLink
                 tabIndex={0}
-                href="/assets/files/csoler-resume.pdf"
+                to="/game-sens"
+                label="game sens"
+                onClick={() => {
+                  setShowNavigation(() => false)
+                }}
+              />
+
+              <MenuLink
+                tabIndex={0}
+                to="/assets/files/csoler-resume.pdf"
                 target="_blank"
-              >
-                <Typography
-                  as="span"
-                  className="text-md flex items-center justify-center border-b border-b-background bg-background-light-accent px-3 py-1 text-foreground-muted hover:cursor-pointer"
-                >
-                  resume
-                </Typography>
-              </Link>
+                label="resume"
+                onClick={() => {
+                  setShowNavigation(() => false)
+                }}
+              />
             </div>
           )}
           <div
