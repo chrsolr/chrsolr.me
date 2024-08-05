@@ -14,6 +14,7 @@ export default function Page() {
     {
       id: 'sens-1',
       game: 'Apex Legends',
+      inputType: 'Mouse',
       hipSens: '1.33',
       adsSens: '1.0',
       fov: '110',
@@ -22,6 +23,7 @@ export default function Page() {
     {
       id: 'sens-2',
       game: 'Escape from Tarkov',
+      inputType: 'Mouse',
       hipSens: '0.23',
       adsSens: '0.15',
       fov: '75',
@@ -33,7 +35,7 @@ export default function Page() {
     <div className="container pt-4">
       <div>
         <Typography as="h1" className="mb-4">
-          Mouse Sensativities
+          Gaming Sensativities
         </Typography>
 
         <Badge className="mb-2 bg-accent-pink">Windows: 7</Badge>
@@ -47,6 +49,7 @@ export default function Page() {
         <TableHeader>
           <TableRow className="bg-background-light-accent">
             <TableHead className="border-r text-center">Game</TableHead>
+            <TableHead className="border-r text-center">Input Type</TableHead>
             <TableHead className="border-r text-center">Hip Sens</TableHead>
             <TableHead className="border-r text-center">ADS Sens</TableHead>
             <TableHead className="border-r text-center">cm/360</TableHead>
@@ -57,6 +60,13 @@ export default function Page() {
           {sensativities.map((sens) => (
             <TableRow key={sens.id} className="bg-background-light">
               <TableCell className="border-r">{sens.game}</TableCell>
+              <TableCell className="border-r text-center">
+                {sens.inputType === 'Mouse' ? (
+                  <Badge className="bg-accent-pink">Mouse</Badge>
+                ) : (
+                  <Badge className="bg-accent-purple">Controller</Badge>
+                )}
+              </TableCell>
               <TableCell className="border-r text-right">
                 {sens.hipSens}
               </TableCell>
