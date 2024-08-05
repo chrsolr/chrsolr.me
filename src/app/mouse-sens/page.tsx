@@ -40,7 +40,7 @@ export default function Page() {
 
         <br />
 
-        <Badge className="mb-4 bg-accent-blue">DPI: 800</Badge>
+        <Badge className="mb-4 bg-accent-purple">DPI: 800</Badge>
       </div>
 
       <Table className="border">
