@@ -56,11 +56,11 @@ export default function Page() {
           Gaming Sensitivities
         </Typography>
 
-        <Badge className="mb-2 bg-accent-pink">Windows: 7</Badge>
+        <Badge className="mb-2 bg-accent-pink">Windows: 10 (Default)</Badge>
 
         <br />
 
-        <Badge className="mb-4 bg-accent-purple">DPI: 800</Badge>
+        <Badge className="mb-4 bg-accent-purple">DPI: 600</Badge>
       </div>
 
       <div className="rounded-md border">
