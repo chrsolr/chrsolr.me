@@ -139,6 +139,15 @@ export default function StatusBar() {
                   setShowNavigation(() => false)
                 }}
               />
+
+              <MenuLink
+                tabIndex={0}
+                to="/"
+                label="home"
+                onClick={() => {
+                  setShowNavigation(() => false)
+                }}
+              />
             </div>
           )}
           <div
