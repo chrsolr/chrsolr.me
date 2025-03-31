@@ -8,6 +8,7 @@ import {
   TableHeader,
   TableRow,
 } from '@/components/ui/table'
+import { getUniqueKey } from '@/lib/utils'
 
 export default function Page() {
   const sensitivities = [
@@ -19,6 +20,8 @@ export default function Page() {
       adsSens: '1.0',
       fov: '110',
       cm360: '39.97',
+      dpi: '1200',
+      extras: '-',
     },
     {
       id: 'sens-4',
@@ -28,15 +31,19 @@ export default function Page() {
       adsSens: '3',
       fov: '110',
       cm360: 'N/A',
+      dpi: '1200',
+      extras: '-',
     },
     {
       id: 'sens-2',
       game: 'Escape from Tarkov',
       inputType: 'Mouse',
-      hipSens: '0.229',
+      hipSens: '0.106',
       adsSens: '0.15',
       fov: '75',
-      cm360: '39.97',
+      cm360: 'N/A',
+      dpi: '1200',
+      extras: '-',
     },
     {
       id: 'sens-3',
@@ -46,8 +53,65 @@ export default function Page() {
       adsSens: '1',
       fov: 'N/A',
       cm360: '39.97',
+      dpi: '1200',
+      extras: '-',
     },
-  ]
+    {
+      id: 'sens-5',
+      game: 'R6 Siege',
+      inputType: 'Mouse',
+      hipSens: '52',
+      adsSens: '73/73/75/...',
+      fov: '74',
+      cm360: 'N/A',
+      dpi: '700',
+      extras: 'Multipler=0.002',
+    },
+    {
+      id: 'sens-6',
+      game: 'Destiny 2',
+      inputType: 'Mouse',
+      hipSens: '2',
+      adsSens: '1',
+      fov: '-',
+      cm360: '-',
+      dpi: '1200',
+      extras: '-',
+    },
+    {
+      id: 'sens-7',
+      game: 'Marvel Rival',
+      inputType: 'Mouse',
+      hipSens: '0.75',
+      adsSens: '1',
+      fov: '-',
+      cm360: '-',
+      dpi: '1200',
+      extras: '-',
+    },
+    {
+      id: 'sens-8',
+      game: 'Valorant',
+      inputType: 'Mouse',
+      hipSens: '0.189',
+      adsSens: '1',
+      fov: '-',
+      cm360: '-',
+      dpi: '1200',
+      extras: '-',
+    },
+    {
+      id: 'sens-9',
+      game: 'COD: Black Ops 6',
+      inputType: 'Mouse',
+      hipSens: '2',
+      adsSens: '1',
+      fov: '120',
+      cm360: '-',
+      dpi: '1200',
+      extras: '-',
+    },
+  ].sort((a, b) => a.game.localeCompare(b.game))
 
   return (
     <div className="container pt-4">
@@ -56,11 +120,17 @@ export default function Page() {
           Gaming Sensitivities
         </Typography>
 
+        <Badge className="mb-2 bg-accent-blue">
+          Mouse: Razer Viper v3 Pro (Wireless)
+        </Badge>
+
+        <br />
+
         <Badge className="mb-2 bg-accent-pink">Windows: 10 (Default)</Badge>
 
         <br />
 
-        <Badge className="mb-4 bg-accent-purple">DPI: 600</Badge>
+        <Badge className="mb-4 bg-accent-purple">DPI: 700</Badge>
       </div>
 
       <div className="rounded-md border">
@@ -74,11 +144,13 @@ export default function Page() {
                 <TableHead className="text-center">ADS Sens</TableHead>
                 <TableHead className="text-center">cm/360</TableHead>
                 <TableHead className="text-center">FOV</TableHead>
+                <TableHead className="text-center">DPI</TableHead>
+                <TableHead className="text-center">Extras</TableHead>
               </TableRow>
             </TableHeader>
             <TableBody>
               {sensitivities.map((sens) => (
-                <TableRow key={sens.id} className="bg-background-light">
+                <TableRow key={getUniqueKey()} className="bg-background-light">
                   <TableCell className="border-r">{sens.game}</TableCell>
                   <TableCell className="border-r text-center">
                     {sens.inputType === 'Mouse' ? (
@@ -98,6 +170,12 @@ export default function Page() {
                   </TableCell>
                   <TableCell className="border-r text-right">
                     {sens.fov}
+                  </TableCell>
+                  <TableCell className="border-r text-right">
+                    {sens.dpi}
+                  </TableCell>
+                  <TableCell className="border-r text-right">
+                    {sens.extras}
                   </TableCell>
                 </TableRow>
               ))}
